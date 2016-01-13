@@ -21,7 +21,7 @@ class Home extends Controller {
     }
 
 
-    function teste(){        
+    function test(){        
         echo 'teste';        
     }
     

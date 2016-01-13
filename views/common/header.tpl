@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo PATH_URL ?>public/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo PATH_URL ?>public/css/stylesheet.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo PATH_URL ?>public/css/hover.css">
 
     <script type="text/javascript" src="<?php echo PATH_URL ?>public/js/jquery-2.2.0.min.js"></script>
     <script type="text/javascript" src="<?php echo PATH_URL ?>public/js/bootstrap.min.js"></script>
@@ -25,30 +26,79 @@
 
   <body>
 
-    <header>
-     
-
-     <div class="menutop">
-     	<div class="container">
-
-     		<div class="row">
-
-     			<div class="col-sm-1" id='bottons'>
-     				<a href="<?php echo PATH_URL ?>home">Home</a>
-     			</div>
-     			<div class="col-sm-2" id='bottons'>
-     				<a href="<?php echo PATH_URL ?>teste">Área do Professor</a>
-     			</div>
-     			<div class="col-sm-1 col-sm-offset-8" id='bottons'>
-     				<a href="admin">Login</a>
-     			</div>
-
-     		</div>     	
-
-     	</div>
-     </div>
+      <header>
 
 
+          <div class="menutop">
+              <div class="container">
+                  <div class="row">
+
+                      <div class="col-sm-1" id='bottons'>
+                          <a href="<?php echo PATH_URL ?>home">Home</a>
+                      </div>
+                      <div class="col-sm-2" id='bottons'>
+                          <a href="<?php echo PATH_URL ?>teste">Área do Professor</a>
+                      </div>
+                      <div class="col-sm-1 col-sm-offset-8" id='bottons'>
+                          <a href="admin">Login</a>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+          
+          <div class="logos">
+              <div class="container">
+                  <div class="row">
+                      
+                      <div class='col-sm-2 col-sm-offset-1'>
+                          <a href="<?php echo PATH_URL ?>home">
+                              <image src="<?php echo PATH_URL ?>public/images/logos/da_logo.png" id="da_logo" />
+                          </a>
+                      </div>
+                      
+                      <div class="col-sm-4 col-sm-offset-1">
+                          <a href="<?php echo PATH_URL ?>home">
+                            <image src="<?php echo PATH_URL ?>public/images/logos/alianca_logo.png" id="alianca_logo" />
+                          </a>
+                      </div>
+                      
+                      <div class="col-sm-2 col-sm-offset-1">
+                          <a href="<?php echo PATH_URL ?>home">
+                            <image src="<?php echo PATH_URL ?>public/images/logos/af_logo.png" id="af_logo" />
+                          </a>
+                      </div>                         
+                      
+                  </div>
+              </div>
+          </div>
+          
+          <div class="menu_links">
+              <div class="container">
+                  <div class="row">
+                      
+                      <div class="col-sm-2 hvr-float" id="buttons_links">
+                          <a href="<?php echo PATH_URL ?>estrutura">Estrutura</a>
+                      </div>
+                      <div class="col-sm-2" id="buttons_links">
+                          <a href="<?php echo PATH_URL ?>cursos">Cursos</a>
+                      </div>
+                      <div class="col-sm-2" id="buttons_links">
+                          <a href="<?php echo PATH_URL ?>aprendizagem">Aprendizagem</a>
+                      </div>
+                      <div class="col-sm-2" id="buttons_links">
+                          <a href="<?php echo PATH_URL ?>parcerias">Parcerias</a>
+                      </div>
+                      <div class="col-sm-2" id="buttons_links">
+                          <a href="<?php echo PATH_URL ?>areadoaluno">Área do Aluno</a>
+                      </div>
+                      <div class="col-sm-2" id="buttons_links">
+                          <a href="<?php echo PATH_URL ?>contato">Contato</a>
+                      </div>
+                      
+                  </div>
+              </div>
+          </div>
 
 
-    </header>
+      </header>

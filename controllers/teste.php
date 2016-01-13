@@ -21,7 +21,7 @@ class Teste extends Controller {
     }
 
 
-    function teste(){
+    function test(){
         
         echo 'teste';
         return;
