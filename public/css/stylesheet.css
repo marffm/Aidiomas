@@ -1,0 +1,16 @@
+body {
+	font-family: 'Trebuchet MS';
+}
+
+/* ---- HEADER ----- */
+
+.menutop {
+	background-color: #183c72;
+	padding: 8px;
+	margin-top: 8px;
+}
+
+.menutop #bottons a {
+	color: #fff;
+	font-size: 10pt;
+}
