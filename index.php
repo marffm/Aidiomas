@@ -38,5 +38,5 @@ if (isset($class[2])){
 
 /* ---- Debug ---- */
 echo '<br/><br/><hr>';
-var_dump($document);
+//var_dump($document);
 echo '<br/>I\'m in index page';

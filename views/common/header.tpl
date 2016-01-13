@@ -77,22 +77,22 @@
               <div class="container">
                   <div class="row">
                       
-                      <div class="col-sm-2 hvr-float" id="buttons_links">
+                      <div class="col-sm-2 hvr-bounce-to-top" id="buttons_links">
                           <a href="<?php echo PATH_URL ?>estrutura">Estrutura</a>
                       </div>
-                      <div class="col-sm-2" id="buttons_links">
+                      <div class="col-sm-2 hvr-bounce-to-top" id="buttons_links">
                           <a href="<?php echo PATH_URL ?>cursos">Cursos</a>
                       </div>
-                      <div class="col-sm-2" id="buttons_links">
+                      <div class="col-sm-2 hvr-bounce-to-top" id="buttons_links">
                           <a href="<?php echo PATH_URL ?>aprendizagem">Aprendizagem</a>
                       </div>
-                      <div class="col-sm-2" id="buttons_links">
+                      <div class="col-sm-2 hvr-bounce-to-top" id="buttons_links">
                           <a href="<?php echo PATH_URL ?>parcerias">Parcerias</a>
                       </div>
-                      <div class="col-sm-2" id="buttons_links">
+                      <div class="col-sm-2 hvr-bounce-to-top" id="buttons_links">
                           <a href="<?php echo PATH_URL ?>areadoaluno">Área do Aluno</a>
                       </div>
-                      <div class="col-sm-2" id="buttons_links">
+                      <div class="col-sm-2 hvr-bounce-to-top" id="buttons_links">
                           <a href="<?php echo PATH_URL ?>contato">Contato</a>
                       </div>
                       
