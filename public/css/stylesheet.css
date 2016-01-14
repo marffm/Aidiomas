@@ -28,16 +28,18 @@ a {
 
 #da_logo {
     margin-top: 60px;
-    height: 140px;
+    width: 100%;
+    width-max:150px; 
 }
 
 #alianca_logo {
-    height: 250px;
+    width: 100%;
+    
 }
 
 #af_logo {
     margin-top: 85px;
-    height: 110px;
+    width: 100%;
 }
 
 /* ---- END HEADER ---- */
@@ -104,6 +106,33 @@ a {
 }
 
 /* ---- END HOME ---- */
+
+
+/* ---- EVENTOS ---- */
+.eventos {
+    padding-bottom: 40px;
+    border: 0px solid #000;
+}
+
+.events {
+    text-align: justify;
+}
+
+.events img {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.thumbnails img {
+    width: 45%;
+    display: inline-table;
+}
+
+.thumbnails a {
+    text-decoration: none;
+}
+
+/* ---- END EVENTOS ---- */
 
 
 
