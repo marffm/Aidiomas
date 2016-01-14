@@ -1,18 +1,23 @@
 <footer>
+    <div class="footer">
+
+        <div class="container">
+
+            <div class="row">
+                <i class="fa fa-facebook-official fa-2x"></i>
+                <p>facebook.com.br/aliancaidiomas</p>
+            </div>
+
+            <div class="row">
+                <p>Todos direitos reservados. Desenvolvido por Elemental Design.</p>
+            </div>
+        </div>
+
+    </div>
 
 </footer>
 
-<div class="copyright">
-	<div class="container">
-		<div class="row">
 
-			<div class="col-sm-6 col-sm-offset-6">
-				<p>Todos direitos reservados. Desenvolvido por Elemental Design.</p>
-			</div>
-			
-		</div>
-	</div>	
-</div> 
 
 </body>
 </html>

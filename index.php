@@ -13,11 +13,23 @@ $registry->set('loader', $load);
 $document = new Document($registry);
 $registry->set('document', $document);
 
+$breadcrumbs = new Breadcrumbs ($registry);
+$registry->set('breadcrumbs', $breadcrumbs);
+
 
 $class = $url->getUrl();
-$index = new $class[0]($registry);
-$registry->set('controller', $index);
-$index->index();
+
+if (file_exists(DIR_CONTROLLERS . $class[0]. '.php')) {
+    $index = new $class[0]($registry);
+    $registry->set('controller', $index);
+    $index->index();
+} else {
+    $class[0]= 'error';
+    $index = new $class[0]($registry);
+    $registry->set('controller', $index);
+    $index->index();
+}
+
 
 if (isset($class[2])){
 	return $index->{$class[1]}($class[2]);
@@ -37,6 +49,6 @@ if (isset($class[2])){
 
 
 /* ---- Debug ---- */
-echo '<br/><br/><hr>';
+//echo '<br/><br/><hr>';
 //var_dump($document);
-echo '<br/>I\'m in index page';
+//echo '<br/>I\'m in index page';

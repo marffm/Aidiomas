@@ -4,7 +4,6 @@ class Footer extends Controller {
     
     function index() {
         $data = array();
-        $data['pageTitle'] = 'Test Title page';
         
         
         $data['filename'] = 'views/common/footer.tpl';

@@ -40,6 +40,10 @@ a {
     height: 110px;
 }
 
+/* ---- END HEADER ---- */
+
+
+
 
 /* ---- MENU LINKS ---- */
 .menu_links {
@@ -49,7 +53,7 @@ a {
 }
 
 #buttons_links {
-    height: 50px;
+    height: 45px;
     text-align: center;
 }
 
@@ -59,13 +63,16 @@ a {
     width: 100%;
     height: 100%;
     display: block;
-    padding-top: 10px;
+    padding-top: 8px;
 }
 
 #buttons_links a:hover {
     text-decoration: none;
 }
 /* ---- EDN MENU LINKS ---- */
+
+
+
 
 
 /* ---- Slideshow ---- */
@@ -76,3 +83,49 @@ a {
 
 
 /* ---- End Slideshow ---- */
+
+
+
+
+/* ---- HOME ---- */
+
+.home {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.links_home {
+    text-align: center;
+}
+
+.links_home p {
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+/* ---- END HOME ---- */
+
+
+
+
+/* ---- FOOTER ---- */
+
+.footer {
+    padding: 20px 0px 10px 0px;
+    background-color: #868686;
+    color: #fff;
+    text-align: center;
+}
+
+/* ---- END FOOTER ---- */
+
+
+
+
+/* ---- ERROR ---- */
+.error {
+    padding: 50px;
+    
+}
+
+/* ---- END ERROR ---- */
