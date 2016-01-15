@@ -5,7 +5,7 @@ class Error extends Controller {
     function index() {
         $data = array();
         $this->document->setTitle('Erro');
-        $this->loader->Load('header');
+        $this->loader->Load('head');
         
         $data['filename'] = 'views/error/error.tpl';
         if (file_exists($data['filename'])) {

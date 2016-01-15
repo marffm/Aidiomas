@@ -1,6 +1,6 @@
 <?php
 
-class Header extends Controller {
+class Head extends Controller {
     
     function index() {
         $data = array();
@@ -10,9 +10,9 @@ class Header extends Controller {
         
         
         
-        $data['filename'] = 'views/common/header.tpl';
+        $data['filename'] = 'views/common/head.tpl';
         if (file_exists($data['filename'])) {
-            require_once 'views/common/header.tpl';
+            require_once 'views/common/head.tpl';
         }
     }
     

@@ -3,16 +3,14 @@
 class Login extends Controller {
     
     protected $user = array();
-    protected $data = array();
             
     function index(){
         $this->document->setTitle('Login');
         $this->breadcrumbs->setBreadcrumbs('Login', 'login');
         $breadcrumbs = $this->breadcrumbs->getBreadcrumbs();
         
-        $this->loader->Load('header');
-        
-        $this->data['login_error'] = '';
+        $this->loader->Load('head');
+                
         
         $data['filename'] = 'views/admin/login.tpl';
         if (file_exists($data['filename'])) {
@@ -22,16 +20,17 @@ class Login extends Controller {
         $this->loader->Load('footer');
     }
     
+    
+    
     function verify() {
-        $this->user['name'] = $_POST['username'];
-        $this->user['password'] = $_POST['password'];
+        $this->user['name'] = "Marcelo";
+        $this->user['password'] = "123";
         
         
-        if ($this->user['name'] = "Marcelo" && $this->user['password'] = "123") {
+        if ($this->user['name'] == $_POST['username'] and $this->user['password'] == $_POST['password']) {
             $_SESSION['username'] = $this->user['name'];
-        } else {
-            return $this->data['login_error'] = 'Senha ou usuário incorreto';
-        }
+            
+        } 
     }
     
 }

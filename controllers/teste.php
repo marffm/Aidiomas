@@ -6,7 +6,7 @@ class Teste extends Controller {
         $data = array();
         $this->document->setTitle('Teste');
         
-        $this->loader->Load('header');
+        $this->loader->Load('head');
 
         
         

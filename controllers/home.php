@@ -6,7 +6,7 @@ class Home extends Controller {
         $data = array();
         $this->document->setTitle('Home');
         
-        $this->loader->Load('header');
+        $this->loader->Load('head');
         
         $this->loader->Load('slideshow');
 

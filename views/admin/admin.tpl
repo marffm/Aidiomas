@@ -10,7 +10,8 @@
     </div>
 
     <div>
-        <a class="btn btn-default" href="admin/destroy" role="button">Destroy</a>
+        <a class="btn btn-default" href="<?php echo PATH_URL ?>admin/destroy" role="button">Destroy</a>
+        <button class="btn btn-success" onclick="<?php echo destroy() ?>">Logar</button>
     </div>
 
 </div>

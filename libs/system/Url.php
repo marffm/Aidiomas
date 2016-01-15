@@ -17,6 +17,10 @@ final class Url {
         return $url;
         
     }
+    
+    public function setUrl($name) {
+        return $url[0] = $name;
+    }
 
 // ---- End GetUrl ----
 }

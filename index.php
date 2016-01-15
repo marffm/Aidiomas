@@ -1,9 +1,12 @@
 <?php
+session_start();
 require_once 'config.php';
 require_once DIR_SYSTEM . 'Startup.php';
-session_start();
 
 $registry = new Registry();
+
+$sessions = new Sessions($registry);
+$registry->set('sessions', $sessions);
 
 $url = new Url($registry);
 $registry->set('url', $url);
@@ -16,7 +19,6 @@ $registry->set('document', $document);
 
 $breadcrumbs = new Breadcrumbs ($registry);
 $registry->set('breadcrumbs', $breadcrumbs);
-
 
 $class = $url->getUrl();
 
