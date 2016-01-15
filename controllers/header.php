@@ -8,6 +8,8 @@ class Header extends Controller {
         $data['pageTitle'] = $this->document->getTitle();
         
         
+        
+        
         $data['filename'] = 'views/common/header.tpl';
         if (file_exists($data['filename'])) {
             require_once 'views/common/header.tpl';

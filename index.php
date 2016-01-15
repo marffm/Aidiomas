@@ -1,6 +1,7 @@
 <?php
 require_once 'config.php';
 require_once DIR_SYSTEM . 'Startup.php';
+session_start();
 
 $registry = new Registry();
 
