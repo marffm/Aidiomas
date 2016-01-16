@@ -10,6 +10,15 @@ class Login extends Controller {
         $breadcrumbs = $this->breadcrumbs->getBreadcrumbs();
         
         $this->loader->Load('head');
+        
+        $this->loader->loadModel('loginModel');
+        $this->loginModel->setUser();
+        $teste = $this->loginModel->getUser();
+        $key = array_search('Marcelo', array_column($teste, 'username'), true);
+        
+        echo $key;
+        
+        $verify = PATH_URL . 'sessions/verify';
                 
         
         $data['filename'] = 'views/admin/login.tpl';
@@ -18,19 +27,7 @@ class Login extends Controller {
         }       
         
         $this->loader->Load('footer');
-    }
+    }  
     
-    
-    
-    function verify() {
-        $this->user['name'] = "Marcelo";
-        $this->user['password'] = "123";
-        
-        
-        if ($this->user['name'] == $_POST['username'] and $this->user['password'] == $_POST['password']) {
-            $_SESSION['username'] = $this->user['name'];
-            
-        } 
-    }
     
 }

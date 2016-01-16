@@ -5,9 +5,6 @@ require_once DIR_SYSTEM . 'Startup.php';
 
 $registry = new Registry();
 
-$sessions = new Sessions($registry);
-$registry->set('sessions', $sessions);
-
 $url = new Url($registry);
 $registry->set('url', $url);
 
@@ -41,11 +38,6 @@ if (isset($class[2])){
 		$index->{$class[1]}();		
 	}
 }
-
-
-
-
-
 
 
 

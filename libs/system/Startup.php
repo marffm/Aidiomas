@@ -36,8 +36,8 @@ function controllers($controllers) {
 }
 
 
-function models($models) {
-	$file = DIR_MODELS . $models . '.models.php' ;
+function models($model) {
+	$file = DIR_MODELS . $model . '.php' ;
 
 	if (is_file($file)) {
 		include_once ($file);
@@ -47,16 +47,6 @@ function models($models) {
 	}	
 }
 
-function views($views) {
-	$file = DIR_VIEWS . $views . '.tpl' ;
-
-	if (is_file($file)) {
-		include_once ($file);
-		return true;
-	} else {
-		return false;
-	}	
-}
 
 spl_autoload_register('library');
 spl_autoload_register('librarySystem');

@@ -8,9 +8,7 @@ class Home extends Controller {
         
         $this->loader->Load('head');
         
-        $this->loader->Load('slideshow');
-
-        
+        $this->loader->Load('slideshow');        
         
         
         

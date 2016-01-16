@@ -7,6 +7,10 @@ class Head extends Controller {
         
         $data['pageTitle'] = $this->document->getTitle();
         
+        $login = array();
+        $login['admin'] = PATH_URL . 'sessions/checkSession/admin';
+        $login['area_professor'] = PATH_URL . 'sessions/checkSession/areaProfessor';
+        $login['area_aluno'] = PATH_URL . 'sessions/checkSession/areaAluno';
         
         
         

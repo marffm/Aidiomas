@@ -42,10 +42,10 @@
                           <a href="<?php echo PATH_URL ?>home">Home</a>
                       </div>
                       <div class="col-sm-2" id='bottons'>
-                          <a href="<?php echo PATH_URL ?>teste">Área do Professor</a>
+                          <a href="<?php echo $login['area_professor'] ?>">Área do Professor</a>
                       </div>
                       <div class="col-sm-1 col-sm-offset-8" id='bottons'>
-                          <a href="admin">Login</a>
+                          <a href="<?php echo $login['admin'] ?>">Login</a>
                       </div>
 
                   </div>
@@ -95,7 +95,7 @@
                           <a href="<?php echo PATH_URL ?>parcerias">Parcerias</a>
                       </div>
                       <div class="col-sm-2 hvr-bounce-to-top" id="buttons_links">
-                          <a href="<?php echo PATH_URL ?>areadoaluno">Área do Aluno</a>
+                          <a href="<?php echo $login['area_aluno'] ?>">Área do Aluno</a>
                       </div>
                       <div class="col-sm-2 hvr-bounce-to-top" id="buttons_links">
                           <a href="<?php echo PATH_URL ?>contato">Contato</a>

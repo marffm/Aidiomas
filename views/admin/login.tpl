@@ -9,7 +9,7 @@
         <div class="row">
 
             <div class="col-sm-4 col-sm-offset-4">
-                <form action="<?php echo PATH_URL ?>login/verify" method="POST">
+                <form action="<?php echo $verify ?>" method="POST">
                     <span>Usuário</span>
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1">@</span>
