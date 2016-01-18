@@ -35,8 +35,7 @@ class Sessions extends Controller {
             $_SESSION['usercategory'] = $user[$name]['category'];
             header("Location:" . PATH_URL . $user[$name]['category']);
         } else {
-            $error_message = true;
-            header("Location:" . PATH_URL . 'login');
+            header("Location:" . PATH_URL . 'login/error');            
         }
     }
 

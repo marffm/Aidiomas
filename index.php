@@ -17,6 +17,9 @@ $registry->set('document', $document);
 $breadcrumbs = new Breadcrumbs ($registry);
 $registry->set('breadcrumbs', $breadcrumbs);
 
+$Db = new Db($registry);
+$registry->set('Db', $Db);
+
 $class = $url->getUrl();
 
 if (file_exists(DIR_CONTROLLERS . $class[0]. '.php')) {

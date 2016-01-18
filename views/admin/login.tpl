@@ -18,12 +18,12 @@
 
                     <span>Senha</span>
                     <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1">Senha</span>
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-unlock-alt"></i></span>
                         <input type="password" name="password" id="password" class="form-control" placeholder="Senha" aria-describedby="basic-addon1">
                     </div>
                     
-                    <?php if ($error_message) { ?>
-                    <p>Marcelo</p>
+                    <?php if (isset($this->data['error'])) { ?>
+                    <p class="alert alert-danger" role="alert"><?php echo $this->data['error'] ?></p>
                     <?php } ?>
                     </br>
                     <input type="submit" class="btn btn-default" type="button" value="Login">
