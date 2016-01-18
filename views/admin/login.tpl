@@ -22,7 +22,7 @@
                         <input type="password" name="password" id="password" class="form-control" placeholder="Senha" aria-describedby="basic-addon1">
                     </div>
                     
-                    <?php if (isset($error)) { ?>
+                    <?php if ($error_message) { ?>
                     <p>Marcelo</p>
                     <?php } ?>
                     </br>

@@ -6,18 +6,18 @@ class loginModel extends Model {
     
 
     public function setUser() {
-        $this->user[0] = array(
+        $this->user['Marcelo'] = array(
             'username' => 'Marcelo',
             'password' => '123',
             'category' => 'admin'
         );
-        $this->user[1] = array(
+        $this->user['Fabiana'] = array(
             'username' => 'Fabiana',
             'password' => '456',
-            'category' => 'area_professor'
+            'category' => 'areaProfessor'
         );
         
-        return $this->user;
+
     }
     
     public function getUser() {

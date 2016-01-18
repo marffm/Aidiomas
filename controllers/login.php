@@ -9,16 +9,12 @@ class Login extends Controller {
         $this->breadcrumbs->setBreadcrumbs('Login', 'login');
         $breadcrumbs = $this->breadcrumbs->getBreadcrumbs();
         
-        $this->loader->Load('head');
-        
-        $this->loader->loadModel('loginModel');
-        $this->loginModel->setUser();
-        $teste = $this->loginModel->getUser();
-        $key = array_search('Marcelo', array_column($teste, 'username'), true);
-        
-        echo $key;
+        $this->loader->Load('head');       
         
         $verify = PATH_URL . 'sessions/verify';
+        
+        
+        $error_message = false;
                 
         
         $data['filename'] = 'views/admin/login.tpl';

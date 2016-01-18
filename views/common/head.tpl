@@ -38,14 +38,16 @@
               <div class="container">
                   <div class="row">
 
-                      <div class="col-sm-1" id='bottons'>
+                      <div class="col-sm-1" id='buttons'>
                           <a href="<?php echo PATH_URL ?>home">Home</a>
                       </div>
-                      <div class="col-sm-2" id='bottons'>
+                      <div class="col-sm-2" id='buttons'>
                           <a href="<?php echo $login['area_professor'] ?>">Área do Professor</a>
                       </div>
-                      <div class="col-sm-1 col-sm-offset-8" id='bottons'>
-                          <a href="<?php echo $login['admin'] ?>">Login</a>
+                      <div class="col-sm-3 col-sm-offset-6" id='buttons'>
+                          <div class="login_button">
+                            <a href="<?php echo $text_link ?>"><?php echo $text_admin ?></a>
+                          </div>
                       </div>
 
                   </div>
@@ -56,7 +58,7 @@
               <div class="container">
                   <div class="row">
                       
-                      <div class='col-sm-2 col-sm-offset-1'>
+                      <div class='col-sm-2 col-sm-offset-1 col-xs-6'>
                           <a href="<?php echo PATH_URL ?>home">
                               <image src="<?php echo PATH_URL ?>public/images/logos/da_logo.png" id="da_logo" />
                           </a>
@@ -68,7 +70,7 @@
                           </a>
                       </div>
                       
-                      <div class="col-sm-2 col-sm-offset-1">
+                      <div class="col-sm-2 col-sm-offset-1 col-xs-6">
                           <a href="<?php echo PATH_URL ?>home">
                             <image src="<?php echo PATH_URL ?>public/images/logos/af_logo.png" id="af_logo" />
                           </a>
