@@ -18,7 +18,7 @@ $breadcrumbs = new Breadcrumbs ($registry);
 $registry->set('breadcrumbs', $breadcrumbs);
 
 $Db = new Db($registry);
-$registry->set('Db', $Db);
+$registry->set('db', $Db);
 
 $class = $url->getUrl();
 

@@ -1,1 +1,8 @@
-<div><h1>We are inside teste.</h1></div>
+<div class="container">
+    <div class="row">
+        
+        <h2>We are inside Teste.</h2>      
+        
+        
+    </div>
+</div>

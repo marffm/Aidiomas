@@ -7,8 +7,14 @@ class Teste extends Controller {
         $this->document->setTitle('Teste');
         
         $this->loader->Load('head');
-
         
+        $this->loader->loadModel('testModel');
+        
+        $results = $this->testModel->getTest();
+        
+        $teste = $results[1]['title'];       
+
+        echo $teste;
         
         
         
@@ -20,11 +26,4 @@ class Teste extends Controller {
         $this->loader->Load('footer');
     }
 
-
-    function test(){
-        
-        echo 'teste';
-        return;
-    }
-    
 }

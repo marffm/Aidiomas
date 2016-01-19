@@ -85,7 +85,7 @@
                   <div class="row">
                       
                       <div class="col-sm-2 hvr-bounce-to-top" id="buttons_links">
-                          <a href="<?php echo PATH_URL ?>estrutura">Estrutura</a>
+                          <a href="<?php echo PATH_URL ?>teste">Estrutura</a>
                       </div>
                       <div class="col-sm-2 hvr-bounce-to-top" id="buttons_links">
                           <a href="<?php echo PATH_URL ?>cursos">Cursos</a>

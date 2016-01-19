@@ -139,6 +139,39 @@ a {
 
 /* ---- END EVENTOS ---- */
 
+/* ---- MURAL ---- */
+
+.mural_box {
+    background-color: #fde044;
+    width: 100%;
+    display: block;
+    /*height: 300px;*/
+    padding: 8px 10px 10px 10px;
+    margin-bottom: 40px;
+}
+
+.mural_box .image {
+    width: 100%;
+    text-align: center;
+    display: block;
+}
+
+.mural_box .title {
+    text-align: center;
+    margin-top: -15px;
+}
+
+.mural_box .summary {
+    text-align: justify;
+}
+
+.mural_box .date {
+    margin-top: 10px;
+    text-align: right;
+}
+
+/* ---- END MURAL ---- */
+
 
 /* ---- LOGIN ---- */
 .login {
