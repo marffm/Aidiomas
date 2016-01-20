@@ -207,17 +207,64 @@ a {
 
 /* ---- ADMIN ---- */
 
-.admin_menu_left{
+.admin_user {
     display: block;
     width: 100%;
-    background-color: #ccc;
-    height: 200px;
-    margin-bottom: 40px;
-    padding: 5px 20px 10px 20px;
+    background-color: #ddd;
+    padding-bottom: 20px;
+    padding-top: 15px;
+    border-radius: 0.5em;
+    margin-bottom: 20px;
 }
 
-.admin_menu_left .mural_title {
+.admin_user h4 {
     text-align: center;
+}
+
+.admin_name {
+    font-size: 24px;
+    text-align: center;
+}
+
+.admin-name-category {
+    font-size: 12px;
+    text-align: center;
+    margin-top: -10px;
+}
+
+.admin-logoff {
+    text-align: center;
+    font-size: 18px;
+}
+
+.icon {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.admin_menu_left{
+    display: none;
+    width: 100%;
+    background-color: #ccc;
+    margin-bottom: 40px;
+    padding: 5px 10px 10px 10px;
+}
+
+.admin_menu_left li {
+    margin-bottom: 5px;
+}
+
+.admin-textarea-sum {
+    min-height: 70px;
+}
+
+.admin-textarea-cont {
+    min-height: 130px;
+}
+
+.article_buttons {
+    margin-top: 10px;
 }
 
 /* ---- END ADMIN ---- */

@@ -18,11 +18,11 @@
                 </div>
                 
                 <div class="title">
-                    <h3><?php echo $results['title'] ?></h3>
+                    <h3><?php echo utf8_encode($results['title']) ?></h3>
                 </div>
                 
                 <div class="summary">
-                    <span><?php echo $results['summary'] ?></span>
+                    <span><?php echo utf8_encode($results['summary']) ?></span>
                 </div>
                 
                 <div class="date">

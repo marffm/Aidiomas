@@ -26,9 +26,7 @@ class Admin extends Controller {
         $username = $_SESSION['username'];
         
         $this->loader->loadModel('adminModel');
-        $data['results'] = $this->adminModel->getMural();
-        
-        var_dump($data['results']);
+        $data['results'] = $this->adminModel->getMural();        
         
         
         

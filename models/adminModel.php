@@ -3,6 +3,7 @@
 class adminModel extends Model {
     
     function getMural (){
+        
         $conn = $this->db->connectionDB();
         $stmt = $conn->prepare("SELECT * FROM mural");
         $stmt->execute();
