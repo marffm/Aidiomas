@@ -203,3 +203,21 @@ a {
 }
 
 /* ---- END ERROR ---- */
+
+
+/* ---- ADMIN ---- */
+
+.admin_menu_left{
+    display: block;
+    width: 100%;
+    background-color: #ccc;
+    height: 200px;
+    margin-bottom: 40px;
+    padding: 5px 20px 10px 20px;
+}
+
+.admin_menu_left .mural_title {
+    text-align: center;
+}
+
+/* ---- END ADMIN ---- */

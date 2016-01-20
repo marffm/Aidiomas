@@ -10,11 +10,11 @@ class Teste extends Controller {
         
         $this->loader->loadModel('testModel');
         
-        $results = $this->testModel->getTest();
+        //$results = $this->testModel->getTest();
         
-        $teste = $results[1]['title'];       
+        //$teste = $results[1]['title'];       
 
-        echo $teste;
+        //echo $teste;
         
         
         

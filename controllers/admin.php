@@ -11,11 +11,9 @@ class Admin extends Controller {
             header("Location:" . PATH_URL . 'login');
         }
         
-        if ($user_category != 'admin') {
-            header("Location:" . PATH_URL . 'teste');
-        }     
-        
-        
+        if ($user_category != 'admin' and $user_category = 'areaProfessor') {
+            header("Location:" . PATH_URL . 'areaProfessor');
+        }
         
         $data = array();
         
@@ -26,6 +24,12 @@ class Admin extends Controller {
         $breadcrumbs = $this->breadcrumbs->getBreadcrumbs();
 
         $username = $_SESSION['username'];
+        
+        $this->loader->loadModel('adminModel');
+        $data['results'] = $this->adminModel->getMural();
+        
+        var_dump($data['results']);
+        
         
         
         $destroy = PATH_URL . 'sessions/destroy';
