@@ -4,19 +4,25 @@ class Admin extends Controller {
 
     function index() {
         
-        $username = $_SESSION['username'];
-        $user_category = $_SESSION['usercategory'];
+        $data = array();
+        $data['username'] = $_SESSION['username'];
+        $data['usercategory'] = $_SESSION['usercategory'];
         
-        if (!isset($username) and !isset($user_category)){
+        if (!isset($data['username']) and ! isset($data['usercategory'])) {
             header("Location:" . PATH_URL . 'login');
         }
-        
-        if ($user_category != 'admin' and $user_category = 'areaProfessor') {
+
+        if ($data['usercategory'] != 'admin' and $data['usercategory'] = 'areaProfessor') {
             header("Location:" . PATH_URL . 'areaProfessor');
         }
         
-        $data = array();
+        $url = $this->url->getUrl();
         
+        if (isset($url[1])){
+            header("Location:" . PATH_URL . 'admin');
+        }
+
+
         $this->document->setTitle('Admin');
         $this->loader->Load('head');
 
@@ -24,13 +30,15 @@ class Admin extends Controller {
         $breadcrumbs = $this->breadcrumbs->getBreadcrumbs();
 
         $username = $_SESSION['username'];
-        
+
         $this->loader->loadModel('adminModel');
-        $data['results'] = $this->adminModel->getMural();        
-        
-        
-        
+        $data['results'] = $this->adminModel->getMural();
+
         $destroy = PATH_URL . 'sessions/destroy';
+
+
+
+
 
         $data['filename'] = 'views/admin/admin.tpl';
         if (file_exists($data['filename'])) {
@@ -40,10 +48,17 @@ class Admin extends Controller {
 
         $this->loader->Load('footer');
     }
-    
-    
-    function saveData() {
+
+    function saveArticle() {
         $this->adminModel->saveMural();
+    }
+
+    function deleteArticle($id) {
+        $this->adminModel->deleteMural($id);
+    }
+    
+    function updateArticle($id) {
+        $this->adminModel->updateMural($id);
     }
 
 }
