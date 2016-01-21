@@ -40,15 +40,16 @@
                     <?php foreach ($data['results'] as $results) { ?>
                     <div class="col-sm-6">                        
                         <div class="panel panel-default">
-                            <form action="?" method="POST" class="panel-body">
+                            <form action="admin/saveData" method="POST" class="panel-body">
+                                <input type="hidden" name="id" value="<?php echo $results['id'] ?>" />
                                 <span >Titulo</span>
-                                <input type="text" name="title" id="title" class="form-control" placeholder="Titulo" value="<?php echo $results['title'] ?>">
+                                <input type="text" name="title" id="title" class="form-control" placeholder="Titulo" value="<?php echo $results['title'] ?>" />
                                 <span >Resumo</span>
                                 <textarea name="summary" id="summary" class="form-control admin-textarea-sum" placeholder="Sumario"><?php echo utf8_encode($results['summary']) ?></textarea>
                                 <span >Conteúdo</span>
                                 <textarea name="content" id="content" class="form-control admin-textarea-cont" placeholder="Conteúdo"><?php echo utf8_encode($results['content']) ?></textarea>
                                 <span >Data</span>
-                                <input type="date" name="date" id="date" class="form-control" aria-describedby="basic-addon1" value="<?php echo $results['date'] ?>">
+                                <input type="date" name="date" id="date" class="form-control" aria-describedby="basic-addon1" value="<?php echo $results['date'] ?>" />
                                 
                                 <div class="article_buttons">
                                     <button type="submit" class="btn btn-default">Salvar</button>
@@ -59,6 +60,26 @@
                     </div>
                     <?php } ?>
                     
+                    <div class="col-sm-12">
+                        
+                        <div class="panel panel-default">
+                            <form action="admin/saveData" method="POST" class="panel-body">
+                                <span >Titulo</span>
+                                <input type="text" name="title" id="title" required max-length='200' class="form-control" placeholder="Titulo">
+                                <span >Resumo</span>
+                                <textarea name="summary" id="summary" class="form-control admin-textarea-sum" placeholder="Sumario"></textarea>
+                                <span >Conteúdo</span>
+                                <textarea name="content" id="content" class="form-control admin-textarea-cont" placeholder="Conteúdo"></textarea>
+                                <span >Data</span>
+                                <input type="date" name="date" id="date" class="form-control" aria-describedby="basic-addon1">
+                                
+                                <div class="article_buttons">
+                                    <button type="submit" class="btn btn-default">Salvar</button>                                    
+                                </div>
+                            </form>
+                        </div>
+                        
+                    </div>
                     
                 </div>
             </div>

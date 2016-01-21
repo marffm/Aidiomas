@@ -40,5 +40,10 @@ class Admin extends Controller {
 
         $this->loader->Load('footer');
     }
+    
+    
+    function saveData() {
+        $this->adminModel->saveMural();
+    }
 
 }
