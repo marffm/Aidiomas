@@ -23,5 +23,9 @@ class loginModel extends Model {
     public function getUser() {
         return $this->user;
     }
+    
+    function verify() {
+        echo 'loaded verify into modellogin';
+    }
 
 }

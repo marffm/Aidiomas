@@ -19,7 +19,7 @@ class Breadcrumbs {
         
         $this->data['breadcrumbs'][] = array(
             'title' => $name,
-            'link' => $link
+            'link' => PATH_URL . $link
         );
     }
 

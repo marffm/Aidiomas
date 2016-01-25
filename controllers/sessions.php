@@ -15,7 +15,7 @@ class Sessions extends Controller {
         }
     }
 
-    function verify() {
+    /*function verify() {
         $name = $_POST['username'];
         $user_pass = $_POST['password'];
         
@@ -37,7 +37,7 @@ class Sessions extends Controller {
         } else {
             header("Location:" . PATH_URL . 'login/error');            
         }
-    }
+    }*/
 
     function destroy() {
         session_destroy();
