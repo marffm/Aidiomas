@@ -3,15 +3,15 @@
 class AreaProfessor extends Controller {
     
     function index(){
+        $data = array();
+        $data['username'] = $_SESSION['username'];
+        $data['usercategory'] = $_SESSION['usercategory'];
         
-        $username = $_SESSION['username'];
-        $user_category = $_SESSION['usercategory'];
-        
-        if (!isset($username) and !isset($user_category)){
+        if (!isset($data['username']) and !isset($data['usercategory'])){
             header("Location:" . PATH_URL . 'login');
         }
         
-        if ($user_category != 'areaProfessor') {
+        if ($data['usercategory'] != 'areaProfessor') {
             header("Location:" . PATH_URL . 'teste');
         }
         

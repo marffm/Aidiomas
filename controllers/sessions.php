@@ -9,35 +9,39 @@ class Sessions extends Controller {
     function checkSession($name) {
 
         if (isset($_SESSION['username']) and isset($_SESSION['usercategory'])) {
-            header("Location:" . PATH_URL . $_SESSION['usercategory']);
+            header("Location:" . PATH_URL . $name);
         } else {
             header("Location:" . PATH_URL . 'login');
         }
     }
 
-    /*function verify() {
-        $name = $_POST['username'];
-        $user_pass = $_POST['password'];
-        
-        $this->loader->loadModel('loginModel');
-        $this->loginModel->setUser();        
-        $user = $this->loginModel->getUser();
-        
-        if (in_array($name, array_column($user, 'username'))) {            
-            $username = true;
-        }        
-        if (in_array($user_pass, array_column($user, 'password'))) {
-            $password = true;
-        }
+    function verify() {
 
-        if ($username and $password ) {
-            $_SESSION['username'] = $name;
-            $_SESSION['usercategory'] = $user[$name]['category'];
-            header("Location:" . PATH_URL . $user[$name]['category']);
+        $this->loader->loadModel('loginModel');
+        $results = $this->loginModel->verifyUser();
+
+        if ($results) {
+            foreach ($results as $result) {
+                $result;
+            }
+            $_SESSION['username'] = $result['usuario'];
+
+            if ($result['nivel'] == 1) {
+                $_SESSION['usercategory'] = 'admin';
+                $link = 'admin';
+            } else if ($result['nivel'] == 2) {
+                $_SESSION['usercategory'] = 'areaProfessor';
+                $link = 'areaProfessor';
+            } else if ($result['nivel'] == 3) {
+                $_SESSION['usercategory'] = 'areaAluno';
+                $link = 'areaAluno';
+            }
         } else {
-            header("Location:" . PATH_URL . 'login/error');            
+            $link = 'login/error';
         }
-    }*/
+        //echo $_SESSION['usercategory'];
+        header("Location:" . PATH_URL . $link);
+    }
 
     function destroy() {
         session_destroy();

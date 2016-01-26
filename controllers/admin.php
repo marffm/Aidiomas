@@ -8,11 +8,11 @@ class Admin extends Controller {
         $data['username'] = $_SESSION['username'];
         $data['usercategory'] = $_SESSION['usercategory'];
         
-        if (!isset($data['username']) and ! isset($data['usercategory'])) {
+        if (!isset($data['username']) and !isset($data['usercategory'])) {
             header("Location:" . PATH_URL . 'login');
         }
 
-        if ($data['usercategory'] != 'admin' and $data['usercategory'] = 'areaProfessor') {
+        if ($data['usercategory'] == 'areaProfessor') {
             header("Location:" . PATH_URL . 'areaProfessor');
         }
         

@@ -24,8 +24,28 @@ class loginModel extends Model {
         return $this->user;
     }
     
-    function verify() {
-        echo 'loaded verify into modellogin';
+    function verifyUser() {
+        
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $table = $_POST['category'];
+        
+        if ($table == 'admin') {
+            $sql = "SELECT * FROM admin WHERE usuario='$username' AND senha='$password'";
+        } else if ($table == 'professor') {
+            $sql = "SELECT * FROM professor WHERE usuario='$username' AND senha='$password'";
+        } else {
+            $sql = "SELECT * FROM aluno WHERE usuario='$username' AND senha='$password'";
+        }
+        
+        $conn = $this->db->connectionDB();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $results = $stmt->fetchall(PDO::FETCH_ASSOC);
+        $conn = null;
+        
+       return $results;
+       
     }
 
 }

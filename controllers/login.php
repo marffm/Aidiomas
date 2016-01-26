@@ -19,8 +19,8 @@ class Login extends Controller {
             $this->data['error'] = 'User or password wrong.';
         }
          
-        //$verify = PATH_URL . 'sessions/verify';
-        $verify = PATH_URL . 'login/verify';
+        $verify = PATH_URL . 'sessions/verify';
+        //$verify = PATH_URL . 'login/verify';
 
         $data['filename'] = 'views/admin/login.tpl';
         if (file_exists($data['filename'])) {

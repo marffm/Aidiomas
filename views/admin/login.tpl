@@ -21,7 +21,26 @@
                         <span class="input-group-addon" id="basic-addon1"><i class="fa fa-unlock-alt"></i></span>
                         <input type="password" name="password" id="password" class="form-control" placeholder="Senha" aria-describedby="basic-addon1">
                     </div>
+
+                    <div class="radio-inline">
+                        <label class="radio-inline">
+                            <input type="radio" name="category" id="category" value="admin"> Admin                            
+                        </label>
+                    </div>
                     
+                    <div class="radio-inline">
+                        <label class="radio-inline">
+                            <input type="radio" name="category" id="category" value="professor"> Professor                            
+                        </label>
+                    </div>
+                    
+                    <div class="radio-inline">
+                        <label class="radio-inline">
+                            <input type="radio" name="category" id="category" value="aluno"> Aluno
+                        </label>
+                    </div>
+
+
                     <?php if (isset($this->data['error'])) { ?>
                     <p class="alert alert-danger" role="alert"><?php echo $this->data['error'] ?></p>
                     <?php } ?>
