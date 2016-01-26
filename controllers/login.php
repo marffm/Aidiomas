@@ -20,7 +20,6 @@ class Login extends Controller {
         }
          
         $verify = PATH_URL . 'sessions/verify';
-        //$verify = PATH_URL . 'login/verify';
 
         $data['filename'] = 'views/admin/login.tpl';
         if (file_exists($data['filename'])) {

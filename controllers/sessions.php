@@ -24,7 +24,7 @@ class Sessions extends Controller {
             foreach ($results as $result) {
                 $result;
             }
-            $_SESSION['username'] = $result['usuario'];
+            $_SESSION['username'] = $result['nome'];
 
             if ($result['nivel'] == 1) {
                 $_SESSION['usercategory'] = 'admin';

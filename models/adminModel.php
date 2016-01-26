@@ -82,5 +82,21 @@ class adminModel extends Model {
         }
         
     }
+    
+    function getProfessor() {
+        
+        try {
+            $conn = $this->db->connectionDB();
+            $stmt = $conn->prepare("SELECT nome, sobrenome FROM professor ORDER BY nome");
+            $stmt->execute();
+            $results = $stmt->fetchall(PDO::FETCH_ASSOC);
+            $conn = null;
+            
+            return $results;
+            
+        } catch (Exception $ex) {
+            echo 'Erro: ' . $ex->getMessage();
+        }
+    }
 
 }

@@ -37,7 +37,9 @@ class Admin extends Controller {
         $destroy = PATH_URL . 'sessions/destroy';
 
 
-
+        $data['professorlist'] = $this->adminModel->getProfessor();
+        
+        
 
 
         $data['filename'] = 'views/admin/admin.tpl';

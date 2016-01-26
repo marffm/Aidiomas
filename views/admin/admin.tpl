@@ -16,27 +16,41 @@
                 <p class="admin-logoff"><a href="<?php echo $destroy ?>">Sair</a></p>
             </div>
 
-            <div class="admin_menu_left">
-                <div class="mural_title">
-                    <h4>Artigos do Mural</h4>                    
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Professores</h4>
                 </div>
-                <ol>
-                    <?php foreach ($data['results'] as $value){ ?>
-                    <li><?php echo $value['title']; ?></li>
-                    <?php } ?>
-                </ol>
+                <div class="panel-body">
+                    <div class="">
+                        <?php foreach ($data['professorlist'] as $proflist) {?>
+                            <a href="#" class="list-group-item"><?php echo $proflist['nome']?> <?php echo $proflist['sobrenome'] ?></a>                        
+                        <?php }?>
+                        <a href="<?php echo PATH_URL ?>cadastrarProf" class="list-group-item active">Cadastrar Professor</a>
+                    </div>               
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Alunos</h4>
+                </div>
+                <div class="panel-body">
+                    <a href="#" class="list-group-item">Fabiana - paragrafo</a>
+                    <a href="#" class="list-group-item">Leticia - Paragrafo</a>
+                    <a href="#" class="list-group-item active">Cadastrar Aluno</a>
+                </div>
             </div>
         </div>
-        
+
         <div class="col-sm-9">
 
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Mural - Conteúdo</h3>
                 </div>
-                
+
                 <div class="panel-body">
-                    
+
                     <?php foreach ($data['results'] as $results) { ?>
                     <div class="col-sm-6">                        
                         <div class="panel panel-default">
@@ -50,7 +64,7 @@
                                 <textarea name="content" id="content" class="form-control admin-textarea-cont" placeholder="Conteúdo"><?php echo utf8_encode($results['content']) ?></textarea>
                                 <span >Data</span>
                                 <input type="date" name="date" id="date" class="form-control" aria-describedby="basic-addon1" value="<?php echo $results['date'] ?>" />
-                                
+
                                 <div class="article_buttons">
                                     <button type="submit" class="btn btn-default">Salvar</button>
                                     <a href="admin/deleteArticle/<?php echo $results['id']; ?>" class="btn btn-default">Deletar</a>
@@ -59,9 +73,9 @@
                         </div>                        
                     </div>
                     <?php } ?>
-                    
+
                     <div class="col-sm-12">
-                        
+
                         <div class="panel panel-default">
                             <form action="admin/saveArticle" method="POST" class="panel-body">
                                 <span >Titulo</span>
@@ -72,20 +86,20 @@
                                 <textarea name="content" id="content" class="form-control admin-textarea-cont" placeholder="Conteúdo"></textarea>
                                 <span >Data</span>
                                 <input type="date" name="date" id="date" class="form-control" aria-describedby="basic-addon1">
-                                
+
                                 <div class="article_buttons">
                                     <button type="submit" class="btn btn-default">Salvar</button>                                    
                                 </div>
                             </form>
                         </div>
-                        
+
                     </div>
-                    
+
                 </div>
             </div>
 
         </div>
-        
+
     </div>
 
 </div>

@@ -248,18 +248,6 @@ a {
     margin-top: 10px;
 }
 
-.admin_menu_left{
-    display: none;
-    width: 100%;
-    background-color: #ccc;
-    margin-bottom: 40px;
-    padding: 5px 10px 10px 10px;
-}
-
-.admin_menu_left li {
-    margin-bottom: 5px;
-}
-
 .admin-textarea-sum {
     min-height: 70px;
 }

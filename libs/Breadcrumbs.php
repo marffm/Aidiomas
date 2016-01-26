@@ -10,13 +10,20 @@ class Breadcrumbs {
         $this->registry = $registry;
     }
     
-    function setBreadcrumbs($name, $link) {
+    function setBreadcrumbs($name, $link, $parent = null, $parentlink = null) {
         $this->data['breadcrumbs'] = array();
         $this->data['breadcrumbs'][] = array(
             'title' => 'Home',
             'link' => PATH_URL . 'home'
         );
         
+        if (isset($parent) and isset($parentlink)) {
+            $this->data['breadcrumbs'][] = array(
+                'title' => $parent,
+                'link' => PATH_URL . $parentlink
+            );
+        }
+
         $this->data['breadcrumbs'][] = array(
             'title' => $name,
             'link' => PATH_URL . $link
