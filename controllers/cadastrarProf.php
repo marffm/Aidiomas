@@ -26,7 +26,9 @@ class cadastrarProf extends Controller {
         $data['username'] = $_SESSION['username'];
         $data['destroy'] = PATH_URL . 'sessions/destroy';
         
+        $data['profList'] = $this->cadastrarProfModel->getProfs();
         
+        //print_r($data['profList']);
         
         
         
