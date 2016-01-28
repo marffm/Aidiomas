@@ -1,25 +1,25 @@
 <?php
 
 class adminModel extends Model {
-    
-    function getMural (){
-        
+
+    function getMural() {
+
         $conn = $this->db->connectionDB();
         $stmt = $conn->prepare("SELECT * FROM mural");
         $stmt->execute();
         $results = $stmt->fetchall(PDO::FETCH_ASSOC);
-        $conn = null;       
-        
+        $conn = null;
+
         return $results;
     }
-    
+
     function saveMural() {
-        
+
         $date = $_POST['date'];
         $title = $_POST['title'];
         $summary = $_POST['summary'];
         $content = $_POST['content'];
-        
+
         try {
             $conn = $this->db->connectionDB();
             $sql = "INSERT INTO mural (date, title, summary, content) VALUES ('$date', '$title', '$summary', '$content')";
@@ -31,16 +31,14 @@ class adminModel extends Model {
             $stmt->execute();
             $id = $conn->lastInsertId();
             $conn = null;
-            
         } catch (Exception $ex) {
             echo $ex->getMessage();
-            
         }
     }
-    
+
     function deleteMural($id) {
-        
-             
+
+
         try {
             $conn = $this->db->connectionDB();
             $sql = "DELETE FROM mural WHERE id = '$id' LIMIT 1";
@@ -48,23 +46,21 @@ class adminModel extends Model {
             $stmt->bindValue(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
             $conn = null;
-            
         } catch (Exception $ex) {
             echo 'Error:' . $ex->getMessage();
         }
-        
     }
-    
-    function updateMural ($id) {
-        
+
+    function updateMural($id) {
+
         $date = $_POST['date'];
         $title = $_POST['title'];
         $summary = $_POST['summary'];
         $content = $_POST['content'];
         $id = $_POST['id'];
-        
+
         try {
-            
+
             $conn = $this->db->connectionDB();
             $sql = "UPDATE mural SET date=:date, title=:title, summary=:summary, content=:content WHERE id=:id";
             $stmt = $conn->prepare($sql);
@@ -75,27 +71,37 @@ class adminModel extends Model {
             $stmt->bindValue(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
             $conn = null;
-            
-            
         } catch (Exception $ex) {
-           echo 'Erro:' . $ex->getMessage();
+            echo 'Erro:' . $ex->getMessage();
         }
-        
     }
-    
+
     function getProfessor() {
-        
+
         try {
             $conn = $this->db->connectionDB();
             $stmt = $conn->prepare("SELECT nome, sobrenome FROM professor ORDER BY nome");
             $stmt->execute();
             $results = $stmt->fetchall(PDO::FETCH_ASSOC);
             $conn = null;
-            
+
             return $results;
-            
         } catch (Exception $ex) {
             echo 'Erro: ' . $ex->getMessage();
+        }
+    }
+
+    function getAluno() {
+        try {
+            $conn = $this->db->connectionDB();
+            $stmt = $conn->prepare("SELECT * FROM aluno");
+            $stmt->execute();
+            $resultsAluno = $stmt->fetchall(PDO::FETCH_ASSOC);
+            $conn = null;
+
+            return $resultsAluno;
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
         }
     }
 

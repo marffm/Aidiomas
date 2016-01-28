@@ -22,9 +22,9 @@
                 </div>
                 <div class="panel-body">
                     <div class="">
-                        <?php foreach ($data['professorlist'] as $proflist) {?>
-                            <a href="#" class="list-group-item"><?php echo $proflist['nome']?> <?php echo $proflist['sobrenome'] ?></a>                        
-                        <?php }?>
+                        <?php foreach ($data['professorlist'] as $proflist) { ?>
+                            <a href="<?php echo PATH_URL ?>cadastrarProf" class="list-group-item"><?php echo $proflist['nome']?> <?php echo $proflist['sobrenome'] ?></a>                        
+                        <?php } ?>
                         <a href="<?php echo PATH_URL ?>cadastrarProf" class="list-group-item active">Cadastrar Professor</a>
                     </div>               
                 </div>
@@ -35,9 +35,10 @@
                     <h4 class="panel-title">Alunos</h4>
                 </div>
                 <div class="panel-body">
-                    <a href="#" class="list-group-item">Fabiana - paragrafo</a>
-                    <a href="#" class="list-group-item">Leticia - Paragrafo</a>
-                    <a href="#" class="list-group-item active">Cadastrar Aluno</a>
+                    <?php foreach ($data['alunolist'] as $alunos) { ?>
+                    <a href="<?php echo PATH_URL ?>cadastroAluno/setAluno/<?php echo $alunos['codigo'] ?>" class="list-group-item"><?php echo $alunos['nome'] ?></a>
+                    <?php } ?>
+                    <a href="<?php echo PATH_URL ?>cadastroAluno" class="list-group-item active">Cadastrar Aluno</a>
                 </div>
             </div>
         </div>

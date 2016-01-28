@@ -16,6 +16,12 @@ class cadastrarProf extends Controller {
             header("Location:" . PATH_URL . 'error');
         }
         
+        $url = $this->url->getUrl();
+        
+        if (isset($url[1])){
+            header("Location:" . PATH_URL . 'cadastrarProf');
+        }
+        
         $this->document->setTitle('Cadastro|Professor');
         $this->loader->Load('head');
         $this->loader->loadModel('cadastrarProfModel');
@@ -28,7 +34,9 @@ class cadastrarProf extends Controller {
         
         $data['profList'] = $this->cadastrarProfModel->getProfs();
         
-        //print_r($data['profList']);
+        $data['alunoList'] = $this->cadastrarProfModel->getAlunos();
+        
+        //print_r($data['alunoList']);
         
         
         
@@ -43,4 +51,11 @@ class cadastrarProf extends Controller {
         $this->cadastrarProfModel->insertProf();
     }
     
+    function updateProf($id) {
+        $this->cadastrarProfModel->updateProf($id);
+    }
+    
+    function deleteProf($id) {
+        $this->cadastrarProfModel->deleteProf($id);
+    }
 }

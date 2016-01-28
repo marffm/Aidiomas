@@ -38,8 +38,9 @@ class Admin extends Controller {
 
 
         $data['professorlist'] = $this->adminModel->getProfessor();
+        $data['alunolist'] = $this->adminModel->getAluno();
         
-        
+        //print_r($data['alunolist']);
 
 
         $data['filename'] = 'views/admin/admin.tpl';

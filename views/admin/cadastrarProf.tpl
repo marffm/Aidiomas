@@ -21,8 +21,9 @@
                     <h4 class="panel-title">Alunos</h4>
                 </div>
                 <div class="panel-body">
-                    <a href="#" class="list-group-item">Fabiana - paragrafo</a>
-                    <a href="#" class="list-group-item">Leticia - Paragrafo</a>
+                    <?php foreach ($data['alunoList'] as $alunos) { ?>
+                    <a href="<?php echo PATH_URL ?>cadastroAluno/setAluno/<?php echo $alunos['codigo'] ?>" class="list-group-item"><?php echo $alunos['nome'] ?></a>
+                    <?php } ?>
                     <a href="#" class="list-group-item active">Cadastrar Aluno</a>
                 </div>
             </div>
@@ -36,7 +37,7 @@
                 </div>
                 <div class="panel-body">
                     <form action="<?php echo PATH_URL ?>cadastrarProf/insertProf" method="POST">
-                        <input type="hidden" nome="nivel" id="nivel" value="2" />
+                        <input type="hidden" nome="nivel" id="nivel" value=2 />
                         <div class="row">
                             <div class="col-sm-6">
                                 <label>Nome</label>
@@ -60,11 +61,11 @@
                             </div>
                             <div class="col-sm-3">
                                 <label>Idioma</label>
-                                <select id="idioma" name="idioma" class="form-control">
-                                    <option value="1">Inglês</option>
-                                    <option value="2">Espanhol</option>
-                                    <option value="3">Francês</option>
-                                    <option value="4">Alemão</option>
+                                <select id="idioma" name="idioma" class="form-control" required>
+                                    <option value=1>Inglês</option>
+                                    <option value=2>Espanhol</option>
+                                    <option value=3>Francês</option>
+                                    <option value=4>Alemão</option>
                                 </select>
                             </div>
                         </div>
@@ -100,7 +101,8 @@
                     <?php foreach ($data['profList'] as $professores) { ?>
                     <div class="col-sm-4">
                         <div class="panel panel-default">
-                            <form action="" method="POST" class="panel-body">
+                            <form action="<?php echo PATH_URL ?>cadastrarProf/updateProf/<?php echo $professores['id'] ?>" method="POST" class="panel-body">
+                                <input type="hidden" name="id" id="id" value="<?php echo $professores['id'] ?>">
                                 <span>Nome</span>
                                 <input name="nome" id="nome" required max-length="25" class="form-control" placeholder="Nome" value="<?php echo $professores['nome'] ?>" />
                                 <span>Sobrenome</span>
@@ -109,6 +111,22 @@
                                 <input type="text" name="telefone" id="telefone" max-length="15" class="form-control" placeholder="(00) 0000-0000" value="<?php echo $professores['telefone'] ?>" />
                                 <span>E-mail</span>
                                 <input type="text" name="email" id="email" max-length="30" class="form-control" placeholder="nome@servidordeemail.com.br" value="<?php echo $professores['email'] ?>" />
+                                <span>Idioma</span>
+                                <select id="idioma" name="idioma" class="form-control">
+                                    <option value="<?php echo $professores['idioma'] ?>" selected><?php echo utf8_encode(strtoupper($professores['nome_idioma'])) ?></option>
+                                    <option value=1>Inglês</option>
+                                    <option value=2>Espanhol</option>
+                                    <option value=3>Francês</option>
+                                    <option value=4>Alemão</option>
+                                </select>
+                                <span>Usuário</span>
+                                <input type="text" name="usuario" id="usuario" required max-length="15" class="form-control" placeholder="Usuário" value="<?php echo $professores['usuario'] ?>" />
+                                <span>Senha</span>
+                                <input type="text" name="senha" id="senha" required max-length="8" class="form-control" placeholder="12345678" value="<?php echo $professores['senha'] ?>" />
+                                <div class="article_buttons">
+                                    <button type="submit" class="btn btn-default">Salvar</button>
+                                    <a href="<?php echo PATH_URL ?>cadastrarProf/deleteProf/<?php echo $professores['id']; ?>" class="btn btn-default">Deletar</a>
+                                </div>
                             </form>
                         </div>                        
                     </div>
