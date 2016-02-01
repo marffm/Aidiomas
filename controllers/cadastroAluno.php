@@ -31,7 +31,8 @@ class cadastroAluno extends Controller {
         } else {
             $title = 'Professor';
             $link = 'areaProfessor';
-        }
+        }        
+
 
         $this->breadcrumbs->setBreadcrumbs('Cadastro Aluno', 'cadastroAluno', $title, $link);
         $breadcrumbs = $this->breadcrumbs->getBreadcrumbs();

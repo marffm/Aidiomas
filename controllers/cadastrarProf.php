@@ -36,6 +36,8 @@ class cadastrarProf extends Controller {
         
         $data['alunoList'] = $this->cadastrarProfModel->getAlunos();
         
+        $data['idiomaslist'] = $this->cadastrarProfModel->getIdiomas();
+        
         //print_r($data['alunoList']);
         
         

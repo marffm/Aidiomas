@@ -23,7 +23,7 @@
                 <div class="panel-body">
                     <div class="">
                         <?php foreach ($data['professorlist'] as $proflist) { ?>
-                            <a href="<?php echo PATH_URL ?>cadastrarProf" class="list-group-item"><?php echo $proflist['nome']?> <?php echo $proflist['sobrenome'] ?></a>                        
+                            <a href="<?php echo PATH_URL ?>cadastrarProf" class="list-group-item"><?php echo $proflist['nome_prof']?> <?php echo $proflist['sobrenome_prof'] ?></a>                        
                         <?php } ?>
                         <a href="<?php echo PATH_URL ?>cadastrarProf" class="list-group-item active">Cadastrar Professor</a>
                     </div>               
@@ -41,6 +41,19 @@
                     <a href="<?php echo PATH_URL ?>cadastroAluno" class="list-group-item active">Cadastrar Aluno</a>
                 </div>
             </div>
+            
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Grupos</h4>
+                </div>
+                <div class="panel-body">
+                    <?php foreach ($data['grupolist'] as $grupos) { ?>
+                    <a href="<?php echo PATH_URL ?>cadastroGrupo/setGrupo/<?php echo $grupos['cod_grupo'] ?>" class="list-group-item"><?php echo $grupos['cod_grupo'] ?></a>
+                    <?php } ?>
+                    <a href="<?php echo PATH_URL ?>cadastroGrupo" class="list-group-item active">Cadastrar Grupo</a>
+                </div>
+            </div>
+            
         </div>
 
         <div class="col-sm-9">

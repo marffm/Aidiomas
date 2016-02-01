@@ -80,7 +80,7 @@ class adminModel extends Model {
 
         try {
             $conn = $this->db->connectionDB();
-            $stmt = $conn->prepare("SELECT nome, sobrenome FROM professor ORDER BY nome");
+            $stmt = $conn->prepare("SELECT nome_prof, sobrenome_prof FROM professor ORDER BY nome_prof ");
             $stmt->execute();
             $results = $stmt->fetchall(PDO::FETCH_ASSOC);
             $conn = null;
@@ -100,6 +100,22 @@ class adminModel extends Model {
             $conn = null;
 
             return $resultsAluno;
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
+        }
+    }
+    
+    function getGrupo() {
+        try {
+            
+            $conn = $this->db->connectionDB();
+            $stmt = $conn->prepare("SELECT * FROM grupo");
+            $stmt->execute();
+            $resultsGrupo = $stmt->fetchall(PDO::FETCH_ASSOC);
+            $conn = null;
+            
+            return $resultsGrupo;
+            
         } catch (Exception $ex) {
             echo 'Error: ' . $ex->getMessage();
         }

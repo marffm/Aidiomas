@@ -39,6 +39,7 @@ class Admin extends Controller {
 
         $data['professorlist'] = $this->adminModel->getProfessor();
         $data['alunolist'] = $this->adminModel->getAluno();
+        $data['grupolist'] = $this->adminModel->getGrupo();
         
         //print_r($data['alunolist']);
 

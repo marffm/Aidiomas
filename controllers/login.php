@@ -16,7 +16,7 @@ class Login extends Controller {
         
         $error = $this->url->getUrl();        
         if (isset($error[1])) {
-            $this->data['error'] = 'User or password wrong.';
+            $this->data['error'] = 'Usuário ou Senha invalida.';
         }
          
         $verify = PATH_URL . 'sessions/verify';

@@ -261,3 +261,31 @@ a {
 }
 
 /* ---- END ADMIN ---- */
+
+/* ---- GRUPO ---- */
+
+.tabelaGrupo th {
+    text-align: center;
+}
+
+.tabelaGrupo .codigoaluno {
+    max-width: 25px;    
+}
+
+.tabelaGrupo .nome {
+    max-width: 40px;
+}
+
+.tabelaGrupo .sobrenome {
+    max-width: 60px;
+}
+
+.tabelaGrupo .inserir {
+    max-width: 20px;
+}
+
+.tabelaGrupo .deletar {
+    max-width: 20px;
+}
+
+/* ---- END GRUPO ---- */
