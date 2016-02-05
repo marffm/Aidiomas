@@ -23,16 +23,18 @@ class Sessions extends Controller {
         if ($results) {
             foreach ($results as $result) {
                 $result;
-            }
-            $_SESSION['username'] = $result['nome'];
+            }          
 
             if ($result['nivel'] == 1) {
+                $_SESSION['username'] = $result['nome'];
                 $_SESSION['usercategory'] = 'admin';
                 $link = 'admin';
             } else if ($result['nivel'] == 2) {
+                $_SESSION['username'] = $result['nome_prof'];
                 $_SESSION['usercategory'] = 'areaProfessor';
                 $link = 'areaProfessor';
             } else if ($result['nivel'] == 3) {
+                $_SESSION['username'] = $result['nome'];
                 $_SESSION['usercategory'] = 'areaAluno';
                 $link = 'areaAluno';
             }

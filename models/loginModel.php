@@ -33,7 +33,7 @@ class loginModel extends Model {
         if ($table == 'admin') {
             $sql = "SELECT * FROM admin WHERE usuario='$username' AND senha='$password'";
         } else if ($table == 'professor') {
-            $sql = "SELECT * FROM professor WHERE usuario='$username' AND senha='$password'";
+            $sql = "SELECT * FROM professor WHERE usuario_prof='$username' AND senha_prof='$password'";
         } else {
             $sql = "SELECT * FROM aluno WHERE usuario='$username' AND senha='$password'";
         }
