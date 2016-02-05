@@ -280,12 +280,10 @@ a {
     max-width: 60px;
 }
 
-.tabelaGrupo .inserir {
-    max-width: 20px;
-}
-
 .tabelaGrupo .deletar {
     max-width: 20px;
+    text-align: center;
 }
+
 
 /* ---- END GRUPO ---- */

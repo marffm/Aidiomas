@@ -19,12 +19,19 @@ class cadastroGrupo extends Controller {
         $url = $this->url->getUrl();
         
         if (isset($url[1])) {
-            header("Location:" . PATH_URL . 'cadastroGrupo');
+           header("Location:" . PATH_URL . 'cadastroGrupo');
         }
         
         if (isset($_SESSION['error_insertGrupo'])) {
             $error = 'Grupo inserido já existe no sistema.';
             $_SESSION['error_insertGrupo'] = null;
+        }
+        
+        if (isset($_SESSION['error_insertAluno_Grupo'])) {
+            $erroraluno_grupo = 'Aluno já inserido no Grupo: ';
+            $errorposition = $_SESSION['error_position'];
+            $_SESSION['error_insertAluno_Grupo'] = null;
+            $_SESSION['error_position'] = null;
         }
         
 
@@ -70,4 +77,22 @@ class cadastroGrupo extends Controller {
         return $validate;
     }
     
+    function validadeInsertAluno_Grupo() {
+        
+        $validate = $this->cadastroGrupoModel->checkInsertAluno_Grupo();
+        
+        if ($validate == false) {
+            $_SESSION['error_insertAluno_Grupo'] = true;
+            $_SESSION['error_position'] = $_POST['cod_grupo'];
+        } else {
+            $this->cadastroGrupoModel->insertAluno_Grupo();
+        }
+        
+    }    
+
+    function deleteAluno_Grupo($id) {
+        $code = explode('_', $id);
+        $this->cadastroGrupoModel->deleteAluno_Grupo($code);
+    }
+
 }

@@ -84,13 +84,12 @@ class cadastroGrupoModel extends Model {
     function insertGrupo() {
         try {            
             $conn = $this->db->connectionDB();
-            $stmt = $conn->prepare("INSERT INTO grupo (cod_grupo, idioma, level_grupo, semestre, codigo_professor, codigo_aluno) VALUES (:cod_grupo, :idioma, :level_grupo, :semestre, :codigo_professor, :codigo_aluno)");
+            $stmt = $conn->prepare("INSERT INTO grupo (cod_grupo, idioma, level_grupo, semestre, codigo_professor) VALUES (:cod_grupo, :idioma, :level_grupo, :semestre, :codigo_professor)");
             $stmt->bindValue(':cod_grupo', $_POST['cod_grupo'], PDO::PARAM_INT);
             $stmt->bindValue(':idioma', $_POST['idioma'], PDO::PARAM_INT);
             $stmt->bindValue(':level_grupo', $_POST['level_grupo'], PDO::PARAM_STR);
             $stmt->bindValue(':semestre', $_POST['semestre'], PDO::PARAM_STR);
             $stmt->bindValue(':codigo_professor', $_POST['codigo_professor'], PDO::PARAM_INT);
-            $stmt->bindValue(':codigo_aluno', $_POST['codigo_aluno'], PDO::PARAM_INT);
             $stmt->execute();
             $conn = null;
             
@@ -103,7 +102,7 @@ class cadastroGrupoModel extends Model {
     function getGrupos() {
         try {
             $conn = $this->db->connectionDB();
-            $stmt = $conn->prepare("SELECT grupo.*, aluno.nome, aluno.sobrenome, professor.nome_prof FROM grupo INNER JOIN aluno ON (grupo.codigo_aluno=aluno.codigo) INNER JOIN professor ON (grupo.codigo_professor=professor.id) ORDER BY grupo.cod_grupo ASC ");
+            $stmt = $conn->prepare("SELECT grupo.*, professor.nome_prof, idiomas.nome_idioma FROM grupo INNER JOIN professor ON (grupo.codigo_professor=professor.id) INNER JOIN idiomas ON (grupo.idioma=idiomas.id) ORDER BY grupo.cod_grupo ASC ");
             $stmt->execute();
             $resultsGrupo = $stmt->fetchall(PDO::FETCH_ASSOC);
             $conn = null;
@@ -125,6 +124,55 @@ class cadastroGrupoModel extends Model {
             
             return $resultsAlunoGrupo;           
             
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
+        }
+    }
+    
+    function checkInsertAluno_Grupo() {
+        try {
+            $conn = $this->db->connectionDB();
+            $stmt = $conn->prepare("SELECT codigo_aluno FROM aluno_grupo WHERE codigo_aluno=:codigo_aluno AND cod_grupo=:cod_grupo");
+            $stmt->bindValue(':codigo_aluno', $_POST['codigo_aluno'], PDO::PARAM_INT);
+            $stmt->bindValue(':cod_grupo', $_POST['cod_grupo'], PDO::PARAM_INT);
+            $stmt->execute();
+            $checkinsert = $stmt->fetchall(PDO::FETCH_ASSOC);
+            
+            if ($checkinsert) {
+                $validate = false;
+            } else {
+                $validate = true;
+            }
+            
+            $conn = null;
+            return $validate;
+            
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
+        }
+    }
+    
+    function insertAluno_Grupo() {
+        try {
+            $conn = $this->db->connectionDB();
+            $stmt = $conn->prepare("INSERT INTO aluno_grupo (cod_grupo, codigo_aluno) VALUES (:cod_grupo, :codigo_aluno)");
+            $stmt->bindValue(':cod_grupo', $_POST['cod_grupo'], PDO::PARAM_INT);
+            $stmt->bindValue(':codigo_aluno', $_POST['codigo_aluno'], PDO::PARAM_INT);
+            $stmt->execute();
+            $conn = null;
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
+        }
+    }
+    
+    function deleteAluno_Grupo($id) {
+        try {
+            $conn = $this->db->connectionDB();
+            $stmt = $conn->prepare("DELETE FROM aluno_grupo WHERE cod_grupo=:cod_grupo  AND codigo_aluno=:codigo_aluno");
+            $stmt->bindValue(':cod_grupo', $id[0], PDO::PARAM_INT);
+            $stmt->bindValue(':codigo_aluno', $id[1], PDO::PARAM_INT);
+            $stmt->execute();
+            $conn = null;
         } catch (Exception $ex) {
             echo 'Error: ' . $ex->getMessage();
         }
