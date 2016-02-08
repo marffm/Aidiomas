@@ -177,5 +177,18 @@ class cadastroGrupoModel extends Model {
             echo 'Error: ' . $ex->getMessage();
         }
     }
+    
+    function deleteGrupo($id) {
+        try {
+            $conn = $this->db->connectionDB();
+            $stmt = $conn->prepare("DELETE FROM grupo WHERE cod_grupo=:cod_grupo");
+            $stmt->bindValue(':cod_grupo', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $conn = null;
+            
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
+        }
+    }
 
 }

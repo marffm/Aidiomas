@@ -94,5 +94,9 @@ class cadastroGrupo extends Controller {
         $code = explode('_', $id);
         $this->cadastroGrupoModel->deleteAluno_Grupo($code);
     }
+    
+    function deleteGrupo($id) {
+        $this->cadastroGrupoModel->deleteGrupo($id);
+    }
 
 }

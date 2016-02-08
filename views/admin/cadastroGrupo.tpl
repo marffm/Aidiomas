@@ -57,7 +57,7 @@
                                     <?php } ?>
 
                                     <div class="article_buttons">
-                                        <button type="submit" class="btn btn-default">Salvar</button>
+                                        <button type="submit" class="btn btn-info">Salvar</button>
                                     </div>
                                 </form>
                             </div>
@@ -106,7 +106,7 @@
                                             </div>
 
                                             <div class="col-sm-1">
-                                                <button type="submit" class="btn btn-default">Inserir Aluno</button>
+                                                <button type="submit" class="btn btn-info">Inserir Aluno</button>
                                             </div>                                            
                                         </form>                                        
                                     </div>
@@ -120,6 +120,13 @@
                                     </div>
                                     <?php } ?>
                                     <?php } ?>
+                                    
+                                    <div class="">
+                                        <div class="col-sm-2 col-sm-offset-10">
+                                            <br/>
+                                            <a href="cadastroGrupo/deleteGrupo/<?php echo $grupos['cod_grupo'] ?>" class="btn btn-danger">Deletar Grupo</a>
+                                        </div>
+                                    </div>
 
                                 </div>
 
