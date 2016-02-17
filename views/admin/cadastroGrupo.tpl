@@ -42,9 +42,11 @@
                                         <?php } ?>
                                     </select>
                                     <span>Level</span>
-                                    <input type="text" name="level_grupo" id="level_grupo" maxlength="12" class="form-control"/>
-                                    <span>Semestre</span>
-                                    <input type="text" name="semestre" id="semestre" maxlength="10" class="form-control"/>
+                                    <select id="level_grupo" name="level_grupo" class="form-control" required="">
+                                        <?php foreach ($data['boletinslist'] as $levels) { ?>
+                                        <option value="<?php echo $levels['boletins'] ?>"><?php echo $levels['boletins'] ?></option>
+                                        <?php } ?>
+                                    </select>
                                     <span>Professor</span>
                                     <select name="codigo_professor" id="codigo_professor" class="form-control" required>
                                         <?php foreach ($data['professoreslist'] as $professor) { ?>
@@ -74,7 +76,24 @@
                                 </div>
 
                                 <div class="panel-body">
-                                    <span>Idioma: <strong><?php echo utf8_encode($grupos['nome_idioma']) ?></strong>  |  Level: <strong><?php echo $grupos['level_grupo'] ?></strong>  |  Semestre: <strong><?php echo $grupos['semestre'] ?></strong>  |  Professor: <strong><?php echo $grupos['nome_prof'] ?></strong></span>
+                                    <span>Idioma: <strong><?php echo utf8_encode($grupos['nome_idioma']) ?></strong></span>
+                                    <form action="<?php echo  PATH_URL ?>cadastroGrupo/updateGrupo" method="POST">
+                                        <input type="hidden" name="cod_grupo" id="cod_grupo" value="<?php echo $grupos['cod_grupo'] ?>" />
+                                        <input type="hidden" name="idioma" id="idioma" value="<?php echo $grupos['idioma'] ?>" />
+                                        <input type="hidden" name="codigo_professor" id="codigo_professor" value="<?php echo $grupos['codigo_professor'] ?>" />
+                                        <span>Level:</span>
+                                        <select id='level_grupo' name="level_grupo" class="">
+                                            <option value="<?php echo $grupos['level_grupo'] ?>" selected=""><?php echo $grupos['level_grupo'] ?></option>
+                                            <?php foreach ($data['boletinslist'] as $levels) { ?>
+                                            <option value="<?php echo $levels['boletins'] ?>"><?php echo $levels['boletins'] ?></option>
+                                            <?php } ?>
+                                        </select>
+                                        <br/>
+                                        <span>Professor: <strong><?php echo $grupos['nome_prof'] ?></strong></span>
+                                        <br/><br/>
+                                        <button type="submit" class="btn btn-default">Atualizar Grupo</button>
+                                    </form> 
+                                    <br/>
                                     <table class="table table-hover table-bordered tabelaGrupo">                                        
                                         <tr>
                                             <th class="codigoaluno">Código Aluno</th>

@@ -22,7 +22,7 @@
                 </div>
                 <div class="panel-body">
                     <?php foreach ($data['alunoList'] as $alunos) { ?>
-                    <a href="<?php echo PATH_URL ?>cadastroAluno/setAluno/<?php echo $alunos['codigo'] ?>" class="list-group-item"><?php echo $alunos['nome'] ?></a>
+                    <a href="<?php echo PATH_URL ?>aluno/setAluno/<?php echo $alunos['codigo'] ?>" class="list-group-item"><?php echo $alunos['codigo'] ?> - <?php echo $alunos['nome'] ?> <?php echo $alunos['sobrenome'] ?></a>
                     <?php } ?>
                     <a href="#" class="list-group-item active">Cadastrar Aluno</a>
                 </div>

@@ -84,11 +84,10 @@ class cadastroGrupoModel extends Model {
     function insertGrupo() {
         try {            
             $conn = $this->db->connectionDB();
-            $stmt = $conn->prepare("INSERT INTO grupo (cod_grupo, idioma, level_grupo, semestre, codigo_professor) VALUES (:cod_grupo, :idioma, :level_grupo, :semestre, :codigo_professor)");
+            $stmt = $conn->prepare("INSERT INTO grupo (cod_grupo, idioma, level_grupo, codigo_professor) VALUES (:cod_grupo, :idioma, :level_grupo, :codigo_professor)");
             $stmt->bindValue(':cod_grupo', $_POST['cod_grupo'], PDO::PARAM_INT);
             $stmt->bindValue(':idioma', $_POST['idioma'], PDO::PARAM_INT);
             $stmt->bindValue(':level_grupo', $_POST['level_grupo'], PDO::PARAM_STR);
-            $stmt->bindValue(':semestre', $_POST['semestre'], PDO::PARAM_STR);
             $stmt->bindValue(':codigo_professor', $_POST['codigo_professor'], PDO::PARAM_INT);
             $stmt->execute();
             $conn = null;
@@ -186,6 +185,35 @@ class cadastroGrupoModel extends Model {
             $stmt->execute();
             $conn = null;
             
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
+        }
+    }
+    
+    function getBoletins() {
+        try {
+            $conn = $this->db->connectionDB();
+            $stmt = $conn->prepare("SELECT * FROM boletins");
+            $stmt->execute();
+            $boletins = $stmt->fetchall(PDO::FETCH_ASSOC);
+            
+            return $boletins;
+            
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
+        }
+    }
+    
+    function updateGrupo() {
+        try {
+            $conn = $this->db->connectionDB();
+            $stmt = $conn->prepare("UPDATE grupo SET cod_grupo=:cod_grupo, idioma=:idioma, codigo_professor=:codigo_professor, level_grupo=:level_grupo WHERE cod_grupo=:cod_grupo");
+            $stmt->bindValue(':cod_grupo', $_POST['cod_grupo'], PDO::PARAM_INT);
+            $stmt->bindValue(':idioma', $_POST['idioma'], PDO::PARAM_INT);
+            $stmt->bindValue(':codigo_professor', $_POST['codigo_professor'], PDO::PARAM_INT);
+            $stmt->bindValue(':level_grupo', $_POST['level_grupo'], PDO::PARAM_STR);
+            $stmt->execute();
+            $conn = null;
         } catch (Exception $ex) {
             echo 'Error: ' . $ex->getMessage();
         }
