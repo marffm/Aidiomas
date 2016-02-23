@@ -18,7 +18,7 @@ class Aluno extends Controller {
         $this->loader->loadModel('alunoModel');
 
         $url = $this->url->getUrl();
-
+        
         if (isset($url[2])) {
             $_SESSION['alunocodigo'] = $url[2];
             $data['aluno'] = $this->alunoModel->setAluno($_SESSION['alunocodigo']);
@@ -31,6 +31,12 @@ class Aluno extends Controller {
 
         if (isset($url[1]) and ! isset($url[2])) {
             header("Location:" . PATH_URL . 'aluno');
+        }
+        
+        if (isset($url[1]) and $url[1] == 'deleteBoletim') {
+            header("Location:" . PATH_URL . 'admin');
+        } else if (isset ($url[1]) and $url[1] == 'deleteAluno') {
+            header("Location:" . PATH_URL . 'admin');
         }
 
         $this->document->setTitle('Aluno');
@@ -62,6 +68,12 @@ class Aluno extends Controller {
                         break;
                     case "b2-e":
                         $nivel_b2e = true;
+                        break;
+                    case "a1-e":
+                        $nivel_a1e = true;
+                        break;
+                    case "a2-e":
+                        $nivel_a2e = true;
                         break;
                 }
             }
@@ -105,6 +117,14 @@ class Aluno extends Controller {
 
     function insertboletim() {
         $this->alunoModel->insertBoletim();
+    }
+    
+    function updateBoletim() {
+        $this->alunoModel->updateBoletim();
+    }
+    
+    function deleteBoletim($id) {
+        $this->alunoModel->deleteBoletim($id);
     }
 
 }

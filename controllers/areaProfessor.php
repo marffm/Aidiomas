@@ -12,13 +12,16 @@ class AreaProfessor extends Controller {
         }
         
         if ($data['usercategory'] != 'areaProfessor') {
-            header("Location:" . PATH_URL . 'teste');
+            header("Location:" . PATH_URL . 'error');
         }
         
-        $data = array();
-        
+        $this->loader->loadModel('areaProfessorModel');
         $this->document->setTitle('Área do Professor');
         $this->loader->Load('head');
+        
+        $data['grupoalunos'] = $this->areaProfessorModel->getGrupoAlunos($_SESSION['username']);
+        $data['grupos'] = $this->areaProfessorModel->getGrupos($_SESSION['username']);
+        //print_r($data['grupos']);
         
         $this->breadcrumbs->setBreadcrumbs('Professor', 'areaProfessor');
         $breadcrumbs = $this->breadcrumbs->getBreadcrumbs();

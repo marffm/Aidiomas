@@ -36,6 +36,7 @@ class Sessions extends Controller {
             } else if ($result['nivel'] == 3) {
                 $_SESSION['username'] = $result['nome'];
                 $_SESSION['usercategory'] = 'areaAluno';
+                $_SESSION['alunocodigo'] = $result['codigo'];
                 $link = 'areaAluno';
             }
         } else {

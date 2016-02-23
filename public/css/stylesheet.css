@@ -285,6 +285,10 @@ a {
     text-align: center;
 }
 
+.tabelaGrupo .email {
+    max-width: 70px;
+}
+
 
 /* ---- END GRUPO ---- */
 

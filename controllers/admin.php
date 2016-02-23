@@ -16,6 +16,10 @@ class Admin extends Controller {
             header("Location:" . PATH_URL . 'areaProfessor');
         }
         
+        if ($data['usercategory'] == 'areaAluno') {
+            header("Location:" . PATH_URL . 'areaAluno');
+        }
+        
         $url = $this->url->getUrl();
         
         if (isset($url[1])){

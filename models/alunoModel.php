@@ -68,12 +68,23 @@ class alunoModel extends Model {
         try {
             $model = $_POST['b_level'];
             $conn = $this->db->connectionDB();
-            
-            $stmt = $conn->prepare("SELECT * FROM aluno_boletins WHERE codigo_aluno_AB=" . $_SESSION['alunocodigo']);
+
+            $stmt = $conn->prepare("SELECT boletins_AB FROM aluno_boletins WHERE codigo_aluno_AB=" . $_SESSION['alunocodigo']);
             $stmt->execute();
             $valueAB = $stmt->fetchall(PDO::FETCH_ASSOC);
 
-            if (!isset($valueAB[0])) {
+            $check = true;
+            foreach ($valueAB as $value) {
+                if (in_array($model, $value)) {
+                    $check = false;
+                }
+            }
+
+            if ($check == false) {
+
+                $_SESSION['error_insertBoletim'] = true;
+            } else {
+
                 switch ($model) {
                     case "b1-e":
                         $stmt = $conn->prepare("INSERT INTO espanhol_b1 (b_level, codigo_aluno, semestre, unidade123, unidade456, unidade789, unidade101112, proyectolectura, mediafinal) VALUES (:b_level, :codigo_aluno, :semestre, :unidade123, :unidade456, :unidade789, :unidade101112, :proyectolectura, :mediafinal)");
@@ -99,14 +110,35 @@ class alunoModel extends Model {
                         $stmt->bindValue(':mediafinal', $_POST['mediafinal'], PDO::PARAM_INT);
                         $stmt->execute();
                         break;
+                    case "a1-e":
+                        $stmt = $conn->prepare("INSERT INTO espanhol_a1 (b_level, codigo_aluno, semestre, unidade123, unidade456, unidade789, mediafinal) VALUES (:b_level, :codigo_aluno, :semestre, :unidade123, :unidade456, :unidade789, :mediafinal)");
+                        $stmt->bindValue(':b_level', 'a1-e', PDO::PARAM_STR);
+                        $stmt->bindValue(':codigo_aluno', $_POST['codigo_aluno'], PDO::PARAM_INT);
+                        $stmt->bindValue(':semestre', $_POST['semestre'], PDO::PARAM_STR);
+                        $stmt->bindValue(':unidade123', $_POST['unidade123'], PDO::PARAM_INT);
+                        $stmt->bindValue(':unidade456', $_POST['unidade456'], PDO::PARAM_INT);
+                        $stmt->bindValue(':unidade789', $_POST['unidade789'], PDO::PARAM_INT);
+                        $stmt->bindValue(':mediafinal', $_POST['mediafinal'], PDO::PARAM_INT);
+                        $stmt->execute();
+                        break;
+                    case "a2-e":
+                        $stmt = $conn->prepare("INSERT INTO espanhol_a2 (b_level, codigo_aluno, semestre, unidade123, unidade456, unidade78910, proyectolectura, mediafinal) VALUES (:b_level, :codigo_aluno, :semestre, :unidade123, :unidade456, :unidade78910, :proyectolectura, :mediafinal)");
+                        $stmt->bindValue(':b_level', 'a2-e', PDO::PARAM_STR);
+                        $stmt->bindValue(':codigo_aluno', $_POST['codigo_aluno'], PDO::PARAM_INT);
+                        $stmt->bindValue(':semestre', $_POST['semestre'], PDO::PARAM_STR);
+                        $stmt->bindValue(':unidade123', $_POST['unidade123'], PDO::PARAM_INT);
+                        $stmt->bindValue(':unidade456', $_POST['unidade456'], PDO::PARAM_INT);
+                        $stmt->bindValue(':unidade78910', $_POST['unidade78910'], PDO::PARAM_INT);
+                        $stmt->bindValue(':proyectolectura', $_POST['proyectolectura'], PDO::PARAM_INT);
+                        $stmt->bindValue(':mediafinal', $_POST['mediafinal'], PDO::PARAM_INT);
+                        $stmt->execute();
+                        break;
                 }
 
                 $stmt = $conn->prepare("INSERT INTO aluno_boletins (boletins_AB, codigo_aluno_AB) VALUES (:b_level, :codigo_aluno)");
                 $stmt->bindValue(':b_level', $_POST['b_level'], PDO::PARAM_STR);
                 $stmt->bindValue(':codigo_aluno', $_POST['codigo_aluno'], PDO::PARAM_INT);
                 $stmt->execute();
-            } else {
-                $_SESSION['error_insertBoletim'] = true;
             }
 
             $conn = null;
@@ -135,6 +167,100 @@ class alunoModel extends Model {
 
             $conn = null;
             return $listAllBoletins;
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
+        }
+    }
+
+    function updateBoletim() {
+        try {
+            $boletim = $_POST['b_level'];
+            $conn = $this->db->connectionDB();
+
+            switch ($boletim) {
+                case "b1-e":
+                    $stmt = $conn->prepare("UPDATE espanhol_b1 SET b_level=:b_level, codigo_aluno=:codigo_aluno, semestre=:semestre, unidade123=:unidade123, unidade456=:unidade456, unidade789=:unidade789, unidade101112=:unidade101112, proyectolectura=:proyectolectura, mediafinal=:mediafinal WHERE codigo_aluno=:codigo_aluno AND b_level=:b_level");
+                    $stmt->bindValue(':b_level', $_POST['b_level'], PDO::PARAM_STR);
+                    $stmt->bindValue(':codigo_aluno', $_POST['codigo_aluno'], PDO::PARAM_INT);
+                    $stmt->bindValue(':semestre', $_POST['semestre'], PDO::PARAM_STR);
+                    $stmt->bindValue(':unidade123', $_POST['unidade123'], PDO::PARAM_INT);
+                    $stmt->bindValue(':unidade456', $_POST['unidade456'], PDO::PARAM_INT);
+                    $stmt->bindValue(':unidade789', $_POST['unidade789'], PDO::PARAM_INT);
+                    $stmt->bindValue(':unidade101112', $_POST['unidade101112'], PDO::PARAM_INT);
+                    $stmt->bindValue(':proyectolectura', $_POST['proyectolectura'], PDO::PARAM_INT);
+                    $stmt->bindValue(':mediafinal', $_POST['mediafinal'], PDO::PARAM_INT);
+                    $stmt->execute();
+                    break;
+                case "b2-e":
+                    $stmt = $conn->prepare("UPDATE espanhol_b2 SET b_level=:b_level, codigo_aluno=:codigo_aluno, semestre=:semestre, unidade12345=:unidade12345, unidade678910=:unidade678910, proyectolectura=:proyectolectura, mediafinal=:mediafinal WHERE codigo_aluno=:codigo_aluno AND b_level=:b_level");
+                    $stmt->bindValue(':b_level', $_POST['b_level'], PDO::PARAM_STR);
+                    $stmt->bindValue(':codigo_aluno', $_POST['codigo_aluno'], PDO::PARAM_INT);
+                    $stmt->bindValue(':semestre', $_POST['semestre'], PDO::PARAM_STR);
+                    $stmt->bindValue(':unidade12345', $_POST['unidade12345'], PDO::PARAM_INT);
+                    $stmt->bindValue(':unidade678910', $_POST['unidade678910'], PDO::PARAM_INT);
+                    $stmt->bindValue(':proyectolectura', $_POST['proyectolectura'], PDO::PARAM_INT);
+                    $stmt->bindValue(':mediafinal', $_POST['mediafinal'], PDO::PARAM_INT);
+                    $stmt->execute();
+                    break;
+                case "a1-e":
+                    $stmt = $conn->prepare("UPDATE espanhol_a1 SET b_level=:b_level, codigo_aluno=:codigo_aluno, semestre=:semestre, unidade123=:unidade123, unidade456=:unidade456, unidade789=:unidade789, mediafinal=:mediafinal WHERE codigo_aluno=:codigo_aluno AND b_level=:b_level");
+                    $stmt->bindValue(':b_level', $_POST['b_level'], PDO::PARAM_STR);
+                    $stmt->bindValue(':codigo_aluno', $_POST['codigo_aluno'], PDO::PARAM_INT);
+                    $stmt->bindValue(':semestre', $_POST['semestre'], PDO::PARAM_STR);
+                    $stmt->bindValue(':unidade123', $_POST['unidade123'], PDO::PARAM_INT);
+                    $stmt->bindValue(':unidade456', $_POST['unidade456'], PDO::PARAM_INT);
+                    $stmt->bindValue(':unidade789', $_POST['unidade789'], PDO::PARAM_INT);
+                    $stmt->bindValue(':mediafinal', $_POST['mediafinal'], PDO::PARAM_INT);
+                    $stmt->execute();
+                    break;
+                case "a2-e":
+                    $stmt = $conn->prepare("UPDATE espanhol_a2 SET b_level=:b_level, codigo_aluno=:codigo_aluno, semestre=:semestre, unidade123=:unidade123, unidade456=:unidade456, unidade78910=:unidade78910, proyectolectura=:proyectolectura, mediafinal=:mediafinal WHERE codigo_aluno=:codigo_aluno AND b_level=:b_level");
+                    $stmt->bindValue(':b_level', $_POST['b_level'], PDO::PARAM_STR);
+                    $stmt->bindValue(':codigo_aluno', $_POST['codigo_aluno'], PDO::PARAM_INT);
+                    $stmt->bindValue(':semestre', $_POST['semestre'], PDO::PARAM_STR);
+                    $stmt->bindValue(':unidade123', $_POST['unidade123'], PDO::PARAM_INT);
+                    $stmt->bindValue(':unidade456', $_POST['unidade456'], PDO::PARAM_INT);
+                    $stmt->bindValue(':unidade78910', $_POST['unidade78910'], PDO::PARAM_INT);
+                    $stmt->bindValue(':proyectolectura', $_POST['proyectolectura'], PDO::PARAM_INT);
+                    $stmt->bindValue(':mediafinal', $_POST['mediafinal'], PDO::PARAM_INT);
+                    $stmt->execute();
+                    break;
+            }
+
+            $conn = null;
+        } catch (Exception $ex) {
+
+            echo 'Error: ' . $ex->getMessage();
+        }
+    }
+
+    function deleteBoletim($id) {
+        $boletim = explode("_", $id);        
+        try {
+            $conn = $this->db->connectionDB();
+            
+
+            switch ($boletim[1]) {
+                case "b1-e" :
+                    $stmt = $conn->prepare("DELETE FROM espanhol_b1 WHERE codigo_aluno=" . $boletim[0]);
+                    $stmt->execute();
+                    break;
+                case "b2-e" :
+                    $stmt = $conn->prepare("DELETE FROM espanhol_b2 WHERE codigo_aluno=" . $boletim[0]);
+                    $stmt->execute();
+                    break;
+                case "a1-e":
+                    $stmt = $conn->prepare("DELETE FROM espanhol_a1 WHERE codigo_aluno=" . $boletim[0]);
+                    $stmt->execute();
+                    break;
+                case "a2-e":
+                    $stmt = $conn->prepare("DELETE FROM espanhol_a2 WHERE codigo_aluno=" . $boletim[0]);
+                    $stmt->execute();
+                    break;
+            }
+            $stmt = $conn->prepare("DELETE FROM aluno_boletins WHERE aluno_boletins.boletins_AB='$boletim[1]' AND aluno_boletins.codigo_aluno_AB=" . $boletim[0]);
+            $stmt->execute();
+            $conn = null;
         } catch (Exception $ex) {
             echo 'Error: ' . $ex->getMessage();
         }
