@@ -133,6 +133,39 @@ class alunoModel extends Model {
                         $stmt->bindValue(':mediafinal', $_POST['mediafinal'], PDO::PARAM_INT);
                         $stmt->execute();
                         break;
+                    case "alemao":
+                        $stmt = $conn->prepare("INSERT INTO alemao (b_level, codigo_aluno, semestre, quiz_1, test_1, quiz_2, test_2, sprechen, hausau) VALUES (:b_level, :codigo_aluno, :semestre, :quiz_1, :test_1, :quiz_2, :test_2, :sprechen, :hausau)");
+                        $stmt->bindValue(':b_level', 'alemao', PDO::PARAM_STR);
+                        $stmt->bindValue(':codigo_aluno', $_POST['codigo_aluno'], PDO::PARAM_INT);
+                        $stmt->bindValue(':semestre', $_POST['semestre'], PDO::PARAM_STR);
+                        $stmt->bindValue(':quiz_1', $_POST['quiz_1'], PDO::PARAM_INT);
+                        $stmt->bindValue(':test_1', $_POST['test_1'], PDO::PARAM_INT);
+                        $stmt->bindValue(':quiz_2', $_POST['quiz_2'], PDO::PARAM_INT);
+                        $stmt->bindValue(':test_2', $_POST['test_2'], PDO::PARAM_INT);
+                        $stmt->bindValue(':sprechen', $_POST['sprechen'], PDO::PARAM_INT);
+                        $stmt->bindValue(':hausau', $_POST['hausau'], PDO::PARAM_INT);
+                        $stmt->execute();
+                        break;
+                    case "ingles":
+                        $stmt = $conn->prepare("INSERT INTO ingles (b_level, codigo_aluno, semestre, quiz_1, test_1, participacao_1, media_1, quiz_2, test_2, oral_test, mocks, reading, participacao_2, multroom, media_2, media_final) VALUES (:b_level, :codigo_aluno, :semestre, :quiz_1, :test_1, :participacao_1, :media_1, :quiz_2, :test_2, :oral_test, :mocks, :reading, :participacao_2, :multroom, :media_2, :media_final)");
+                        $stmt->bindValue(':b_level', 'ingles', PDO::PARAM_STR);
+                        $stmt->bindValue(':codigo_aluno', $_POST['codigo_aluno'], PDO::PARAM_INT);
+                        $stmt->bindValue(':semestre', $_POST['semestre'], PDO::PARAM_STR);
+                        $stmt->bindValue(':quiz_1', $_POST['quiz_1'], PDO::PARAM_INT);
+                        $stmt->bindValue(':test_1', $_POST['test_1'], PDO::PARAM_INT);
+                        $stmt->bindValue(':participacao_1', $_POST['participacao_1'], PDO::PARAM_INT);
+                        $stmt->bindValue(':media_1', $_POST['media_1'], PDO::PARAM_INT);
+                        $stmt->bindValue(':quiz_2', $_POST['quiz_2'], PDO::PARAM_INT);
+                        $stmt->bindValue(':test_2', $_POST['test_2'], PDO::PARAM_INT);
+                        $stmt->bindValue(':oral_test', $_POST['oral_test'], PDO::PARAM_INT);
+                        $stmt->bindValue(':mocks', $_POST['mocks'], PDO::PARAM_INT);
+                        $stmt->bindValue(':reading', $_POST['reading'], PDO::PARAM_INT);
+                        $stmt->bindValue(':participacao_2', $_POST['participacao_2'], PDO::PARAM_INT);
+                        $stmt->bindValue(':multroom', $_POST['multroom'], PDO::PARAM_INT);
+                        $stmt->bindValue(':media_2', $_POST['media_2'], PDO::PARAM_INT);
+                        $stmt->bindValue(':media_final', $_POST['media_final'], PDO::PARAM_INT);
+                        $stmt->execute();
+                        break;
                 }
 
                 $stmt = $conn->prepare("INSERT INTO aluno_boletins (boletins_AB, codigo_aluno_AB) VALUES (:b_level, :codigo_aluno)");
@@ -225,6 +258,39 @@ class alunoModel extends Model {
                     $stmt->bindValue(':mediafinal', $_POST['mediafinal'], PDO::PARAM_INT);
                     $stmt->execute();
                     break;
+                case "alemao":
+                    $stmt = $conn->prepare("UPDATE alemao SET b_level=:b_level, codigo_aluno=:codigo_aluno, semestre=:semestre, quiz_1=:quiz_1, test_1=:test_1, quiz_2=:quiz_2, test_2=:test_2, sprechen=:sprechen, hausau=:hausau WHERE codigo_aluno=:codigo_aluno AND b_level=:b_level");
+                    $stmt->bindValue(':b_level', $_POST['b_level'], PDO::PARAM_STR);
+                    $stmt->bindValue(':codigo_aluno', $_POST['codigo_aluno'], PDO::PARAM_INT);
+                    $stmt->bindValue(':semestre', $_POST['semestre'], PDO::PARAM_STR);
+                    $stmt->bindValue(':quiz_1', $_POST['quiz_1'], PDO::PARAM_INT);
+                    $stmt->bindValue(':test_1', $_POST['test_1'], PDO::PARAM_INT);
+                    $stmt->bindValue(':quiz_2', $_POST['quiz_2'], PDO::PARAM_INT);
+                    $stmt->bindValue(':test_2', $_POST['test_2'], PDO::PARAM_INT);
+                    $stmt->bindValue(':sprechen', $_POST['sprechen'], PDO::PARAM_INT);
+                    $stmt->bindValue(':hausau', $_POST['hausau'], PDO::PARAM_INT);
+                    $stmt->execute();
+                    break;
+                case "ingles":
+                    $stmt = $conn->prepare("UPDATE ingles SET b_level=:b_level, codigo_aluno=:codigo_aluno, semestre=:semestre, quiz_1=:quiz_1, test_1=:test_1, participacao_1=:participacao_1, media_1=:media_1, quiz_2=:quiz_2, test_2=:test_2, oral_test=:oral_test, mocks=:mocks, reading=:reading, participacao_2=:participacao_2, multroom=:multroom, media_2=:media_2, media_final=:media_final WHERE codigo_aluno=:codigo_aluno AND b_level=:b_level");
+                    $stmt->bindValue(':b_level', $_POST['b_level'], PDO::PARAM_STR);
+                    $stmt->bindValue(':codigo_aluno', $_POST['codigo_aluno'], PDO::PARAM_INT);
+                    $stmt->bindValue(':semestre', $_POST['semestre'], PDO::PARAM_STR);
+                    $stmt->bindValue(':quiz_1', $_POST['quiz_1'], PDO::PARAM_INT);
+                    $stmt->bindValue(':test_1', $_POST['test_1'], PDO::PARAM_INT);
+                    $stmt->bindValue(':participacao_1', $_POST['participacao_1'], PDO::PARAM_INT);
+                    $stmt->bindValue(':media_1', $_POST['media_1'], PDO::PARAM_INT);
+                    $stmt->bindValue(':quiz_2', $_POST['quiz_2'], PDO::PARAM_INT);
+                    $stmt->bindValue(':test_2', $_POST['test_2'], PDO::PARAM_INT);
+                    $stmt->bindValue(':oral_test', $_POST['oral_test'], PDO::PARAM_INT);
+                    $stmt->bindValue(':mocks', $_POST['mocks'], PDO::PARAM_INT);
+                    $stmt->bindValue(':reading', $_POST['reading'], PDO::PARAM_INT);
+                    $stmt->bindValue(':participacao_2', $_POST['participacao_2'], PDO::PARAM_INT);
+                    $stmt->bindValue(':multroom', $_POST['multroom'], PDO::PARAM_INT);
+                    $stmt->bindValue(':media_2', $_POST['media_2'], PDO::PARAM_INT);
+                    $stmt->bindValue(':media_final', $_POST['media_final'], PDO::PARAM_INT);
+                    $stmt->execute();
+                    break;
             }
 
             $conn = null;
@@ -235,10 +301,10 @@ class alunoModel extends Model {
     }
 
     function deleteBoletim($id) {
-        $boletim = explode("_", $id);        
+        $boletim = explode("_", $id);
         try {
             $conn = $this->db->connectionDB();
-            
+
 
             switch ($boletim[1]) {
                 case "b1-e" :
@@ -255,6 +321,14 @@ class alunoModel extends Model {
                     break;
                 case "a2-e":
                     $stmt = $conn->prepare("DELETE FROM espanhol_a2 WHERE codigo_aluno=" . $boletim[0]);
+                    $stmt->execute();
+                    break;
+                case "alemao":
+                    $stmt = $conn->prepare("DELETE FROM alemao WHERE codigo_aluno=" . $boletim[0]);
+                    $stmt->execute();
+                    break;
+                case "ingles":
+                    $stmt = $conn->prepare("DELETE FROM ingles WHERE codigo_aluno=" . $boletim[0]);
                     $stmt->execute();
                     break;
             }

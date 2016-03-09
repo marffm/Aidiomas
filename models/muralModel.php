@@ -3,7 +3,7 @@
 class muralModel extends Model {
     
    
-    public function getAllArticles() {
+    function getAllArticles() {
         
         $conn = $this->db->connectionDB();
         $stmt = $conn->prepare("SELECT * FROM mural");
@@ -11,14 +11,22 @@ class muralModel extends Model {
         $results = $stmt->fetchall(PDO::FETCH_ASSOC);
         $conn = null;
         
-        //var_dump($results);
-        
         return $results;
         
     }
     
-    public function getArticlebyId($id) {
-        
+    function getArticlebyId($id) {
+        try {
+            $conn = $this->db->connectionDB();
+            $stmt = $conn->prepare("SELECT * FROM mural WHERE id='$id'");
+            $stmt->execute();
+            $articles = $stmt->fetchall(PDO::FETCH_ASSOC);
+            $conn = null;
+            return $articles;
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
+
+        }
     }
     
 }

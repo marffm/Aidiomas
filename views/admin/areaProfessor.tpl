@@ -29,7 +29,7 @@
                     <?php foreach ($data['grupos'] as $grupos) { ?>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Grupo - <?php echo $grupos['cod_grupo'] ?></h3>
+                            <h3 class="panel-title">Grupo - <?php echo $grupos['cod_grupo'] ?> - <?php echo utf8_encode($grupos['nome_idioma']) ?></h3>
                         </div>
 
                         <div class="panel-body">

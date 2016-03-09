@@ -5,7 +5,7 @@ class areaProfessorModel extends Model {
     function getGrupos($username) {
         try {
             $conn = $this->db->connectionDB();
-            $stmt = $conn->prepare("SELECT grupo.cod_grupo, professor.nome_prof FROM grupo INNER JOIN professor ON (grupo.codigo_professor=professor.id) WHERE professor.nome_prof='$username'");
+            $stmt = $conn->prepare("SELECT grupo.cod_grupo, professor.nome_prof, idiomas.nome_idioma FROM grupo INNER JOIN professor ON (grupo.codigo_professor=professor.id) INNER JOIN idiomas ON (grupo.idioma=idiomas.id) WHERE professor.nome_prof='$username'");
             $stmt->execute();
             $grupos = $stmt->fetchall(PDO::FETCH_ASSOC);
             $conn = null;

@@ -130,6 +130,81 @@
                                     <td><?php echo $boletins['mediafinal'] ?></td>
                                 </tr>
                             </table> 
+                            <?php } else if ($boletins['b_level'] == $alunogrupo['level_grupo'] and $boletins['b_level'] == 'alemao') { ?>
+                            <div class="text">
+                                <p>Código Aluno: <strong><?php echo $alunogrupo['codigo_aluno'] ?></strong></p>                                
+                                <p>Professor: <strong><?php echo $alunogrupo['nome_prof'] ?></strong></p>
+                                <p>Nivel: <strong><?php echo $alunogrupo['level_grupo'] ?></strong></p>
+                                <p>Semestre: <strong><?php echo $boletins['semestre'] ?></strong></p>
+                            </div>
+                            <br/>
+                            <table class="table table-hover table-bordered">
+                                <tr style='font-size: 12px;'>
+                                    <th>Quiz 1</th>
+                                    <th>Test 1</th>
+                                    <th>Quiz 2</th>
+                                    <th>Test 2</th>
+                                    <th>Sprechen</th>
+                                    <th>Hausau</th>
+                                </tr>
+                                <tr>
+                                    <td><?php echo $boletins['quiz_1'] ?></td>
+                                    <td><?php echo $boletins['test_1'] ?></td>
+                                    <td><?php echo $boletins['quiz_2'] ?></td>
+                                    <td><?php echo $boletins['test_2'] ?></td>
+                                    <td><?php echo $boletins['sprechen'] ?></td>
+                                    <td><?php echo $boletins['hausau'] ?></td>
+                                </tr>
+                            </table> 
+                            
+                            <?php } else if ($boletins['b_level'] == $alunogrupo['level_grupo'] and $boletins['b_level'] == 'ingles') { ?>
+                            <div class="text">
+                                <p>Código Aluno: <strong><?php echo $alunogrupo['codigo_aluno'] ?></strong></p>                                
+                                <p>Professor: <strong><?php echo $alunogrupo['nome_prof'] ?></strong></p>
+                                <p>Nivel: <strong><?php echo $alunogrupo['level_grupo'] ?></strong></p>
+                                <p>Semestre: <strong><?php echo $boletins['semestre'] ?></strong></p>
+                            </div>
+                            <br/>
+                            <table class="table table-hover table-bordered">
+                                <tr style='font-size: 12px;'>
+                                    <th>Quiz 1</th>
+                                    <th>Test 1</th>
+                                    <th>Participação 1</th>
+                                    <th>Média 1</th>
+                                    
+                                </tr>
+                                <tr>
+                                    <td><?php echo $boletins['quiz_1'] ?></td>
+                                    <td><?php echo $boletins['test_1'] ?></td>
+                                    <td><?php echo $boletins['participacao_1'] ?></td>
+                                    <td><?php echo $boletins['media_1'] ?></td>
+                                    
+                                </tr>
+                                
+                                <tr style='font-size: 12px;'>
+                                    <th>Quiz 2</th>
+                                    <th>Test 2</th>
+                                    <th>Oral Teste</th>
+                                    <th>Mocks</th>
+                                    <th>Reading</th>
+                                    <th>Participação 2</th>
+                                    <th>Multroom</th>
+                                    <th>Média 2</th>
+                                    <th>Média Final</th>
+                                </tr>
+                                <tr>
+                                    <td><?php echo $boletins['quiz_2'] ?></td>
+                                    <td><?php echo $boletins['test_2'] ?></td>
+                                    <td><?php echo $boletins['oral_test'] ?></td>
+                                    <td><?php echo $boletins['mocks'] ?></td>
+                                    <td><?php echo $boletins['reading'] ?></td>
+                                    <td><?php echo $boletins['participacao_2'] ?></td>
+                                    <td><?php echo $boletins['multroom'] ?></td>
+                                    <td><?php echo $boletins['media_2'] ?></td>
+                                    <td><?php echo $boletins['media_final'] ?></td>
+                                </tr>
+                            </table> 
+                            
                             <?php }?>
 
                             <?php }?>

@@ -75,6 +75,12 @@ class Aluno extends Controller {
                     case "a2-e":
                         $nivel_a2e = true;
                         break;
+                    case "alemao":
+                        $nivel_alemao = true;
+                        break;
+                    case "ingles":
+                        $nivel_ingles = true;
+                        break;
                 }
             }
         }

@@ -28,23 +28,23 @@ a {
     padding-bottom: 20px;
     vertical-align: middle;
     display: inherit;
+    text-align: center;
 }
 
 
 #da_logo {
-    margin-top: 60px;
-    width: 100%;
-    width-max:150px; 
+    padding-top: 40px;
+    max-width: 85%;
 }
 
 #alianca_logo {
-    width: 100%;
+    max-width: 65%;
     
 }
 
 #af_logo {
-    margin-top: 85px;
-    width: 100%;
+    padding-top: 60px;
+    max-width: 85%;
 }
 
 /* ---- END HEAD ---- */
@@ -150,6 +150,11 @@ a {
     margin-bottom: 40px;
 }
 
+.mural_box a {
+    text-decoration: none;
+    color: #333;
+}
+
 .mural_box .image {
     width: 100%;
     text-align: center;
@@ -165,12 +170,120 @@ a {
     text-align: justify;
 }
 
+.mural_box .content {
+    text-align: justify;
+}
+
 .mural_box .date {
     margin-top: 10px;
     text-align: right;
 }
 
 /* ---- END MURAL ---- */
+
+/* ---- PROMOCOES ---- */
+
+.promocoes {
+    margin-bottom: 40px;
+}
+
+.promocoes img{
+    width: 100%;
+    margin-bottom: 20px;
+}
+/* ---- END PROMOCOES ---- */
+
+
+/* ---- ESTRUTURA ---- */
+
+.title-estrutura {
+    background-color: #183c72;
+}
+
+.title-estrutura h3 {
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    padding: 0px 0 10px 0;
+}
+
+.box-estrutura-unidade1 {
+    margin-top: 30px;
+    background-color: #174a98;
+    padding: 15px 0 15px;
+}
+.box-estrutura-unidade1 p {
+    color: #fff;
+}
+
+.box-estrutura-unidade2 {
+    margin-top: 30px;
+    background-color: #cc2229;
+    padding: 15px 0 15px;
+    margin-bottom: 50px;
+}
+
+.box-estrutura-unidade2 p {
+    color: #fff;
+    text-align: right;
+}
+
+/* ---- END ESTRUTURA ---- */
+
+/* ---- CURSO ---- */
+.curso-idioma {
+}
+
+.curso-idioma img {
+    margin-right: 20px;
+    max-width: 86px;
+}
+
+.curso-idioma span {
+    font-size: 28px;
+    font-weight: bold;
+}
+.line-2 {
+    margin: 45px 0 45px 0;
+}
+
+.part-2 {
+    margin: 90px 0 125px 0 ;
+}
+
+.part-2 img {
+    max-width: 480px;
+}
+
+.part-2 ul {
+    margin-top: 55px;
+}
+.part-2 p {
+    font-size: 17px;
+}
+/* ---- END CURSO ---- */
+
+/* ---- APRENDIZAGEM ---- */
+
+.aprendizagem {
+    margin: 0 0 60px 0;
+}
+
+.aprendizagem img {
+    max-width: 100%;
+}
+/* ---- END APRENDIZAGEM ---- */
+
+
+
+/* ---- PARCERIAS ---- */
+.parcerias {
+    margin: 60px 0 90px 0;
+    text-align: center;
+}
+/* ---- END PARCERIAS ---- */
+
+
 
 
 /* ---- LOGIN ---- */
@@ -297,3 +410,10 @@ a {
     margin-top: 20px;
 }
 /* ---- END INSERT ALUNO ---- */
+
+/* ---- ALUNO ---- */
+.box_aluno {
+    min-height: 730px;
+}
+
+/* ---- END ALUNO ---- */

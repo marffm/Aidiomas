@@ -11,18 +11,18 @@
         <?php foreach ($data['results'] as $results) { ?>
         
         <div class="col-sm-3">
-            
+
             <div class="mural_box">
                 <div class="image">
                     <img src="<?php echo $data['image'] ?>">
                 </div>
                 
                 <div class="title">
-                    <h3><?php echo utf8_encode($results['title']) ?></h3>
+                    <a href="artigo/setArtigo/<?php echo utf8_encode($results['id']) ?>"><h3><?php echo utf8_encode($results['title']) ?></h3></a>
                 </div>
                 
                 <div class="summary">
-                    <span><?php echo utf8_encode($results['summary']) ?></span>
+                    <a href="#"><span><?php echo utf8_encode($results['summary']) ?></span></a>
                 </div>
                 
                 <div class="date">

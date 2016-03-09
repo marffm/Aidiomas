@@ -116,7 +116,7 @@
                 <div class="panel-heading">
                     <h4 class="panel-title">Inserir Boletins</h4>
                 </div>
-                <div class="panel-body">                    
+                <div class="panel-body">
 
                     <?php if (isset($nivel_b1e)) { ?>
                     <div class="col-sm-6">
@@ -124,7 +124,7 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title">Boletim - Espanhol Nivel B1</h3>
                             </div>
-                            <div class="panel-body">
+                            <div class="panel-body box_aluno">
                                 <form action="<?php echo PATH_URL ?>aluno/insertBoletim" method="POST">
                                     <input type="hidden" name="codigo_aluno" id="codigo_aluno" value="<?php echo $aluno['codigo'] ?>" />
                                     <input type="hidden" name="b_level" id="b_level" value="b1-e" />
@@ -171,7 +171,7 @@
                                 <h3 class="panel-title">Boletim - Espanhol Nivel B2</h3>
                             </div>
 
-                            <div class="panel-body">
+                            <div class="panel-body box_aluno">
                                 <form action="<?php echo PATH_URL ?>aluno/insertBoletim" method="POST">
                                     <input type="hidden" name="codigo_aluno" id="codigo_aluno" value="<?php echo $aluno['codigo'] ?>" />
                                     <input type="hidden" name="b_level" id="b_level" value="b2-e" />
@@ -210,7 +210,7 @@
                                 <h3 class="panel-title">Boletim - Espanhol Nivel A1</h3>
                             </div>
 
-                            <div class="panel-body">
+                            <div class="panel-body box_aluno">
                                 <form action="<?php echo PATH_URL ?>aluno/insertBoletim" method="POST">
                                     <input type="hidden" name="codigo_aluno" id="codigo_aluno" value="<?php echo $aluno['codigo'] ?>" />
                                     <input type="hidden" name="b_level" id="b_level" value="a1-e" />
@@ -242,7 +242,7 @@
                         </div>
                     </div>
                     <?php } ?>
-                    
+
                     <?php if (isset($nivel_a2e)) { ?>
                     <div class="col-sm-6">
                         <div class="panel panel-default">
@@ -250,7 +250,7 @@
                                 <h3 class="panel-title">Boletim - Espanhol Nivel A2</h3>
                             </div>
 
-                            <div class="panel-body">
+                            <div class="panel-body box_aluno">
                                 <form action="<?php echo PATH_URL ?>aluno/insertBoletim" method="POST">
                                     <input type="hidden" name="codigo_aluno" id="codigo_aluno" value="<?php echo $aluno['codigo'] ?>" />
                                     <input type="hidden" name="b_level" id="b_level" value="a2-e" />
@@ -274,6 +274,114 @@
                                     <br/>
                                     <span><strong>Promedio Final</strong></span>
                                     <input type="text" name="mediafinal" id="mediafinal" placeholder="00" class="form-control" />
+                                    <div id="button-inserirAluno">
+                                        <button type="submit" class="btn btn-info">Inserir Boletim</button>
+                                    </div>
+                                </form>
+                                <?php if(isset($errorInsertBoletim)) { ?>
+                                <p class="alert alert-danger" role="alert"><?php echo $errorInsertBoletim ?></p>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                    <?php } ?>
+
+                    <?php if (isset($nivel_alemao)) { ?>
+                    <div class="col-sm-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Boletim - Alemão</h3>
+                            </div>
+
+                            <div class="panel-body box_aluno">
+                                <form action="<?php echo PATH_URL ?>aluno/insertBoletim" method="POST">
+                                    <input type="hidden" name="codigo_aluno" id="codigo_aluno" value="<?php echo $aluno['codigo'] ?>" />
+                                    <input type="hidden" name="b_level" id="b_level" value="alemao" />
+                                    <span><strong>Semestre</strong></span>
+                                    <input type="text" name="semestre" id="semestre" placeholder="00/0000" class="form-control" required="" />
+                                    <br/>
+                                    <span><strong>Quiz 1</strong></span>
+                                    <input type="text" name="quiz_1" id="quiz_1" placeholder="00" class="form-control" />
+                                    <br/>
+                                    <span><strong>Test 1</strong></span>
+                                    <input type="text" name="test_1" id="test_1" placeholder="00" class="form-control" />
+                                    <br/>
+                                    <span><strong>Quiz 2</strong></span>
+                                    <input type="text" name="quiz_2" id="quiz_2" placeholder="00" class="form-control" />
+                                    <br/>
+                                    <span><strong>Test 2</strong></span>
+                                    <input type="text" name="test_2" id="test_2" placeholder="00" class="form-control" />
+                                    <br/>
+                                    <span><strong>Sprechen</strong></span>
+                                    <input type="text" name="sprechen" id="sprechen" placeholder="00" class="form-control" />
+                                    <br/>
+                                    <span><strong>Hausaufgabe</strong></span>
+                                    <input type="text" name="hausau" id="hausau" placeholder="00" class="form-control" />
+                                    <div id="button-inserirAluno">
+                                        <button type="submit" class="btn btn-info">Inserir Boletim</button>
+                                    </div>
+                                </form>
+                                <?php if(isset($errorInsertBoletim)) { ?>
+                                <p class="alert alert-danger" role="alert"><?php echo $errorInsertBoletim ?></p>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                    <?php } ?>
+                    
+                    <?php if (isset($nivel_ingles)) { ?>
+                    <div class="col-sm-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Boletim - Inglês</h3>
+                            </div>
+
+                            <div class="panel-body box_aluno">
+                                <form action="<?php echo PATH_URL ?>aluno/insertBoletim" method="POST">
+                                    <input type="hidden" name="codigo_aluno" id="codigo_aluno" value="<?php echo $aluno['codigo'] ?>" />
+                                    <input type="hidden" name="b_level" id="b_level" value="ingles" />
+                                    <span><strong>Semestre</strong></span>
+                                    <input type="text" name="semestre" id="semestre" placeholder="00/0000" class="form-control" required="" />
+                                    <br/>
+                                    <span><strong>Quiz 1</strong></span>
+                                    <input type="text" name="quiz_1" id="quiz_1" placeholder="00" class="form-control" />
+                                    <br/>
+                                    <span><strong>Test 1</strong></span>
+                                    <input type="text" name="test_1" id="test_1" placeholder="00" class="form-control" />
+                                    <br/>
+                                    <span><strong>Participação 1</strong></span>
+                                    <input type="text" name="participacao_1" id="participacao_1" placeholder="00" class="form-control" />
+                                    <br/>
+                                    <span><strong>Média 1</strong></span>
+                                    <input type="text" name="media_1" id="media_1" placeholder="00" class="form-control" />
+                                    <br/>
+                                    <span><strong>Quiz 2</strong></span>
+                                    <input type="text" name="quiz_2" id="quiz_2" placeholder="00" class="form-control" />
+                                    <br/>
+                                    <span><strong>Test 2</strong></span>
+                                    <input type="text" name="test_2" id="test_2" placeholder="00" class="form-control" />
+                                    <br/>
+                                    <span><strong>Oral Test</strong></span>
+                                    <input type="text" name="oral_test" id="oral_test" placeholder="00" class="form-control" />
+                                    <br/>
+                                    <span><strong>Mocks</strong></span>
+                                    <input type="text" name="mocks" id="mocks" placeholder="00" class="form-control" />
+                                    <br/>
+                                    <span><strong>Reading</strong></span>
+                                    <input type="text" name="reading" id="reading" placeholder="00" class="form-control" />
+                                    <br/>
+                                    <span><strong>Participação 2</strong></span>
+                                    <input type="text" name="participacao_2" id="participacao_2" placeholder="00" class="form-control" />
+                                    <br/>
+                                    <span><strong>Multroom</strong></span>
+                                    <input type="text" name="multroom" id="multroom" placeholder="00" class="form-control" />
+                                    <br/>
+                                    <span><strong>Média 2</strong></span>
+                                    <input type="text" name="media_2" id="media_2" placeholder="00" class="form-control" />
+                                    <br/>
+                                    <span><strong>Média Final</strong></span>
+                                    <input type="text" name="media_final" id="media_final" placeholder="00" class="form-control" />
+                                    
                                     <div id="button-inserirAluno">
                                         <button type="submit" class="btn btn-info">Inserir Boletim</button>
                                     </div>
@@ -310,7 +418,7 @@
                             </div>
 
 
-                            <div class="panel-body">
+                            <div class="panel-body box_aluno">
                                 <form action="<?php echo PATH_URL ?>aluno/updateBoletim" method="POST">
                                     <input type="hidden" name="codigo_aluno" id="codigo_aluno" value="<?php echo $boletins['codigo_aluno'] ?>" />
                                     <input type="hidden" name="b_level" id="b_level" value="b1-e" />
@@ -357,7 +465,7 @@
                                 <h3 class="panel-title">Boletim - <?php echo $boletins['b_level'] ?></h3>
                             </div>
 
-                            <div class="panel-body">
+                            <div class="panel-body box_aluno">
                                 <form action="<?php echo PATH_URL ?>aluno/updateBoletim" method="POST">
                                     <input type="hidden" name="codigo_aluno" id="codigo_aluno" value="<?php echo $boletins['codigo_aluno'] ?>" />
                                     <input type="hidden" name="b_level" id="b_level" value="b2-e" />
@@ -388,7 +496,7 @@
                     </div>
 
                     <?php } ?> <!-- END IF B2-E -->
-                    
+
                     <?php if ($boletins['b_level'] == "a1-e" ) { ?>
 
                     <div class="col-sm-6">
@@ -397,7 +505,7 @@
                                 <h3 class="panel-title">Boletim - <?php echo $boletins['b_level'] ?></h3>
                             </div>
 
-                            <div class="panel-body">
+                            <div class="panel-body box_aluno">
                                 <form action="<?php echo PATH_URL ?>aluno/updateBoletim" method="POST">
                                     <input type="hidden" name="codigo_aluno" id="codigo_aluno" value="<?php echo $boletins['codigo_aluno'] ?>" />
                                     <input type="hidden" name="b_level" id="b_level" value="a1-e" />
@@ -429,7 +537,7 @@
                     </div>
 
                     <?php } ?> <!-- END IF A1-E -->
-                    
+
                     <?php if ($boletins['b_level'] == "a2-e" ) { ?>
 
                     <div class="col-sm-6">
@@ -438,7 +546,7 @@
                                 <h3 class="panel-title">Boletim - <?php echo $boletins['b_level'] ?></h3>
                             </div>
 
-                            <div class="panel-body">
+                            <div class="panel-body box_aluno">
                                 <form action="<?php echo PATH_URL ?>aluno/updateBoletim" method="POST">
                                     <input type="hidden" name="codigo_aluno" id="codigo_aluno" value="<?php echo $boletins['codigo_aluno'] ?>" />
                                     <input type="hidden" name="b_level" id="b_level" value="a2-e" />
@@ -464,7 +572,7 @@
                                     <input type="text" name="mediafinal" id="mediafinal" value="<?php echo $boletins['mediafinal'] ?>" class="form-control" />
                                     <div id="button-inserirAluno">
                                         <button type="submit" class="btn btn-info">Atualizar Boletim</button>
-                                        <a href="<?php echo PATH_URL ?>aluno/deleteBoletim/<?php echo $boletins['codigo_aluno'] ?>_a1-e" class=" btn btn-danger">Deletar</a>
+                                        <a href="<?php echo PATH_URL ?>aluno/deleteBoletim/<?php echo $boletins['codigo_aluno'] ?>_a2-e" class=" btn btn-danger">Deletar</a>
                                     </div>
                                 </form>
                             </div>
@@ -473,6 +581,113 @@
                     </div>
 
                     <?php } ?> <!-- END IF A2-E -->
+
+                    <?php if ($boletins['b_level'] == "alemao" ) { ?>
+
+                    <div class="clearfix col-sm-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Boletim - <?php echo $boletins['b_level'] ?></h3>
+                            </div>
+
+                            <div class="panel-body box_aluno">
+                                <form action="<?php echo PATH_URL ?>aluno/updateBoletim" method="POST">
+                                    <input type="hidden" name="codigo_aluno" id="codigo_aluno" value="<?php echo $boletins['codigo_aluno'] ?>" />
+                                    <input type="hidden" name="b_level" id="b_level" value="alemao" />
+                                    <span><strong>Semestre</strong></span>
+                                    <input type="text" name="semestre" id="semestre" value="<?php echo $boletins['semestre'] ?>" class="form-control" required="" />
+                                    <br/>
+                                    <span><strong>Quiz 1</strong></span>
+                                    <input type="text" name="quiz_1" id="quiz_1" value="<?php echo $boletins['quiz_1'] ?>" class="form-control" />
+                                    <br/>
+                                    <span><strong>Test 1</strong></span>
+                                    <input type="text" name="test_1" id="test_1" value="<?php echo $boletins['test_1'] ?>" class="form-control" />
+                                    <br/>
+                                    <span><strong>Quiz 1</strong></span>
+                                    <input type="text" name="quiz_2" id="quiz_2" value="<?php echo $boletins['quiz_2'] ?>" class="form-control" />
+                                    <br/>
+                                    <span><strong>Test 2</strong></span>
+                                    <input type="text" name="test_2" id="test_2" value="<?php echo $boletins['test_2'] ?>" class="form-control" />
+                                    <br/>
+                                    <span><strong>Sprechen</strong></span>
+                                    <input type="text" name="sprechen" id="sprechen" value="<?php echo $boletins['sprechen'] ?>" class="form-control" />
+                                    <br/>
+                                    <span><strong>Hausaufgabe</strong></span>
+                                    <input type="text" name="hausau" id="hausau" value="<?php echo $boletins['hausau'] ?>" class="form-control" />
+                                    <div id="button-inserirAluno">
+                                        <button type="submit" class="btn btn-info">Atualizar Boletim</button>
+                                        <a href="<?php echo PATH_URL ?>aluno/deleteBoletim/<?php echo $boletins['codigo_aluno'] ?>_alemao" class=" btn btn-danger">Deletar</a>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <?php } ?> <!-- END IF ALEMAO -->
+                    
+                    <?php if ($boletins['b_level'] == "ingles" ) { ?>
+                    <div class="col-sm-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Boletim - Inglês</h3>
+                            </div>
+
+                            <div class="panel-body box_aluno">
+                                <form action="<?php echo PATH_URL ?>aluno/updateBoletim" method="POST">
+                                    <input type="hidden" name="codigo_aluno" id="codigo_aluno" value="<?php echo $boletins['codigo_aluno'] ?>" />
+                                    <input type="hidden" name="b_level" id="b_level" value="ingles" />
+                                    <span><strong>Semestre</strong></span>
+                                    <input type="text" name="semestre" id="semestre" value="<?php echo $boletins['semestre'] ?>" class="form-control" required="" />
+                                    <br/>
+                                    <span><strong>Quiz 1</strong></span>
+                                    <input type="text" name="quiz_1" id="quiz_1" value="<?php echo $boletins['quiz_1'] ?>" class="form-control" />
+                                    <br/>
+                                    <span><strong>Test 1</strong></span>
+                                    <input type="text" name="test_1" id="test_1" value="<?php echo $boletins['test_1'] ?>" class="form-control" />
+                                    <br/>
+                                    <span><strong>Participação 1</strong></span>
+                                    <input type="text" name="participacao_1" id="participacao_1" value="<?php echo $boletins['participacao_1'] ?>" class="form-control" />
+                                    <br/>
+                                    <span><strong>Média 1</strong></span>
+                                    <input type="text" name="media_1" id="media_1" value="<?php echo $boletins['media_1'] ?>" class="form-control" />
+                                    <br/>
+                                    <span><strong>Quiz 2</strong></span>
+                                    <input type="text" name="quiz_2" id="quiz_2" value="<?php echo $boletins['quiz_2'] ?>" class="form-control" />
+                                    <br/>
+                                    <span><strong>Test 2</strong></span>
+                                    <input type="text" name="test_2" id="test_2" value="<?php echo $boletins['test_2'] ?>" class="form-control" />
+                                    <br/>
+                                    <span><strong>Oral Test</strong></span>
+                                    <input type="text" name="oral_test" id="oral_test" value="<?php echo $boletins['oral_test'] ?>" class="form-control" />
+                                    <br/>
+                                    <span><strong>Mocks</strong></span>
+                                    <input type="text" name="mocks" id="mocks" value="<?php echo $boletins['mocks'] ?>" class="form-control" />
+                                    <br/>
+                                    <span><strong>Reading</strong></span>
+                                    <input type="text" name="reading" id="reading" value="<?php echo $boletins['reading'] ?>" class="form-control" />
+                                    <br/>
+                                    <span><strong>Participação 2</strong></span>
+                                    <input type="text" name="participacao_2" id="participacao_2" value="<?php echo $boletins['participacao_2'] ?>" class="form-control" />
+                                    <br/>
+                                    <span><strong>Multroom</strong></span>
+                                    <input type="text" name="multroom" id="multroom" value="<?php echo $boletins['multroom'] ?>" class="form-control" />
+                                    <br/>
+                                    <span><strong>Média 2</strong></span>
+                                    <input type="text" name="media_2" id="media_2" value="<?php echo $boletins['media_2'] ?>" class="form-control" />
+                                    <br/>
+                                    <span><strong>Média Final</strong></span>
+                                    <input type="text" name="media_final" id="media_final" value="<?php echo $boletins['media_final'] ?>" class="form-control" />
+                                    
+                                    <div id="button-inserirAluno">
+                                        <button type="submit" class="btn btn-info">Atualizar Boletim</button>
+                                        <a href="<?php echo PATH_URL ?>aluno/deleteBoletim/<?php echo $boletins['codigo_aluno'] ?>_ingles" class=" btn btn-danger">Deletar</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <?php } ?> <!-- END IF INGLES -->
 
                     <?php } ?> <!-- END FOREACH BOLETINS -->
                     <?php } ?> <!-- END FOREACH DATA ALUNO BOLETIN -->

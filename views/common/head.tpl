@@ -58,19 +58,19 @@
               <div class="container">
                   <div class="row">
                       
-                      <div class='col-sm-2 col-sm-offset-1 col-xs-6'>
+                      <div class='col-sm-2 col-sm-offset-1 col-xs-2'>
                           <a href="<?php echo PATH_URL ?>home">
                               <image src="<?php echo PATH_URL ?>public/images/logos/da_logo.png" id="da_logo" />
                           </a>
                       </div>
                       
-                      <div class="col-sm-4 col-sm-offset-1">
+                      <div class="col-sm-4 col-sm-offset-1 col-xs-6">
                           <a href="<?php echo PATH_URL ?>home">
                             <image src="<?php echo PATH_URL ?>public/images/logos/alianca_logo.png" id="alianca_logo" />
                           </a>
                       </div>
                       
-                      <div class="col-sm-2 col-sm-offset-1 col-xs-6">
+                      <div class="col-sm-2 col-sm-offset-1 col-xs-2">
                           <a href="<?php echo PATH_URL ?>home">
                             <image src="<?php echo PATH_URL ?>public/images/logos/af_logo.png" id="af_logo" />
                           </a>
@@ -85,10 +85,10 @@
                   <div class="row">
                       
                       <div class="col-sm-2 hvr-bounce-to-top" id="buttons_links">
-                          <a href="<?php echo PATH_URL ?>teste">Estrutura</a>
+                          <a href="<?php echo PATH_URL ?>estrutura">Estrutura</a>
                       </div>
                       <div class="col-sm-2 hvr-bounce-to-top" id="buttons_links">
-                          <a href="<?php echo PATH_URL ?>cursos">Cursos</a>
+                          <a href="<?php echo PATH_URL ?>curso">Cursos</a>
                       </div>
                       <div class="col-sm-2 hvr-bounce-to-top" id="buttons_links">
                           <a href="<?php echo PATH_URL ?>aprendizagem">Aprendizagem</a>
