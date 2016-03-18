@@ -13,4 +13,4 @@ define('PATH_URL', 'http://localhost/aidiomas/');
 
 
 /* ---- DB ---- */
-define('DB_DSN', 'mysql:host=localhost; dbname=aidiomas_db');
+define('DB_DSN', 'mysql:host=localhost; dbname=aliancaidiomas');
