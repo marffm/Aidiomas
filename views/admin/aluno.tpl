@@ -373,7 +373,7 @@
                                     <span><strong>Participação 2</strong></span>
                                     <input type="text" name="participacao_2" id="participacao_2" placeholder="00" class="form-control" />
                                     <br/>
-                                    <span><strong>Multroom</strong></span>
+                                    <span><strong>Multiroom</strong></span>
                                     <input type="text" name="multroom" id="multroom" placeholder="00" class="form-control" />
                                     <br/>
                                     <span><strong>Média 2</strong></span>
@@ -670,7 +670,7 @@
                                     <span><strong>Participação 2</strong></span>
                                     <input type="text" name="participacao_2" id="participacao_2" value="<?php echo $boletins['participacao_2'] ?>" class="form-control" />
                                     <br/>
-                                    <span><strong>Multroom</strong></span>
+                                    <span><strong>Multiroom</strong></span>
                                     <input type="text" name="multroom" id="multroom" value="<?php echo $boletins['multroom'] ?>" class="form-control" />
                                     <br/>
                                     <span><strong>Média 2</strong></span>

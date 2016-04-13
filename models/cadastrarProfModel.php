@@ -5,7 +5,7 @@ class cadastrarProfModel extends Model {
     function insertProf() {
         try {
             $conn = $this->db->connectionDB();
-            $stmt = $conn->prepare("INSERT INTO professor (nome_prof, sobrenome_prof, telefone_prof, email_prof, idioma_prof, usuario_prof, senha_prof, nivel) VALUES (:nome, :sobrenome, :telefone, :email, :idioma, :usuario, :senha, :nivel)");
+            $stmt = $conn->prepare("INSERT INTO professor (nome_prof, sobrenome_prof, telefone_prof, email_prof, idioma, usuario_prof, senha_prof, nivel) VALUES (:nome, :sobrenome, :telefone, :email, :idioma, :usuario, :senha, :nivel)");
             $stmt->bindValue(':nome', $_POST['nome_prof'], PDO::PARAM_STR);
             $stmt->bindValue(':sobrenome', $_POST['sobrenome_prof'], PDO::PARAM_STR);
             $stmt->bindValue(':telefone', $_POST['telefone_prof'], PDO::PARAM_STR);

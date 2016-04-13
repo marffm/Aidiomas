@@ -216,6 +216,10 @@ a {
     color: #fff;
 }
 
+.box-estrutura-unidade1 img {
+    width: 100%;
+}
+
 .box-estrutura-unidade2 {
     margin-top: 30px;
     background-color: #cc2229;
@@ -226,6 +230,10 @@ a {
 .box-estrutura-unidade2 p {
     color: #fff;
     text-align: right;
+}
+
+.box-estrutura-unidade2 img {
+    width: 100%;
 }
 
 /* ---- END ESTRUTURA ---- */
@@ -408,6 +416,7 @@ a {
 /* ---- INSERT ALUNO ---- */
 #button-inserirAluno {
     margin-top: 20px;
+    width: 100%;
 }
 /* ---- END INSERT ALUNO ---- */
 
