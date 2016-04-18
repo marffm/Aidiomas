@@ -16,9 +16,9 @@ class adminModel extends Model {
     function saveMural() {
 
         $date = $_POST['date'];
-        $title = $_POST['title'];
-        $summary = $_POST['summary'];
-        $content = $_POST['content'];
+        $title = utf8_decode($_POST['title']);
+        $summary = utf8_decode($_POST['summary']);
+        $content = utf8_decode($_POST['content']);
 
         try {
             $conn = $this->db->connectionDB();
@@ -54,9 +54,9 @@ class adminModel extends Model {
     function updateMural($id) {
 
         $date = $_POST['date'];
-        $title = $_POST['title'];
-        $summary = $_POST['summary'];
-        $content = $_POST['content'];
+        $title = utf8_decode($_POST['title']);
+        $summary = utf8_decode($_POST['summary']);
+        $content = utf8_decode($_POST['content']);
         $id = $_POST['id'];
 
         try {
