@@ -292,6 +292,26 @@ a {
 /* ---- END PARCERIAS ---- */
 
 
+/* ---- CONTACT ---- */
+
+.contact-background {
+    background-color: #1b6d85;
+    padding: 20px 0 40px 0;
+    color: #fff;
+    margin-bottom: 60px;
+}
+.contact-box1 {
+    background-color: #fff;
+    padding: 20px;
+    color: #868686;
+    margin-top: 20px;
+}
+
+.contact-box1 img {
+    width: 100%;
+}
+/* ---- END CONTACT ---- */
+
 
 
 /* ---- LOGIN ---- */
