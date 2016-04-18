@@ -81,7 +81,6 @@ class alunoModel extends Model {
             }
 
             if ($check == false) {
-
                 $_SESSION['error_insertBoletim'] = true;
             } else {
 
@@ -183,18 +182,35 @@ class alunoModel extends Model {
     function getBoletins($codigoAluno) {
         try {
             $conn = $this->db->connectionDB();
-            $stmt = $conn->prepare("SELECT aluno_boletins.codigo_aluno_AB, boletins.nome_boletim FROM aluno_boletins INNER JOIN boletins ON (aluno_boletins.boletins_AB=boletins.boletins) WHERE codigo_aluno_AB=" . $codigoAluno);
+            $stmt = $conn->prepare("SELECT aluno_grupo.*, boletins.nome_boletim, professor.nome_prof FROM aluno_grupo INNER JOIN grupo ON (aluno_grupo.cod_grupo=grupo.cod_grupo) INNER JOIN professor ON (grupo.codigo_professor=professor.id) INNER JOIN boletins ON (grupo.level_grupo=boletins.boletins) WHERE aluno_grupo.codigo_aluno=" . $codigoAluno);
             $stmt->execute();
             $listBoletins = $stmt->fetchall(PDO::FETCH_ASSOC);
 
-            if (array_key_exists(0, $listBoletins)) {
-                foreach ($listBoletins as $boletins) {
-                    $stmt = $conn->prepare("SELECT * FROM " . $boletins['nome_boletim'] . " WHERE codigo_aluno=" . $codigoAluno);
-                    $stmt->execute();
-                    $listAllBoletins[] = $stmt->fetchall(PDO::FETCH_ASSOC);
+            if ($_SESSION['usercategory'] == 'admin') {
+                
+                if (array_key_exists(0, $listBoletins)) {
+                    foreach ($listBoletins as $boletins) {
+                        $stmt = $conn->prepare("SELECT * FROM " . $boletins['nome_boletim'] . " WHERE codigo_aluno=" . $codigoAluno);
+                        $stmt->execute();
+                        $listAllBoletins[] = $stmt->fetchall(PDO::FETCH_ASSOC);
+                    }
+                } else {
+                    $listAllBoletins = null;
                 }
-            } else {
-                $listAllBoletins = null;
+                
+            } else if ($_SESSION['usercategory'] == 'areaProfessor') {
+                
+                if (array_key_exists(0, $listBoletins)) {
+                    foreach ($listBoletins as $key => $boletins) {
+                        if ($boletins['nome_prof'] == $_SESSION['username']) {
+                            $stmt = $conn->prepare("SELECT * FROM " . $boletins['nome_boletim'] . " WHERE codigo_aluno=" . $codigoAluno);
+                            $stmt->execute();
+                            $listAllBoletins[] = $stmt->fetchall(PDO::FETCH_ASSOC);
+                        }
+                    }
+                } else {
+                    $listAllBoletins = null;
+                }
             }
 
 
@@ -339,5 +355,18 @@ class alunoModel extends Model {
             echo 'Error: ' . $ex->getMessage();
         }
     }
-
+    
+    function checkBoletim() {
+        try {
+            $conn = $this->db->connectionDB();
+            $stmt = $conn->prepare("SELECT boletins_AB FROM aluno_boletins WHERE codigo_aluno_AB=" . $_SESSION['alunocodigo']);
+            $stmt->execute();
+            $check = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            
+            $conn = null;
+            return $check;
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
+        }
+    }
 }

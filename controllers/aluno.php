@@ -45,46 +45,92 @@ class Aluno extends Controller {
         $data['aluno_grupo'] = $this->alunoModel->getGrupo($_SESSION['alunocodigo']);
         $data['aluno_boletin'] = $this->alunoModel->getBoletins($_SESSION['alunocodigo']);
 
-
-
+                
         if ($data['usercategory'] == 'admin') {
             $title = 'Administrador';
             $link = 'admin';
+            $data['textArea'] = 'Área Administrativa';           
         } else {
             $title = 'Professor';
             $link = 'areaProfessor';
+            $data['textArea'] = 'Área do Professor';
         }
 
         $this->breadcrumbs->setBreadcrumbs('Aluno', 'aluno/setAluno/' . $aluno['codigo'], $title, $link);
         $breadcrumbs = $this->breadcrumbs->getBreadcrumbs();
-
-        //print_r($data['aluno_grupo']);
+        
+        
+        //print_r($test1);
 
         if (isset($data['aluno_grupo'])) {
+            $check = $this->alunoModel->checkBoletim($_SESSION['alunocodigo']);
             foreach ($data['aluno_grupo'] as $aluno_grupo) {
                 switch ($aluno_grupo['level_grupo']) {
                     case "b1-e":
-                        $nivel_b1e = true;
+                        foreach ($check as $values) {
+                            foreach ($values as $value) {
+                                if ($value == 'b1-e'){
+                                    $hasBoletim = 'true';
+                                } else {
+                                    $hasBoletim = null;
+                                }
+                            }
+                        }
+                        if ($aluno_grupo['nome_prof'] == $_SESSION['username'] and isset($hasBoletim)) {
+                         $nivel_b1e = true;   
+                        } else if ($_SESSION['usercategory'] == 'admin') {
+                          $nivel_b1e = true;  
+                        }                        
                         break;
                     case "b2-e":
-                        $nivel_b2e = true;
+                        foreach ($check as $values) {
+                            foreach ($values as $value) {
+                                if ($value == 'b2-e'){
+                                    $hasBoletim = 'true';
+                                } else {
+                                    $hasBoletim = null;
+                                }
+                            }
+                        }
+                        if ($aluno_grupo['nome_prof'] == $_SESSION['username'] and isset($hasBoletim)) {
+                         $nivel_b2e = true;   
+                        } else if ($_SESSION['usercategory'] == 'admin') {
+                          $nivel_b2e = true;  
+                        }     
                         break;
                     case "a1-e":
-                        $nivel_a1e = true;
+                        if ($aluno_grupo['nome_prof'] == $_SESSION['username']) {
+                         $nivel_a1e = true;   
+                        } else if ($_SESSION['usercategory'] == 'admin') {
+                          $nivel_a1e = true;  
+                        }
                         break;
                     case "a2-e":
-                        $nivel_a2e = true;
+                        if ($aluno_grupo['nome_prof'] == $_SESSION['username']) {
+                         $nivel_a2e = true;   
+                        } else if ($_SESSION['usercategory'] == 'admin') {
+                          $nivel_a2e = true;  
+                        }
                         break;
                     case "alemao":
-                        $nivel_alemao = true;
+                        if ($aluno_grupo['nome_prof'] == $_SESSION['username']) {
+                         $nivel_alemao = true;   
+                        } else if ($_SESSION['usercategory'] == 'admin') {
+                          $nivel_alemao = true;  
+                        }
                         break;
                     case "ingles":
-                        $nivel_ingles = true;
+                        if ($aluno_grupo['nome_prof'] == $_SESSION['username']) {
+                         $nivel_ingles = true;   
+                        } else if ($_SESSION['usercategory'] == 'admin') {
+                          $nivel_ingles = true;  
+                        }
                         break;
                 }
             }
         }
-
+        
+        print_r($hasBoletim);
 
         if (isset($_SESSION['error_insertBoletim'])){
             $errorInsertBoletim = 'Boletim ja Adicionado';

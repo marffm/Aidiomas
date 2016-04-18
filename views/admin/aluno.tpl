@@ -9,7 +9,7 @@
 
         <div class="col-sm-3">
             <div class="admin_user">                
-                <h4>Área Administrativa</h4>
+                <h4><?php echo $data['textArea'] ?></h4>
                 <hr />
                 <div class="icon"><i class="fa fa-user fa-4x"></i></div>
                 <p class="admin_name"><?php echo $data['username'] ?></p>
@@ -92,6 +92,7 @@
 
                 <div class="panel-body">
                     <?php foreach($data['aluno_grupo'] as $grupo) { ?>
+                    <?php if($data['usercategory'] == 'admin'){ ?>
                     <div class="col-sm-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -106,6 +107,22 @@
 
                         </div>
                     </div>
+                    <?php } else if ($data['usercategory'] == 'areaProfessor' and $data['username'] == $grupo['nome_prof']) { ?>
+                    <div class="col-sm-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Código: <?php echo $grupo['cod_grupo']?></h3>
+                            </div>
+
+                            <div class="panel-body">
+                                <p>Idioma: <strong><?php echo utf8_encode($grupo['nome_idioma']) ?></strong></p>
+                                <p>Level: <strong><?php echo $grupo['level_grupo'] ?></strong></p>
+                                <p>Professor: <strong><?php echo utf8_encode($grupo['nome_prof']) ?> <?php echo utf8_encode($grupo['sobrenome_prof']) ?></strong></p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <?php } ?>
                     <?php } ?>
                 </div>
             </div>
@@ -328,7 +345,7 @@
                         </div>
                     </div>
                     <?php } ?>
-                    
+
                     <?php if (isset($nivel_ingles)) { ?>
                     <div class="col-sm-6">
                         <div class="panel panel-default">
@@ -381,7 +398,7 @@
                                     <br/>
                                     <span><strong>Média Final</strong></span>
                                     <input type="text" name="media_final" id="media_final" placeholder="00" class="form-control" />
-                                    
+
                                     <div id="button-inserirAluno">
                                         <button type="submit" class="btn btn-info">Inserir Boletim</button>
                                     </div>
@@ -625,7 +642,7 @@
                     </div>
 
                     <?php } ?> <!-- END IF ALEMAO -->
-                    
+
                     <?php if ($boletins['b_level'] == "ingles" ) { ?>
                     <div class="col-sm-6">
                         <div class="panel panel-default">
@@ -678,7 +695,7 @@
                                     <br/>
                                     <span><strong>Média Final</strong></span>
                                     <input type="text" name="media_final" id="media_final" value="<?php echo $boletins['media_final'] ?>" class="form-control" />
-                                    
+
                                     <div id="button-inserirAluno">
                                         <button type="submit" class="btn btn-info">Atualizar Boletim</button>
                                         <a href="<?php echo PATH_URL ?>aluno/deleteBoletim/<?php echo $boletins['codigo_aluno'] ?>_ingles" class=" btn btn-danger">Deletar</a>

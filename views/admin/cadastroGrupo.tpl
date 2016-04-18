@@ -115,7 +115,7 @@
                                     <div class="row">
                                         <form method="POST" action="cadastroGrupo/validadeInsertAluno_Grupo">
                                             <input type="hidden" name="cod_grupo" id="cod_grupo" value="<?php echo $grupos['cod_grupo'] ?>"/>
-                                            <div class="col-sm-4 col-sm-offset-6">
+                                            <div class="col-sm-4 col-sm-offset-5">
                                                 <select name="codigo_aluno" id="codigo_aluno" class="form-control" required>
                                                     <option>Selecione um aluno</option>
                                                     <?php foreach($data['alunolist'] as $alunos) { ?>
@@ -124,7 +124,7 @@
                                                 </select> 
                                             </div>
 
-                                            <div class="col-sm-1">
+                                            <div class="col-sm-2">
                                                 <button type="submit" class="btn btn-info">Inserir Aluno</button>
                                             </div>                                            
                                         </form>                                        
@@ -141,7 +141,7 @@
                                     <?php } ?>
                                     
                                     <div class="">
-                                        <div class="col-sm-2 col-sm-offset-10">
+                                        <div class="col-sm-2 col-sm-offset-9">
                                             <br/>
                                             <a href="cadastroGrupo/deleteGrupo/<?php echo $grupos['cod_grupo'] ?>" class="btn btn-danger">Deletar Grupo</a>
                                         </div>

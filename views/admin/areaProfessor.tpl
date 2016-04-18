@@ -46,7 +46,7 @@
                                     <td class="codigoaluno"><?php echo $grupoalunos['codigo'] ?></td>
                                     <td class="nome"><?php echo $grupoalunos['nome'] ?> <?php echo $grupoalunos['sobrenome'] ?></td>
                                     <td class="email"><?php echo $grupoalunos['email'] ?></td>
-                                    <td class="deletar"><a href="<?php echo PATH_URL ?>aluno/setAluno/<?php echo $grupoalunos['codigo'] ?>">Edit</a></td>
+                                    <td class="deletar"><a href="<?php echo PATH_URL ?>aluno/setAluno/<?php echo $grupoalunos['codigo'] ?>">Editar</a></td>
                                 </tr>
                                 <?php } ?>
                                 <?php } ?>
