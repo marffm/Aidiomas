@@ -22,7 +22,7 @@
                 </div>
                 
                 <div class="summary">
-                    <a href="#"><span><?php echo utf8_encode($results['summary']) ?></span></a>
+                    <a href="artigo/setArtigo/<?php echo utf8_encode($results['id']) ?>"><span><?php echo utf8_encode($results['summary']) ?></span></a>
                 </div>
                 
                 <div class="date">

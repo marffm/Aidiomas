@@ -21,7 +21,7 @@ class areaAluno extends Controller {
         $data['aluno'] = $this->alunoModel->setAluno($data['alunocodigo']);
         $data['alunogrupo'] = $this->alunoModel->getGrupo($data['alunocodigo']);
         $data['alunoboletins'] = $this->alunoModel->getBoletins($data['alunocodigo']);
-        //print_r($data['alunoboletins']);
+        //print_r($_SESSION['usercategory']);
         
         $this->document->setTitle('Área do Aluno');
         $this->loader->Load('head');

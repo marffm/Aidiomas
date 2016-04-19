@@ -19,6 +19,14 @@
                 </ol>
                 <p>*Curso regular parcelado em 06 pagamentos, por semestre letivo.</p>
             </div>
+            
+            <div class="col-sm-4">
+                <img src="public/images/promocoes/ingles1.png"/>
+            </div>
+            
+            <div class="col-sm-4">
+                <img src="public/images/promocoes/ingles2.png"/>
+            </div>
 
 
         </div>

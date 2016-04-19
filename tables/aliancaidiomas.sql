@@ -36,12 +36,12 @@ CREATE TABLE IF NOT EXISTS `alemao` (
   `b_level` varchar(10) NOT NULL,
   `codigo_aluno` int(11) unsigned NOT NULL,
   `semestre` varchar(12) NOT NULL,
-  `quiz_1` int(11) unsigned DEFAULT NULL,
-  `test_1` int(11) unsigned DEFAULT NULL,
-  `quiz_2` int(11) unsigned DEFAULT NULL,
-  `test_2` int(11) unsigned DEFAULT NULL,
-  `sprechen` int(11) unsigned DEFAULT NULL,
-  `hausau` int(11) unsigned DEFAULT NULL,
+  `quiz_1` varchar(50) DEFAULT NULL,
+  `test_1` varchar(50) DEFAULT NULL,
+  `quiz_2` varchar(50) DEFAULT NULL,
+  `test_2` varchar(50) DEFAULT NULL,
+  `sprechen` varchar(50) DEFAULT NULL,
+  `hausau` varchar(50) DEFAULT NULL,
   KEY `FK_espanhol_b2_aluno` (`codigo_aluno`),
   CONSTRAINT `alemao_ibfk_1` FOREIGN KEY (`codigo_aluno`) REFERENCES `aluno` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `alemao` (
 -- Copiando dados para a tabela aliancaidiomas.alemao: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `alemao` DISABLE KEYS */;
 INSERT INTO `alemao` (`b_level`, `codigo_aluno`, `semestre`, `quiz_1`, `test_1`, `quiz_2`, `test_2`, `sprechen`, `hausau`) VALUES
-	('alemao', 1012250, '01/2016', 13, 42, 0, 0, 0, 0);
+	('alemao', 1012250, '01/2016', '13', '42', '0', '0', '0', '0');
 /*!40000 ALTER TABLE `alemao` ENABLE KEYS */;
 
 
@@ -110,13 +110,11 @@ CREATE TABLE IF NOT EXISTS `aluno_grupo` (
   CONSTRAINT `cod_grupo` FOREIGN KEY (`cod_grupo`) REFERENCES `grupo` (`cod_grupo`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela aliancaidiomas.aluno_grupo: ~7 rows (aproximadamente)
+-- Copiando dados para a tabela aliancaidiomas.aluno_grupo: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `aluno_grupo` DISABLE KEYS */;
 INSERT INTO `aluno_grupo` (`cod_grupo`, `codigo_aluno`) VALUES
-	(1109, 1012250),
 	(1109, 1122334),
 	(511, 1012250),
-	(511, 1012260),
 	(1234, 1012250),
 	(1122, 1012250),
 	(2830, 1012250);
@@ -133,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `boletins` (
   CONSTRAINT `idiomas_boletins` FOREIGN KEY (`idioma_boletins`) REFERENCES `idiomas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela aliancaidiomas.boletins: ~6 rows (aproximadamente)
+-- Copiando dados para a tabela aliancaidiomas.boletins: ~7 rows (aproximadamente)
 /*!40000 ALTER TABLE `boletins` DISABLE KEYS */;
 INSERT INTO `boletins` (`boletins`, `nome_boletim`, `idioma_boletins`) VALUES
 	('a1-e', 'espanhol_a1', 2),
@@ -141,6 +139,7 @@ INSERT INTO `boletins` (`boletins`, `nome_boletim`, `idioma_boletins`) VALUES
 	('alemao', 'alemao', 4),
 	('b1-e', 'espanhol_b1', 2),
 	('b2-e', 'espanhol_b2', 2),
+	('frances', 'frances', 3),
 	('ingles', 'ingles', 1);
 /*!40000 ALTER TABLE `boletins` ENABLE KEYS */;
 
@@ -150,10 +149,10 @@ CREATE TABLE IF NOT EXISTS `espanhol_a1` (
   `b_level` varchar(10) NOT NULL,
   `codigo_aluno` int(11) unsigned NOT NULL,
   `semestre` varchar(12) NOT NULL,
-  `unidade123` int(11) unsigned DEFAULT NULL,
-  `unidade456` int(11) unsigned DEFAULT NULL,
-  `unidade789` int(11) unsigned DEFAULT NULL,
-  `mediafinal` int(11) unsigned DEFAULT NULL,
+  `unidade123` varchar(50) DEFAULT NULL,
+  `unidade456` varchar(50) DEFAULT NULL,
+  `unidade789` varchar(50) DEFAULT NULL,
+  `mediafinal` varchar(50) DEFAULT NULL,
   KEY `FK_espanhol_b2_aluno` (`codigo_aluno`),
   CONSTRAINT `espanhol_a1_ibfk_1` FOREIGN KEY (`codigo_aluno`) REFERENCES `aluno` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
@@ -168,11 +167,11 @@ CREATE TABLE IF NOT EXISTS `espanhol_a2` (
   `b_level` varchar(10) NOT NULL,
   `codigo_aluno` int(11) unsigned NOT NULL,
   `semestre` varchar(12) NOT NULL,
-  `unidade123` int(11) unsigned DEFAULT NULL,
-  `unidade456` int(11) unsigned DEFAULT NULL,
-  `unidade78910` int(11) unsigned DEFAULT NULL,
-  `proyectolectura` int(11) unsigned DEFAULT NULL,
-  `mediafinal` int(11) unsigned DEFAULT NULL,
+  `unidade123` varchar(50) DEFAULT NULL,
+  `unidade456` varchar(50) DEFAULT NULL,
+  `unidade78910` varchar(50) DEFAULT NULL,
+  `proyectolectura` varchar(50) DEFAULT NULL,
+  `mediafinal` varchar(50) DEFAULT NULL,
   KEY `FK_espanhol_b2_aluno` (`codigo_aluno`),
   CONSTRAINT `espanhol_a2_ibfk_1` FOREIGN KEY (`codigo_aluno`) REFERENCES `aluno` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
@@ -180,7 +179,7 @@ CREATE TABLE IF NOT EXISTS `espanhol_a2` (
 -- Copiando dados para a tabela aliancaidiomas.espanhol_a2: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `espanhol_a2` DISABLE KEYS */;
 INSERT INTO `espanhol_a2` (`b_level`, `codigo_aluno`, `semestre`, `unidade123`, `unidade456`, `unidade78910`, `proyectolectura`, `mediafinal`) VALUES
-	('a2-e', 1012250, '01/2016', NULL, NULL, NULL, NULL, NULL);
+	('a2-e', 1012250, '01/2016', 'teste 32', '0', '0', '0', '0');
 /*!40000 ALTER TABLE `espanhol_a2` ENABLE KEYS */;
 
 
@@ -189,12 +188,12 @@ CREATE TABLE IF NOT EXISTS `espanhol_b1` (
   `b_level` varchar(10) NOT NULL,
   `codigo_aluno` int(11) unsigned NOT NULL,
   `semestre` varchar(12) NOT NULL,
-  `unidade123` int(11) unsigned DEFAULT NULL,
-  `unidade456` int(11) unsigned DEFAULT NULL,
-  `unidade789` int(11) unsigned DEFAULT NULL,
-  `unidade101112` int(11) unsigned DEFAULT NULL,
-  `proyectolectura` int(11) unsigned DEFAULT NULL,
-  `mediafinal` int(11) unsigned DEFAULT NULL,
+  `unidade123` varchar(50) DEFAULT NULL,
+  `unidade456` varchar(50) DEFAULT NULL,
+  `unidade789` varchar(50) DEFAULT NULL,
+  `unidade101112` varchar(50) DEFAULT NULL,
+  `proyectolectura` varchar(50) DEFAULT NULL,
+  `mediafinal` varchar(50) DEFAULT NULL,
   KEY `aluno` (`codigo_aluno`),
   CONSTRAINT `aluno` FOREIGN KEY (`codigo_aluno`) REFERENCES `aluno` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -202,8 +201,8 @@ CREATE TABLE IF NOT EXISTS `espanhol_b1` (
 -- Copiando dados para a tabela aliancaidiomas.espanhol_b1: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `espanhol_b1` DISABLE KEYS */;
 INSERT INTO `espanhol_b1` (`b_level`, `codigo_aluno`, `semestre`, `unidade123`, `unidade456`, `unidade789`, `unidade101112`, `proyectolectura`, `mediafinal`) VALUES
-	('b1-e', 1122334, '01/2016', 56, 87, 45, 0, 0, 0),
-	('b1-e', 1012250, '01/2016', 100, 45, 0, 0, 0, 0);
+	('b1-e', 1122334, '01/2016', '56', '87', '45', '0', '0', '0'),
+	('b1-e', 1012250, '01/2016', '100', '45', '0', '0', '0', '0');
 /*!40000 ALTER TABLE `espanhol_b1` ENABLE KEYS */;
 
 
@@ -212,10 +211,10 @@ CREATE TABLE IF NOT EXISTS `espanhol_b2` (
   `b_level` varchar(10) NOT NULL,
   `codigo_aluno` int(11) unsigned NOT NULL,
   `semestre` varchar(12) NOT NULL,
-  `unidade12345` int(11) unsigned DEFAULT NULL,
-  `unidade678910` int(11) unsigned DEFAULT NULL,
-  `proyectolectura` int(11) unsigned DEFAULT NULL,
-  `mediafinal` int(11) unsigned DEFAULT NULL,
+  `unidade12345` varchar(50) DEFAULT NULL,
+  `unidade678910` varchar(50) DEFAULT NULL,
+  `proyectolectura` varchar(50) DEFAULT NULL,
+  `mediafinal` varchar(50) DEFAULT NULL,
   KEY `FK_espanhol_b2_aluno` (`codigo_aluno`),
   CONSTRAINT `FK_espanhol_b2_aluno` FOREIGN KEY (`codigo_aluno`) REFERENCES `aluno` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -223,8 +222,43 @@ CREATE TABLE IF NOT EXISTS `espanhol_b2` (
 -- Copiando dados para a tabela aliancaidiomas.espanhol_b2: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `espanhol_b2` DISABLE KEYS */;
 INSERT INTO `espanhol_b2` (`b_level`, `codigo_aluno`, `semestre`, `unidade12345`, `unidade678910`, `proyectolectura`, `mediafinal`) VALUES
-	('b2-e', 1012260, '02/2016', 83, 12, 0, 0);
+	('b2-e', 1012260, '02/2016', '83', '12', '0', '0');
 /*!40000 ALTER TABLE `espanhol_b2` ENABLE KEYS */;
+
+
+-- Copiando estrutura para tabela aliancaidiomas.frances
+CREATE TABLE IF NOT EXISTS `frances` (
+  `b_level` varchar(10) NOT NULL,
+  `codigo_aluno` int(11) unsigned NOT NULL,
+  `eleve` varchar(20) NOT NULL,
+  `methode` varchar(50) DEFAULT NULL,
+  `niveau` varchar(50) DEFAULT NULL,
+  `moyenne` varchar(50) DEFAULT NULL,
+  `travailles_unite1` varchar(50) DEFAULT NULL,
+  `travailles_unite2` varchar(50) DEFAULT NULL,
+  `travailles_unite3` varchar(50) DEFAULT NULL,
+  `travailles_unite4` varchar(50) DEFAULT NULL,
+  `devoirs_unite1` varchar(50) DEFAULT NULL,
+  `devoirs_unite2` varchar(50) DEFAULT NULL,
+  `devoirs_unite3` varchar(50) DEFAULT NULL,
+  `devoirs_unite4` varchar(50) DEFAULT NULL,
+  `participation` varchar(50) DEFAULT NULL,
+  `davoirs_1` varchar(50) DEFAULT NULL,
+  `performance` varchar(50) DEFAULT NULL,
+  `test_ecrit1` varchar(50) DEFAULT NULL,
+  `total_1` varchar(50) DEFAULT NULL,
+  `lecture` varchar(50) DEFAULT NULL,
+  `devoirs_2` varchar(50) DEFAULT NULL,
+  `test_oral` varchar(50) DEFAULT NULL,
+  `test_ecrit2` varchar(50) DEFAULT NULL,
+  `total_2` varchar(50) DEFAULT NULL,
+  KEY `FK_espanhol_b2_aluno` (`codigo_aluno`),
+  CONSTRAINT `frances_ibfk_1` FOREIGN KEY (`codigo_aluno`) REFERENCES `aluno` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+-- Copiando dados para a tabela aliancaidiomas.frances: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `frances` DISABLE KEYS */;
+/*!40000 ALTER TABLE `frances` ENABLE KEYS */;
 
 
 -- Copiando estrutura para tabela aliancaidiomas.grupo
@@ -272,19 +306,19 @@ CREATE TABLE IF NOT EXISTS `ingles` (
   `b_level` varchar(10) NOT NULL,
   `codigo_aluno` int(11) unsigned NOT NULL,
   `semestre` varchar(12) NOT NULL,
-  `quiz_1` int(11) unsigned DEFAULT NULL,
-  `test_1` int(11) unsigned DEFAULT NULL,
-  `participacao_1` int(11) unsigned DEFAULT NULL,
-  `media_1` int(11) unsigned DEFAULT NULL,
-  `quiz_2` int(11) unsigned DEFAULT NULL,
-  `test_2` int(11) unsigned DEFAULT NULL,
-  `oral_test` int(11) unsigned DEFAULT NULL,
-  `mocks` int(11) unsigned DEFAULT NULL,
-  `reading` int(11) unsigned DEFAULT NULL,
-  `participacao_2` int(11) unsigned DEFAULT NULL,
-  `multroom` int(11) unsigned DEFAULT NULL,
-  `media_2` int(11) unsigned DEFAULT NULL,
-  `media_final` int(11) unsigned DEFAULT NULL,
+  `quiz_1` varchar(20) DEFAULT NULL,
+  `test_1` varchar(20) DEFAULT NULL,
+  `participacao_1` varchar(20) DEFAULT NULL,
+  `media_1` varchar(20) DEFAULT NULL,
+  `quiz_2` varchar(20) DEFAULT NULL,
+  `test_2` varchar(20) DEFAULT NULL,
+  `oral_test` varchar(20) DEFAULT NULL,
+  `mocks` varchar(20) DEFAULT NULL,
+  `reading` varchar(20) DEFAULT NULL,
+  `participacao_2` varchar(20) DEFAULT NULL,
+  `multroom` varchar(20) DEFAULT NULL,
+  `media_2` varchar(20) DEFAULT NULL,
+  `media_final` varchar(20) DEFAULT NULL,
   KEY `FK_espanhol_b2_aluno` (`codigo_aluno`),
   CONSTRAINT `ingles_ibfk_1` FOREIGN KEY (`codigo_aluno`) REFERENCES `aluno` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
@@ -292,7 +326,7 @@ CREATE TABLE IF NOT EXISTS `ingles` (
 -- Copiando dados para a tabela aliancaidiomas.ingles: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `ingles` DISABLE KEYS */;
 INSERT INTO `ingles` (`b_level`, `codigo_aluno`, `semestre`, `quiz_1`, `test_1`, `participacao_1`, `media_1`, `quiz_2`, `test_2`, `oral_test`, `mocks`, `reading`, `participacao_2`, `multroom`, `media_2`, `media_final`) VALUES
-	('ingles', 1012250, '01/2016', 10, 10, 10, 10, 10, 22, 10, 66, 10, 22, 78, 66, 35);
+	('ingles', 1012250, '01/2016', '10', '10', '10', '10', '10', '22', '10', '66', '10', '22', '78', '66', 'teste 32');
 /*!40000 ALTER TABLE `ingles` ENABLE KEYS */;
 
 
@@ -304,14 +338,13 @@ CREATE TABLE IF NOT EXISTS `mural` (
   `content` text NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- Copiando dados para a tabela aliancaidiomas.mural: ~3 rows (aproximadamente)
 /*!40000 ALTER TABLE `mural` DISABLE KEYS */;
 INSERT INTO `mural` (`id`, `title`, `summary`, `content`, `date`) VALUES
 	(1, 'TOEFL - Test of English as a Foreign Language', 'O Centro Linguistico de Franca prepara os candidatos para exame de TOEFL.', 'INGLÊS TOEFL – (Test of English as a Foreign Language) Ou Teste de Inglês como uma Língua Estrangeira é um exame que tem o objetivo de avaliar o potencial individual de falar e entender o inglês em nível acadêmico. O Centro Linguístico de Franca prepara os candidatos para exame de TOEFL. É requerido para a maior parte dos estudantes estrangeiros que tentam ingressar em uma universidade de um país em que inglesa é a primeira língua. Além disso, instituições com agências governamentais, empresas e programas de estudo podem exigir o teste. A nota no TOEFL é válida por apenas dois anos - após esse prazo, ela é eliminada do banco de dados. O TOEFL é uma marca registrada da Educational Testing Service (Serviço de Testes Educacionais; ETS). O primeiro teste foi realizado em 1964 e, desde então, aproximadamente mais 20 milhões de estudantes já o fizeram. Mais de 2.400 faculdades e universidades nos Estados Unidos e no Canadá exigem o TOEFL como requisito de admissão em seus cursos. Órgãos governamentais e programas de bolsa de estudos também o utilizam para avaliar a proficiência em inglês. O TOEFL pode ser complementado pelo TWE (Test of Written English – Teste de Inglês Escrito) TSE (Test of Spoken English – Teste de Inglês Oral).', '2016-01-20'),
-	(2, 'TOEIC - Test of English for International Communication', 'O Centro Linguistico de Franca prepara os candidatos e tambem um centro aplicador do TOEIC', 'INGLÊS TOEIC (Test of English for International Communication) O que é: Teste de Inglês para comunicação Internacional. Quem o presta e Por quê: falantes não nativos o prestam para demonstrar suas habilidades linguísticas Inglesas quando se candidatam a novas posições ou para obterem credenciais. Onde prestá-lo e como se preparar: em escolas de Idiomas. O Centro Linguístico de Franca prepara os candidatos e é também um centro aplicador do TOEIC Quem aceita: o teste é altamente aceito por corporações, programas de Língua Inglesa e agências governamentais no mundo inteiro. •As corporações usam o TOEIC para documentar o progresso nos treinamentos recrutar e promover funcionários. Programas de Inglês usam-no para colocar alunos no nível correto de aprendizagem e mostrar aos alunos seu progresso e efetividade do programa. •Agências governamentais usam-no para documentar o progresso nos programas de treinamento e recrutar, promover e contratar funcionários. • Formato do teste: é um teste de múltipla escolha que utiliza áudio, figuras e material escrito para avaliar as habilidades na língua inglesa.', '2016-01-20'),
-	(3, 'Marcelo', 'Teste de artigo', 'marcelo teste article... We are going to discover if this works.', '2016-03-08');
+	(2, 'TOEIC - Test of English for International Communication', 'O Centro Linguistico de Franca prepara os candidatos e tambem um centro aplicador do TOEIC', 'INGLÊS TOEIC (Test of English for International Communication) O que é: Teste de Inglês para comunicação Internacional. Quem o presta e Por quê: falantes não nativos o prestam para demonstrar suas habilidades linguísticas Inglesas quando se candidatam a novas posições ou para obterem credenciais. Onde prestá-lo e como se preparar: em escolas de Idiomas. O Centro Linguístico de Franca prepara os candidatos e é também um centro aplicador do TOEIC Quem aceita: o teste é altamente aceito por corporações, programas de Língua Inglesa e agências governamentais no mundo inteiro. •As corporações usam o TOEIC para documentar o progresso nos treinamentos recrutar e promover funcionários. Programas de Inglês usam-no para colocar alunos no nível correto de aprendizagem e mostrar aos alunos seu progresso e efetividade do programa. •Agências governamentais usam-no para documentar o progresso nos programas de treinamento e recrutar, promover e contratar funcionários. • Formato do teste: é um teste de múltipla escolha que utiliza áudio, figuras e material escrito para avaliar as habilidades na língua inglesa.', '2016-01-20');
 /*!40000 ALTER TABLE `mural` ENABLE KEYS */;
 
 
@@ -348,7 +381,7 @@ CREATE TABLE IF NOT EXISTS `professor` (
   CONSTRAINT `idiomas` FOREIGN KEY (`idioma`) REFERENCES `idiomas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Copiando dados para a tabela aliancaidiomas.professor: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela aliancaidiomas.professor: ~3 rows (aproximadamente)
 /*!40000 ALTER TABLE `professor` DISABLE KEYS */;
 INSERT INTO `professor` (`nome_prof`, `sobrenome_prof`, `telefone_prof`, `email_prof`, `idioma`, `usuario_prof`, `senha_prof`, `nivel`, `id`) VALUES
 	('Fabiana', 'Fernandes', '(16) 3701 0550', 'teste@teste.com.br', 1, 'fabiana', '456', 2, 1),
@@ -358,4 +391,3 @@ INSERT INTO `professor` (`nome_prof`, `sobrenome_prof`, `telefone_prof`, `email_
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-aliancaidiomas

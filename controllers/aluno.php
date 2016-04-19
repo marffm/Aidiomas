@@ -18,7 +18,7 @@ class Aluno extends Controller {
         $this->loader->loadModel('alunoModel');
 
         $url = $this->url->getUrl();
-        
+
         if (isset($url[2])) {
             $_SESSION['alunocodigo'] = $url[2];
             $data['aluno'] = $this->alunoModel->setAluno($_SESSION['alunocodigo']);
@@ -32,10 +32,10 @@ class Aluno extends Controller {
         if (isset($url[1]) and ! isset($url[2])) {
             header("Location:" . PATH_URL . 'aluno');
         }
-        
+
         if (isset($url[1]) and $url[1] == 'deleteBoletim') {
             header("Location:" . PATH_URL . 'admin');
-        } else if (isset ($url[1]) and $url[1] == 'deleteAluno') {
+        } else if (isset($url[1]) and $url[1] == 'deleteAluno') {
             header("Location:" . PATH_URL . 'admin');
         }
 
@@ -45,11 +45,11 @@ class Aluno extends Controller {
         $data['aluno_grupo'] = $this->alunoModel->getGrupo($_SESSION['alunocodigo']);
         $data['aluno_boletin'] = $this->alunoModel->getBoletins($_SESSION['alunocodigo']);
 
-                
+
         if ($data['usercategory'] == 'admin') {
             $title = 'Administrador';
             $link = 'admin';
-            $data['textArea'] = 'Área Administrativa';           
+            $data['textArea'] = 'Área Administrativa';
         } else {
             $title = 'Professor';
             $link = 'areaProfessor';
@@ -58,84 +58,112 @@ class Aluno extends Controller {
 
         $this->breadcrumbs->setBreadcrumbs('Aluno', 'aluno/setAluno/' . $aluno['codigo'], $title, $link);
         $breadcrumbs = $this->breadcrumbs->getBreadcrumbs();
-        
-        
-        //print_r($test1);
 
         if (isset($data['aluno_grupo'])) {
             $check = $this->alunoModel->checkBoletim($_SESSION['alunocodigo']);
-            foreach ($data['aluno_grupo'] as $aluno_grupo) {
-                switch ($aluno_grupo['level_grupo']) {
+
+            foreach ($check as $values) {
+                switch ($values['boletins_AB']) {
                     case "b1-e":
-                        foreach ($check as $values) {
-                            foreach ($values as $value) {
-                                if ($value == 'b1-e'){
-                                    $hasBoletim = 'true';
-                                } else {
-                                    $hasBoletim = null;
-                                }
-                            }
-                        }
-                        if ($aluno_grupo['nome_prof'] == $_SESSION['username'] and isset($hasBoletim)) {
-                         $nivel_b1e = true;   
-                        } else if ($_SESSION['usercategory'] == 'admin') {
-                          $nivel_b1e = true;  
-                        }                        
+                        $hasb1e = 'true';
                         break;
                     case "b2-e":
-                        foreach ($check as $values) {
-                            foreach ($values as $value) {
-                                if ($value == 'b2-e'){
-                                    $hasBoletim = 'true';
-                                } else {
-                                    $hasBoletim = null;
-                                }
-                            }
-                        }
-                        if ($aluno_grupo['nome_prof'] == $_SESSION['username'] and isset($hasBoletim)) {
-                         $nivel_b2e = true;   
-                        } else if ($_SESSION['usercategory'] == 'admin') {
-                          $nivel_b2e = true;  
-                        }     
+                        $hasb2e = 'true';
                         break;
                     case "a1-e":
-                        if ($aluno_grupo['nome_prof'] == $_SESSION['username']) {
-                         $nivel_a1e = true;   
-                        } else if ($_SESSION['usercategory'] == 'admin') {
-                          $nivel_a1e = true;  
-                        }
+                        $hasa1e = 'true';
                         break;
                     case "a2-e":
-                        if ($aluno_grupo['nome_prof'] == $_SESSION['username']) {
-                         $nivel_a2e = true;   
-                        } else if ($_SESSION['usercategory'] == 'admin') {
-                          $nivel_a2e = true;  
-                        }
+                        $hasa2e = 'true';
                         break;
                     case "alemao":
-                        if ($aluno_grupo['nome_prof'] == $_SESSION['username']) {
-                         $nivel_alemao = true;   
-                        } else if ($_SESSION['usercategory'] == 'admin') {
-                          $nivel_alemao = true;  
-                        }
+                        $hasalemao = 'true';
                         break;
                     case "ingles":
-                        if ($aluno_grupo['nome_prof'] == $_SESSION['username']) {
-                         $nivel_ingles = true;   
-                        } else if ($_SESSION['usercategory'] == 'admin') {
-                          $nivel_ingles = true;  
-                        }
+                        $hasingles = 'true';
+                        break;
+                    case "frances" :
+                        $hasfrances = 'true';
+                        break;
+                    default:
                         break;
                 }
             }
+            
+            foreach ($data['aluno_grupo'] as $aluno_grupo) {
+                switch ($aluno_grupo['level_grupo']) {
+                    case "b1-e":
+                        if (!isset($hasb1e)) {
+                            if ($aluno_grupo['nome_prof'] == $_SESSION['username']) {
+                                $nivel_b1e = true;
+                            } else if ($_SESSION['usercategory'] == 'admin') {
+                                $nivel_b1e = true;
+                            }
+                        }
+                        break;
+                    case "b2-e":
+                        if (!isset($hasb2e)) {
+                            if ($aluno_grupo['nome_prof'] == $_SESSION['username']) {
+                                $nivel_b2e = true;
+                            } else if ($_SESSION['usercategory'] == 'admin') {
+                                $nivel_b2e = true;
+                            }
+                        }
+                        break;
+                    case "a1-e":
+                        if (!isset($hasa1e)) {
+                            if ($aluno_grupo['nome_prof'] == $_SESSION['username']) {
+                                $nivel_a1e = true;
+                            } else if ($_SESSION['usercategory'] == 'admin') {
+                                $nivel_a1e = true;
+                            }
+                        }
+                        break;
+                    case "a2-e":
+                        if (!isset($hasa2e)) {
+                            if ($aluno_grupo['nome_prof'] == $_SESSION['username']) {
+                                $nivel_a2e = true;
+                            } else if ($_SESSION['usercategory'] == 'admin') {
+                                $nivel_a2e = true;
+                            }
+                        }
+                        break;
+                    case "alemao":
+                        if (!isset($hasalemao)) {
+                            if ($aluno_grupo['nome_prof'] == $_SESSION['username']) {
+                                $nivel_alemao = true;
+                            } else if ($_SESSION['usercategory'] == 'admin') {
+                                $nivel_alemao = true;
+                            }
+                        }
+                        break;
+                    case "ingles":
+                        if (!isset($hasingles)) {
+                            if ($aluno_grupo['nome_prof'] == $_SESSION['username']) {
+                                $nivel_ingles = true;
+                            } else if ($_SESSION['usercategory'] == 'admin') {
+                                $nivel_ingles = true;
+                            }
+                        }
+                        break;
+                    case "frances":
+                        if (!isset($hasfrances)) {
+                            if ($aluno_grupo['nome_prof'] == $_SESSION['username']) {
+                                $nivel_frances = true;
+                            } else if ($_SESSION['usercategory'] == 'admin') {
+                                $nivel_frances = true;
+                            }
+                        }
+                        break;
+            }
         }
-        
-        print_r($hasBoletim);
+        }
 
-        if (isset($_SESSION['error_insertBoletim'])){
+        //print_r($check);
+
+        if (isset($_SESSION['error_insertBoletim'])) {
             $errorInsertBoletim = 'Boletim ja Adicionado';
             $_SESSION['error_insertBoletim'] = null;
-            
         }
 
         $data['username'] = $_SESSION['username'];
@@ -170,11 +198,11 @@ class Aluno extends Controller {
     function insertboletim() {
         $this->alunoModel->insertBoletim();
     }
-    
+
     function updateBoletim() {
         $this->alunoModel->updateBoletim();
     }
-    
+
     function deleteBoletim($id) {
         $this->alunoModel->deleteBoletim($id);
     }
