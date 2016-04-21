@@ -51,6 +51,47 @@
                                 <?php } ?>
                                 <?php } ?>
                             </table>
+                            <h4>Recados</h4>
+                            <form action="areaProfessor/saveRecado" method="POST">
+                                <span>Titúlo do Recado</span>
+                                <input type="text" name="titulo-recado" maxlength="30" class="form-control" placeholder="Título do Recado" required="">
+                                <span>Conteúdo do Recado</span>
+                                <textarea name="conteudo-recado" id="conteudo-recado" class="form-control admin-textarea-sum" placeholder="Conteúdo do Recado" required=""></textarea>
+                                <span>Data</span>
+                                <input type="date" id="data-recado" name="data-recado" class="form-control" aria-describedby="basic-addon1" required="">
+
+                                <div class="article_buttons">
+                                    <button type="submit" class="btn btn-default">Salvar</button>                                    
+                                </div>
+                            </form>
+
+                            <div class="panel panel-default mural-Recados">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">Mural de Recados</h4>
+                                </div>
+                                <div class="row">
+                                    <div class="panel-body">
+                                        <div class="col-sm-4">
+                                            <form action="areaProfessor/updateRecado" method="POST">
+                                                <span>Titúlo do Recado</span>
+                                                <input type="text" name="titulo-recado" maxlength="30" class="form-control" value="Teste de titulo" required="">
+                                                <span>Conteúdo do Recado</span>
+                                                <textarea name="conteudo-recado" id="conteudo-recado" class="form-control admin-textarea-sum" placeholder="Conteúdo do Recado" required="">Teste</textarea>
+                                                <span>Data</span>
+                                                <input type="date" id="data-recado" name="data-recado" class="form-control" aria-describedby="basic-addon1" required="">
+
+                                                <div class="article_buttons">
+                                                    <button type="submit" class="btn btn-default">Atualizar</button>                                    
+                                                    <a href="areaProfessor/deleteRecado/?" class="btn btn-default">Deletar</a>
+                                                </div>
+
+                                            </form>                                
+                                        </div>                                        
+                                    </div>  
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
                     <?php } ?>

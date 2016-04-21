@@ -15,6 +15,11 @@ class AreaProfessor extends Controller {
             header("Location:" . PATH_URL . 'error');
         }
         
+        $url = $this->url->getUrl();
+        if (isset($url[1])){
+            header("Location:" . PATH_URL . 'areaProfessor');
+        }
+        
         $this->loader->loadModel('areaProfessorModel');
         $this->document->setTitle('Área do Professor');
         $this->loader->Load('head');
