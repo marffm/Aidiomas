@@ -26,7 +26,9 @@ class AreaProfessor extends Controller {
         
         $data['grupoalunos'] = $this->areaProfessorModel->getGrupoAlunos($_SESSION['username']);
         $data['grupos'] = $this->areaProfessorModel->getGrupos($_SESSION['username']);
-        //print_r($data['grupos']);
+        $data['recadogrupo'] = $this->areaProfessorModel->getRecados();
+        
+        //print_r($data['recadogrupo']);
         
         $this->breadcrumbs->setBreadcrumbs('Professor', 'areaProfessor');
         $breadcrumbs = $this->breadcrumbs->getBreadcrumbs();
@@ -44,6 +46,18 @@ class AreaProfessor extends Controller {
 
 
         $this->loader->Load('footer');
+    }
+    
+    function insertRecado($codGrupo) {
+        $this->areaProfessorModel->insertRecado($codGrupo);
+    }
+    
+    function updateRecado($id) {
+        $this->areaProfessorModel->updateRecado($id);
+    }
+    
+    function deleteRecado($id) {
+        $this->areaProfessorModel->deleteRecado($id);
     }
     
 }

@@ -29,4 +29,65 @@ class areaProfessorModel extends Model {
         }
     }
     
+    function getRecados() {
+        try {
+            $conn = $this->db->connectionDB();
+            $stmt = $conn->prepare("SELECT * FROM recado_grupo");
+            $stmt->execute();
+            $recadosGrupo = $stmt->fetchall(PDO::FETCH_ASSOC);
+            $conn = null;
+            return $recadosGrupo;
+            
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
+        }
+    }
+    
+    function insertRecado($codGrupo) {
+        try {
+            
+            $conn = $this->db->connectionDB();
+            $stmt = $conn->prepare("INSERT INTO recado_grupo (cod_grupo, titulo_recado, conteudo_recado, data_recado) VALUES (:cod_grupo, :titulo_recado, :conteudo_recado, :data_recado)");
+            $stmt->bindValue(':cod_grupo', $_POST['cod_grupo'], PDO::PARAM_INT);
+            $stmt->bindValue(':titulo_recado', $_POST['titulo-recado'], PDO::PARAM_STR);
+            $stmt->bindValue(':conteudo_recado', $_POST['conteudo-recado'], PDO::PARAM_STR);
+            $stmt->bindValue(':data_recado', $_POST['data-recado'], PDO::PARAM_INT);
+            $stmt->execute();
+            $conn = null;
+            
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
+        }
+        
+    }
+    
+    function updateRecado($id) {
+        try {
+            $conn = $this->db->connectionDB();
+            $stmt = $conn->prepare("UPDATE recado_grupo SET id=:id, cod_grupo=:cod_grupo, titulo_recado=:titulo_recado, conteudo_recado=:conteudo_recado, data_recado=:data_recado WHERE id=" . $id);
+            $stmt->bindValue(':id', $_POST['recado-id'], PDO::PARAM_INT);
+            $stmt->bindValue(':cod_grupo', $_POST['cod_grupo'], PDO::PARAM_INT);
+            $stmt->bindValue(':titulo_recado', $_POST['titulo-recado'], PDO::PARAM_STR);
+            $stmt->bindValue(':conteudo_recado', $_POST['conteudo-recado'], PDO::PARAM_STR);
+            $stmt->bindValue(':data_recado', $_POST['data-recado'], PDO::PARAM_INT);
+            $stmt->execute();
+            $conn = null;
+            
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
+        }
+    }
+    
+    function deleteRecado($id) {
+        try {
+            $conn = $this->db->connectionDB();
+            $stmt = $conn->prepare("DELETE FROM recado_grupo WHERE id=" . $id);
+            $stmt->execute();
+            $conn = null;
+            
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
+        }
+    }
+    
 }

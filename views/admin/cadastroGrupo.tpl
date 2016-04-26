@@ -139,19 +139,71 @@
                                     </div>
                                     <?php } ?>
                                     <?php } ?>
-                                    
-                                    <div class="">
+
+                                    <div class="row">
                                         <div class="col-sm-2 col-sm-offset-9">
                                             <br/>
                                             <a href="cadastroGrupo/deleteGrupo/<?php echo $grupos['cod_grupo'] ?>" class="btn btn-danger">Deletar Grupo</a>
                                         </div>
                                     </div>
 
-                                </div>
+                                    <div class="">
+                                        <h4>Recados</h4>
+                                        <form action="cadastroGrupo/insertRecado/<?php echo $grupos['cod_grupo'] ?>" method="POST">
+                                            <input type="hidden" name="cod_grupo" value="<?php echo $grupos['cod_grupo'] ?>">
+                                            <span>Titúlo do Recado</span>
+                                            <input type="text" name="titulo-recado" maxlength="30" class="form-control" placeholder="Título do Recado" required="">
+                                            <span>Conteúdo do Recado</span>
+                                            <textarea name="conteudo-recado" id="conteudo-recado" class="form-control admin-textarea-sum" placeholder="Conteúdo do Recado" required=""></textarea>
+                                            <span>Data</span>
+                                            <input type="date" id="data-recado" name="data-recado" class="form-control" aria-describedby="basic-addon1" required="">
+
+                                            <div class="article_buttons">
+                                                <button type="submit" class="btn btn-default">Salvar</button>                                    
+                                            </div>
+                                        </form>
+                                    </div>
+                                    
+                                    
+                                    
+                                    <div class="panel panel-default mural-Recados">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">Mural de Recados</h4>
+                                        </div>
+                                        <div class="row">
+                                            <div class="panel-body">
+                                                <?php foreach($data['recadogrupo'] as $recadogrupo) { ?>                                                               
+                                                
+                                                <?php if($recadogrupo['cod_grupo'] == $grupos['cod_grupo']) { ?>
+                                                <div class="col-sm-4">
+                                                    <form action="cadastroGrupo/updateRecado/<?php echo $recadogrupo['id'] ?>" method="POST">
+                                                        <input type="hidden" name="recado-id" value="<?php echo $recadogrupo['id'] ?>">
+                                                        <input type="hidden" name="cod_grupo" value="<?php echo $recadogrupo['cod_grupo'] ?>">
+                                                        <span>Titúlo do Recado</span>
+                                                        <input type="text" name="titulo-recado" maxlength="30" class="form-control" value="<?php echo $recadogrupo['titulo_recado'] ?>" required="">
+                                                        <span>Conteúdo do Recado</span>
+                                                        <textarea name="conteudo-recado" id="conteudo-recado" class="form-control admin-textarea-sum" placeholder="Conteúdo do Recado" required=""><?php echo $recadogrupo['conteudo_recado'] ?></textarea>
+                                                        <span>Data</span>
+                                                        <input type="date" id="data-recado" name="data-recado" class="form-control" aria-describedby="basic-addon1" value="<?php echo $recadogrupo['data_recado'] ?>" required="">
+
+                                                        <div class="article_buttons">
+                                                            <button type="submit" class="btn btn-default">Atualizar</button>                                    
+                                                            <a href="cadastroGrupo/deleteRecado/<?php echo $recadogrupo['id'] ?>" class="btn btn-danger">Deletar</a>
+                                                        </div>
+
+                                                    </form>                                
+                                                </div>
+                                                
+                                                <?php } ?>                                         
+                     
+                                                <?php } ?>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    
 
 
-
-
+                                </div> 
                             </div>
                         </div>
                     </div>

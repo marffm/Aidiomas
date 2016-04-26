@@ -94,7 +94,7 @@ class adminModel extends Model {
     function getAluno() {
         try {
             $conn = $this->db->connectionDB();
-            $stmt = $conn->prepare("SELECT * FROM aluno");
+            $stmt = $conn->prepare("SELECT * FROM aluno ORDER BY nome");
             $stmt->execute();
             $resultsAluno = $stmt->fetchall(PDO::FETCH_ASSOC);
             $conn = null;

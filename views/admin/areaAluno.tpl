@@ -156,7 +156,7 @@
                                     <td><?php echo $boletins['hausau'] ?></td>
                                 </tr>
                             </table> 
-                            
+
                             <?php } else if ($boletins['b_level'] == $alunogrupo['level_grupo'] and $boletins['b_level'] == 'ingles') { ?>
                             <div class="text">
                                 <p>Código Aluno: <strong><?php echo $alunogrupo['codigo_aluno'] ?></strong></p>                                
@@ -171,16 +171,16 @@
                                     <th>Test 1</th>
                                     <th>Participação 1</th>
                                     <th>Média 1</th>
-                                    
+
                                 </tr>
                                 <tr>
                                     <td><?php echo $boletins['quiz_1'] ?></td>
                                     <td><?php echo $boletins['test_1'] ?></td>
                                     <td><?php echo $boletins['participacao_1'] ?></td>
                                     <td><?php echo $boletins['media_1'] ?></td>
-                                    
+
                                 </tr>
-                                
+
                                 <tr style='font-size: 12px;'>
                                     <th>Quiz 2</th>
                                     <th>Test 2</th>
@@ -204,11 +204,48 @@
                                     <td><?php echo $boletins['media_final'] ?></td>
                                 </tr>
                             </table> 
-                            
+
                             <?php }?>
 
                             <?php }?>
                             <?php }?>
+
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">Recados</h4>
+                                </div>
+                                <div class="row">
+                                     <div class="panel-body">
+                                        <?php foreach($data['recadogrupo'] as $recadogrupo) { ?>
+                                        <?php if ($recadogrupo['cod_grupo'] == $alunogrupo['cod_grupo']){ ?>
+                                        <div class="col-sm-4">
+
+                                            <table class="table table-hover table-bordered">
+                                                <tr>
+                                                    <th>Título</th>
+                                                    <td style="font-size: 15px; font-weight: bold;"><?php echo $recadogrupo['titulo_recado'] ?></td>
+                                                </tr>
+                                                <tr style="text-align: justify;">
+                                                    <th>Recado</th>
+                                                    <td style="font-size: 12px;"><?php echo $recadogrupo['conteudo_recado'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Data</th>
+                                                    <td><?php echo $recadogrupo['data_recado'] ?></td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+                                        <?php } ?>
+                                        <?php } ?>
+                                        
+                                    </div>
+                                </div>
+
+
+                            </div>
+
 
                         </div>
                     </div>

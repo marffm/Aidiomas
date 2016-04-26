@@ -55,8 +55,9 @@ class cadastroGrupo extends Controller {
         $data['gruposlist'] = $this->cadastroGrupoModel->getGrupos();
         $data['alunogrupolist'] = $this->cadastroGrupoModel->getAluno_Grupo();
         $data['boletinslist'] = $this->cadastroGrupoModel->getBoletins();
+        $data['recadogrupo'] = $this->cadastroGrupoModel->getRecados();
         
-        //print_r($data['boletinslist']);
+        //print_r($data['recadogrupo']);
 
         $data['filename'] = 'views/admin/cadastroGrupo.tpl';
         if (file_exists($data['filename'])) {
@@ -102,6 +103,18 @@ class cadastroGrupo extends Controller {
     
     function updateGrupo() {
         $this->cadastroGrupoModel->updateGrupo();
+    }
+    
+    function insertRecado($codGrupo) {
+        $this->cadastroGrupoModel->insertRecado($codGrupo);
+    }
+    
+    function updateRecado($id) {
+        $this->cadastroGrupoModel->updateRecado($id);
+    }
+    
+    function deleteRecado($id) {
+        $this->cadastroGrupoModel->deleteRecado($id);
     }
 
 }

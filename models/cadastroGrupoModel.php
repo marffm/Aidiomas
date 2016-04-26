@@ -34,7 +34,7 @@ class cadastroGrupoModel extends Model {
         try {
             
             $conn = $this->db->connectionDB();
-            $stmt = $conn->prepare("SELECT nome, sobrenome, codigo FROM aluno");
+            $stmt = $conn->prepare("SELECT nome, sobrenome, codigo FROM aluno ORDER BY nome");
             $stmt->execute();
             $resultsAlunos = $stmt->fetchall(PDO::FETCH_ASSOC);
             $conn = null;
@@ -97,7 +97,6 @@ class cadastroGrupoModel extends Model {
         }
     }
     
-    
     function getGrupos() {
         try {
             $conn = $this->db->connectionDB();
@@ -116,7 +115,7 @@ class cadastroGrupoModel extends Model {
     function getAluno_Grupo() {
         try {
             $conn = $this->db->connectionDB();
-            $stmt = $conn->prepare("SELECT grupo.cod_grupo, aluno.nome, aluno.sobrenome, aluno.codigo  FROM aluno_grupo INNER JOIN grupo ON (aluno_grupo.cod_grupo=grupo.cod_grupo) INNER JOIN aluno ON (aluno_grupo.codigo_aluno=aluno.codigo)");
+            $stmt = $conn->prepare("SELECT grupo.cod_grupo, aluno.nome, aluno.sobrenome, aluno.codigo  FROM aluno_grupo INNER JOIN grupo ON (aluno_grupo.cod_grupo=grupo.cod_grupo) INNER JOIN aluno ON (aluno_grupo.codigo_aluno=aluno.codigo) ORDER BY nome");
             $stmt->execute();
             $resultsAlunoGrupo = $stmt->fetchall(PDO::FETCH_ASSOC);
             $conn = null;
@@ -218,5 +217,67 @@ class cadastroGrupoModel extends Model {
             echo 'Error: ' . $ex->getMessage();
         }
     }
+    
+    function insertRecado($codGrupo) {
+        try {
+            
+            $conn = $this->db->connectionDB();
+            $stmt = $conn->prepare("INSERT INTO recado_grupo (cod_grupo, titulo_recado, conteudo_recado, data_recado) VALUES (:cod_grupo, :titulo_recado, :conteudo_recado, :data_recado)");
+            $stmt->bindValue(':cod_grupo', $_POST['cod_grupo'], PDO::PARAM_INT);
+            $stmt->bindValue(':titulo_recado', $_POST['titulo-recado'], PDO::PARAM_STR);
+            $stmt->bindValue(':conteudo_recado', $_POST['conteudo-recado'], PDO::PARAM_STR);
+            $stmt->bindValue(':data_recado', $_POST['data-recado'], PDO::PARAM_INT);
+            $stmt->execute();
+            $conn = null;
+            
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
+        }
+        
+    }
+    
+    function updateRecado($id) {
+        try {
+            $conn = $this->db->connectionDB();
+            $stmt = $conn->prepare("UPDATE recado_grupo SET id=:id, cod_grupo=:cod_grupo, titulo_recado=:titulo_recado, conteudo_recado=:conteudo_recado, data_recado=:data_recado WHERE id=" . $id);
+            $stmt->bindValue(':id', $_POST['recado-id'], PDO::PARAM_INT);
+            $stmt->bindValue(':cod_grupo', $_POST['cod_grupo'], PDO::PARAM_INT);
+            $stmt->bindValue(':titulo_recado', $_POST['titulo-recado'], PDO::PARAM_STR);
+            $stmt->bindValue(':conteudo_recado', $_POST['conteudo-recado'], PDO::PARAM_STR);
+            $stmt->bindValue(':data_recado', $_POST['data-recado'], PDO::PARAM_INT);
+            $stmt->execute();
+            $conn = null;
+            
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
+        }
+    }
+    
+    function deleteRecado($id) {
+        try {
+            $conn = $this->db->connectionDB();
+            $stmt = $conn->prepare("DELETE FROM recado_grupo WHERE id=" . $id);
+            $stmt->execute();
+            $conn = null;
+            
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
+        }
+    }
+    
+    function getRecados() {
+        try {
+            $conn = $this->db->connectionDB();
+            $stmt = $conn->prepare("SELECT * FROM recado_grupo");
+            $stmt->execute();
+            $recadosGrupo = $stmt->fetchall(PDO::FETCH_ASSOC);
+            $conn = null;
+            return $recadosGrupo;
+            
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
+        }
+    }
+    
 
 }

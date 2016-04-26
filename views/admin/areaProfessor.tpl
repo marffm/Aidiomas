@@ -1,6 +1,6 @@
 <div class="container">
     <ol class="breadcrumb">
-        <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+        <?php foreach ($breadcrumbs as $breadcrumb) {?>
         <li><a href="<?php echo $breadcrumb['link']; ?>"><?php echo $breadcrumb['title']; ?></a></li>
         <?php } ?>
     </ol>
@@ -51,8 +51,11 @@
                                 <?php } ?>
                                 <?php } ?>
                             </table>
+                            
+                            
                             <h4>Recados</h4>
-                            <form action="areaProfessor/saveRecado" method="POST">
+                            <form action="areaProfessor/insertRecado/<?php echo $grupos['cod_grupo'] ?>" method="POST">
+                                <input type="hidden" name="cod_grupo" value="<?php echo $grupos['cod_grupo'] ?>">
                                 <span>Titúlo do Recado</span>
                                 <input type="text" name="titulo-recado" maxlength="30" class="form-control" placeholder="Título do Recado" required="">
                                 <span>Conteúdo do Recado</span>
@@ -71,27 +74,35 @@
                                 </div>
                                 <div class="row">
                                     <div class="panel-body">
+                                        <?php foreach ($data['recadogrupo'] as $recadogrupo) { ?>
+                                        
+                                        <?php if ($grupos['cod_grupo'] == $recadogrupo['cod_grupo']) { ?>
                                         <div class="col-sm-4">
-                                            <form action="areaProfessor/updateRecado" method="POST">
+                                            <form action="areaProfessor/updateRecado/<?php echo $recadogrupo['id'] ?>" method="POST">
+                                                <input type="hidden" name="recado-id" value="<?php echo $recadogrupo['id'] ?>">
+                                                <input type="hidden" name="cod_grupo" value="<?php echo $recadogrupo['cod_grupo'] ?>">
                                                 <span>Titúlo do Recado</span>
-                                                <input type="text" name="titulo-recado" maxlength="30" class="form-control" value="Teste de titulo" required="">
+                                                <input type="text" name="titulo-recado" maxlength="30" class="form-control" value="<?php echo $recadogrupo['titulo_recado'] ?>" required="">
                                                 <span>Conteúdo do Recado</span>
-                                                <textarea name="conteudo-recado" id="conteudo-recado" class="form-control admin-textarea-sum" placeholder="Conteúdo do Recado" required="">Teste</textarea>
+                                                <textarea name="conteudo-recado" id="conteudo-recado" class="form-control admin-textarea-sum" placeholder="Conteúdo do Recado" required=""><?php echo $recadogrupo['conteudo_recado'] ?></textarea>
                                                 <span>Data</span>
-                                                <input type="date" id="data-recado" name="data-recado" class="form-control" aria-describedby="basic-addon1" required="">
+                                                <input type="date" id="data-recado" name="data-recado" class="form-control" aria-describedby="basic-addon1" value="<?php echo $recadogrupo['data_recado'] ?>" required="">
 
                                                 <div class="article_buttons">
                                                     <button type="submit" class="btn btn-default">Atualizar</button>                                    
-                                                    <a href="areaProfessor/deleteRecado/?" class="btn btn-default">Deletar</a>
+                                                    <a href="areaProfessor/deleteRecado/<?php echo $recadogrupo['id'] ?>" class="btn btn-danger">Deletar</a>
                                                 </div>
 
                                             </form>                                
-                                        </div>                                        
+                                        </div>
+                                        <?php } ?>
+                                        
+                                        <?php } ?>
                                     </div>  
                                 </div>
                             </div>
 
-
+                            
                         </div>
                     </div>
                     <?php } ?>

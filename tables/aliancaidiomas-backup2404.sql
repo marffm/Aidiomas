@@ -1,7 +1,7 @@
 -- --------------------------------------------------------
--- Servidor:                     127.0.0.1
--- Versão do servidor:           10.1.9-MariaDB - mariadb.org binary distribution
--- OS do Servidor:               Win32
+-- Servidor:                     179.188.16.16
+-- Versão do servidor:           5.6.21-69.0-log - Percona Server (GPL), Release 69.0, Revision 675
+-- OS do Servidor:               debian-linux-gnu
 -- HeidiSQL Versão:              9.3.0.4984
 -- --------------------------------------------------------
 
@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 -- Copiando dados para a tabela aliancaidiomas.admin: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
 INSERT INTO `admin` (`nome`, `usuario`, `senha`, `nivel`) VALUES
+	('Valéria', 'airelav', 'valeria', 1),
 	('Marcelo', 'Marcelo', '123', 1);
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 
@@ -48,8 +49,6 @@ CREATE TABLE IF NOT EXISTS `alemao` (
 
 -- Copiando dados para a tabela aliancaidiomas.alemao: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `alemao` DISABLE KEYS */;
-INSERT INTO `alemao` (`b_level`, `codigo_aluno`, `semestre`, `quiz_1`, `test_1`, `quiz_2`, `test_2`, `sprechen`, `hausau`) VALUES
-	('alemao', 1012250, '01/2016', '13', '42', '0', '0', '0', '0');
 /*!40000 ALTER TABLE `alemao` ENABLE KEYS */;
 
 
@@ -69,12 +68,79 @@ CREATE TABLE IF NOT EXISTS `aluno` (
   CONSTRAINT `acesso` FOREIGN KEY (`nivel`) REFERENCES `nivel` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Copiando dados para a tabela aliancaidiomas.aluno: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela aliancaidiomas.aluno: ~70 rows (aproximadamente)
 /*!40000 ALTER TABLE `aluno` DISABLE KEYS */;
 INSERT INTO `aluno` (`codigo`, `nome`, `sobrenome`, `nascimento`, `telefone`, `email`, `usuario`, `senha`, `nivel`) VALUES
-	(1012250, 'Ana Julia', 'Martins', '2004-12-20', '', '', 'anajuia', '12345678', 3),
-	(1012260, 'Bibi', 'Martins', '2000-08-30', '123545345', '', 'bibi', '654', 3),
-	(1122334, 'Mocinha', 'Martins', '2004-04-15', '333444555', '', 'mocinha', '123321', 3);
+	(12432, 'Braulio', 'Limonta', '0001-01-01', '16-37213168', '', '12432', '12432', 3),
+	(13731, 'Rafael', 'de Melo Siveira', '0001-01-01', '16-34033000', 'rmsilveira.rafael@gmail.com', '13731', '13731', 3),
+	(1011465, 'Paulo Matheus', 'Ferrari Mota', '0001-01-01', '12-33010828', 'paulo_m_ferrari1994@hotmail.com', '1011465', '1011465', 3),
+	(1011526, 'Adriane', 'Gomes Fernandes de Almeida', '0001-01-01', '12-33515553', 'drica.gfalmeida@gmail.com', '1011526', '1011526', 3),
+	(1011578, 'Getulio', 'Alves de A Neto', '0001-01-01', '', '', '1011578', '1011578', 3),
+	(1011712, 'Amon', 'Lucena', '0001-01-01', '16-37054374', 'amon-lucena@uol.com.br', '1011712', '1011712', 3),
+	(1011727, 'Levi', 'Yoriyaz', '0001-01-01', '', 'Levikun@gmail.com', '1011727', '1011727', 3),
+	(1011835, 'Noehlia ', 'Jose Palou Zuniga', '0001-01-01', '16-37045567', 'nojopazu93@hotmail.com', '1011835', '1011835', 3),
+	(1011918, 'Larissa', 'Sigerio Puerta Mascarenhas', '0001-01-01', '', 'lari.sigeiro@hotmail.com', '1011918', '1011918', 3),
+	(1012028, 'Bernado', 'Micheletto Neto', '0001-01-01', '', 'b.micheletto12@gmail.com', '1012028', '1012028', 3),
+	(1012180, 'Rondinele', 'Ap LourenÃ§o', '0001-01-01', '', '', '1012180', '1012180', 3),
+	(1012183, 'Jihad', 'Jawad El Gandur', '0001-01-01', '', '', '1012183', '1012183', 3),
+	(1012187, 'Luiza ', 'Del Nery Forghieri', '0001-01-01', '', 'idnforghieri@gmail.com', '1012187', '1012187', 3),
+	(1012188, 'Ana Luisa', 'Inacio Sanches', '0001-01-01', '', '', '1012188', '1012188', 3),
+	(1012190, 'Isabela', 'Bracalente Infanger', '0001-01-01', '', '', '1012190', '1012190', 3),
+	(1012191, 'Gabriela', 'Dias Nascimento', '0001-01-01', '', '', '1012191', '1012191', 3),
+	(1012210, 'Debora', 'Mateus Lima', '0001-01-01', '11-79655768', 'deboralima60@gmail.com', '1012210', '1012210', 3),
+	(1012212, 'Marina', 'Pereira Torres', '0001-01-01', '16-39165632', 'marinaptorres@outlook.com', '1012212', '1012212', 3),
+	(1012215, 'Lygia', 'Carniel D Olivio', '0001-01-01', '', '', '1012215', '10122015', 3),
+	(1012221, 'Gabriela', 'Machado Lameirao', '0001-01-01', '', '', '1012221', '1012221', 3),
+	(1012222, 'Andre', 'Cespedes Pimenta', '0001-01-01', '', '', '1012222', '1012222', 3),
+	(1012225, 'Ana Carolina ', 'Almeida Ayres', '0001-01-01', '', '', '1012225', '1012225', 3),
+	(1012229, 'Giovanna', 'Freitas FranÃ§a', '0001-01-01', '62-99765153', 'giovannaffranca@gmail.com', '1012229', '1012229', 3),
+	(1012235, 'Giulia ', 'Tavares Murta', '0001-01-01', '', '', '1012235', '1012235', 3),
+	(1012242, 'Isabela', 'Lima Paifer', '0001-01-01', '', 'isalimapaifer@yahoo.com.br', '1012242', '1012242', 3),
+	(1012277, 'Giovana', 'Puppin', '0001-01-01', '19-34224593', 'gipupp@hotmail.com', '1012277', '1012277', 3),
+	(1012279, 'Sofia', 'Rodrigues Cruz', '0001-01-01', '11-24333389', 'sofia_src@hotmail.com', '1012279', '1012279', 3),
+	(1012302, 'Izabela Maria', 'Baitelo', '0001-01-01', '', '', '1012302', '1012302', 3),
+	(1012305, 'Lucas', 'Rezende de Melo', '0001-01-01', '', 'melo_rezende@hotmail.com', '1012305', '1012305', 3),
+	(1012306, 'Andre Luis', 'Parodi Andreatta', '0001-01-01', '', 'andreandreatta@ig.com.br', '1012306', '1012306', 3),
+	(1012307, 'Laura', 'Neves Amancio', '0001-01-01', '', 'lauran.amancio@yahoo.com.br', '1012307', '1012307', 3),
+	(1012308, 'Julia Andrade', 'Nunez Queiroz', '0001-01-01', '16-39164027', 'juliaaqueiroz@gmail.com', '1012308', '1012308', 3),
+	(1012312, 'Giovanna', 'Guerra Cabrini Araujo', '0001-01-01', '', 'giocabara@gmail.com', '1012312', '1012312', 3),
+	(1012323, 'Beatriz', 'Ballaminut Cavalieri', '0001-01-01', '', 'biabcalavieri@hotmail.com', '1012323', '1012323', 3),
+	(1012327, 'Eric Felipe', 'Sabadini Nakahara', '0001-01-01', '', 'ericsabadini@gmail.com', '1012327', '1012327', 3),
+	(1012356, 'Cecilia Luisa', 'Ribeiro Alvarenga', '0001-01-01', '16-982580511', 'ceci_luisa@hotmail.com', '1012356', '1012356', 3),
+	(1012370, 'Natalia Maria', 'de Moraes', '0001-01-01', '', 'natmorais@gmail.com', '1012370', '1012370', 3),
+	(1012379, 'Willian', 'Zanetti', '0001-01-01', '', '', '1012379', '1012379', 3),
+	(1012381, 'Analba ', 'dos Reis', '0001-01-01', '', '', '1012381', '1012381', 3),
+	(1012382, 'Sandra', 'Osorio de Andrade', '0001-01-01', '16-37255941', 'soandrade44@gmail.com', '1012382', '1012382', 3),
+	(1012392, 'Amanda', 'Claudiano Francisco', '0001-01-01', '', '', '1012392', '1012392', 3),
+	(1012403, 'Karoline ', 'GonÃ§alves de Oliveira', '0001-01-01', '11-43514672', 'karolineoliv@gmail.com', '1012403', '1012403', 3),
+	(1012406, 'Carolina', 'Rodrigues Finetti', '0001-01-01', '', '', '1012406', '1012406', 3),
+	(1012415, 'Lucas', 'Lima Pinto', '0001-01-01', '', '', '1012415', '1012415', 3),
+	(1012423, 'Leticia', 'Solia', '0001-01-01', '', '', '1012423', '1012423', 3),
+	(1012428, 'Natalia', 'Leite de Souza', '0001-01-01', '12-21030995', 'isnatalia_@hotmail.com', '1012428', '1012428', 3),
+	(1012429, 'Helena', 'de Oliveira Rosa', '0001-01-01', '16-34421837', 'helenaoliveirarosa@gmail.com', '1012429', '1012429', 3),
+	(1012430, 'Monique', 'Marciel Barbosa', '0001-01-01', '', '', '1012430', '1012430', 3),
+	(1012438, 'Gabriela', 'da Silva Cintra', '0001-01-01', '16-37054244', 'gabriela_silvacintra@hotmail.com', '1012438', '1012438', 3),
+	(1012441, 'Thalita', 'Marques Monteiro', '0001-01-01', '11-20418914', 'thalitammonteiro@hotmail.com', '1012441', '1012441', 3),
+	(1012442, 'Janaina Cristiane', 'da Silva Helfenstein', '0001-01-01', '16-37239558', 'janaina_helfenstein@yahoo.com.br', '1012442', '1012442', 3),
+	(1012446, 'Murilo', 'Ribeiro Moreira de Lima', '0001-01-01', '', '', '1012446', '1012446', 3),
+	(1012449, 'Talita', 'Driellen de Castro Silva', '0001-01-01', '', '', '1012449', '1012449', 3),
+	(1012450, 'Rafael', 'Menezes Bido', '0001-01-01', '', '', '1012450', '1012450', 3),
+	(1012451, 'Susana Thamires', 'Kaori Sakamoto Machado', '0001-01-01', '', '', '1012451', '1012451', 3),
+	(1012454, 'Thiago', 'Torres Tezzon', '0001-01-01', '', '', '1012454', '1012454', 3),
+	(1012455, 'Guilherme', 'Rocha Fabro', '0001-01-01', '', '', '1012455', '1012455', 3),
+	(1012456, 'Rafael', 'Varollo Perlati', '0001-01-01', '', '', '1012456', '1012456', 3),
+	(1012459, 'Renata Gabriele', 'Ferraz Bueno', '0001-01-01', '', '', '1012459', '1012459', 3),
+	(1012460, 'Thiago', 'Teixeira de Petta', '0001-01-01', '16-981009446', 'thiaguinho.teixeira1997@gmail.com', '1012460', '1012460', 3),
+	(1012463, 'Lavinia', 'Andrade Matheus', '0001-01-01', '19-992692768', 'laviniandradem@hotmail.com', '1012463', '1012463', 3),
+	(1012464, 'Giovanna', 'Alves Medola', '0001-01-01', '', '', '1012464', '1012464', 3),
+	(1012465, 'Victoria', 'Alves Silva', '0001-01-01', '', '', '1012465', '1012465', 3),
+	(1012466, 'Heloisa Helena', 'de carvalho', '0001-01-01', '', '', '1012466', '1012466', 3),
+	(1012469, 'Lara', 'Rezende Dozono Pereira', '0001-01-01', '', '', '1012469', '1012469', 3),
+	(1012476, 'Lisa', 'Abdala Garcia', '0001-01-01', '16-39671528', 'lisaabdalag@hotmail.com', '1012476', '1012476', 3),
+	(1012478, 'Lorean', 'Prophirio Credidio', '0001-01-01', '', '', '1012478', '1012478', 3),
+	(1012480, 'Isabella', 'Abbs Murad Sebastiani', '0001-01-01', '', '', '1012480', '1012480', 3),
+	(1012485, 'Carla Maria', 'Campardo Paiva', '0001-01-01', '19-38628575', 'carlacampadop@gmail.com', '1012485', '1012485', 3),
+	(1012487, 'Beatriz', 'de Souza Lima Pissutti', '0001-01-01', '16-32426168', 'biapissutti@hotmail.com', '1012487', '1012487', 3);
 /*!40000 ALTER TABLE `aluno` ENABLE KEYS */;
 
 
@@ -90,13 +156,6 @@ CREATE TABLE IF NOT EXISTS `aluno_boletins` (
 
 -- Copiando dados para a tabela aliancaidiomas.aluno_boletins: ~6 rows (aproximadamente)
 /*!40000 ALTER TABLE `aluno_boletins` DISABLE KEYS */;
-INSERT INTO `aluno_boletins` (`boletins_AB`, `codigo_aluno_AB`) VALUES
-	('b1-e', 1122334),
-	('b1-e', 1012250),
-	('b2-e', 1012260),
-	('a2-e', 1012250),
-	('alemao', 1012250),
-	('ingles', 1012250);
 /*!40000 ALTER TABLE `aluno_boletins` ENABLE KEYS */;
 
 
@@ -110,14 +169,72 @@ CREATE TABLE IF NOT EXISTS `aluno_grupo` (
   CONSTRAINT `cod_grupo` FOREIGN KEY (`cod_grupo`) REFERENCES `grupo` (`cod_grupo`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela aliancaidiomas.aluno_grupo: ~5 rows (aproximadamente)
+-- Copiando dados para a tabela aliancaidiomas.aluno_grupo: ~63 rows (aproximadamente)
 /*!40000 ALTER TABLE `aluno_grupo` DISABLE KEYS */;
 INSERT INTO `aluno_grupo` (`cod_grupo`, `codigo_aluno`) VALUES
-	(1109, 1122334),
-	(511, 1012250),
-	(1234, 1012250),
-	(1122, 1012250),
-	(2830, 1012250);
+	(5490, 1012028),
+	(5490, 1012212),
+	(5490, 1012442),
+	(5490, 1012308),
+	(5490, 1012403),
+	(5490, 1012305),
+	(5490, 1012441),
+	(5176, 1012306),
+	(5176, 1012229),
+	(5176, 1012312),
+	(5176, 1012307),
+	(5176, 1012187),
+	(5283, 1011526),
+	(5283, 1011712),
+	(5283, 1011835),
+	(5283, 1011465),
+	(5283, 1011727),
+	(5385, 1012210),
+	(5385, 1012438),
+	(5385, 1012277),
+	(5385, 1012429),
+	(5385, 1012242),
+	(5385, 1011918),
+	(5385, 1012463),
+	(5385, 1012428),
+	(5385, 1012279),
+	(5385, 1012460),
+	(5384, 1012356),
+	(5384, 1012370),
+	(5384, 13731),
+	(5384, 1012382),
+	(5384, 1012381),
+	(5384, 12432),
+	(5386, 1012487),
+	(5386, 1012485),
+	(5386, 1012476),
+	(5091, 1012323),
+	(5091, 1012327),
+	(5091, 1012312),
+	(5091, 1012302),
+	(5091, 1012180),
+	(5303, 1012188),
+	(5303, 1012191),
+	(5303, 1011578),
+	(5303, 1012183),
+	(5303, 1012187),
+	(5303, 1012430),
+	(5303, 1012451),
+	(5309, 1012215),
+	(5309, 1012190),
+	(5309, 1012235),
+	(5309, 1012221),
+	(5309, 1012225),
+	(5309, 1012222),
+	(5501, 1012464),
+	(5501, 1012455),
+	(5501, 1012466),
+	(5501, 1012469),
+	(5501, 1012415),
+	(5501, 1012450),
+	(5501, 1012459),
+	(5501, 1012449),
+	(5501, 1012454);
 /*!40000 ALTER TABLE `aluno_grupo` ENABLE KEYS */;
 
 
@@ -131,7 +248,7 @@ CREATE TABLE IF NOT EXISTS `boletins` (
   CONSTRAINT `idiomas_boletins` FOREIGN KEY (`idioma_boletins`) REFERENCES `idiomas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela aliancaidiomas.boletins: ~6 rows (aproximadamente)
+-- Copiando dados para a tabela aliancaidiomas.boletins: ~7 rows (aproximadamente)
 /*!40000 ALTER TABLE `boletins` DISABLE KEYS */;
 INSERT INTO `boletins` (`boletins`, `nome_boletim`, `idioma_boletins`) VALUES
 	('a1-e', 'espanhol_a1', 2),
@@ -178,8 +295,6 @@ CREATE TABLE IF NOT EXISTS `espanhol_a2` (
 
 -- Copiando dados para a tabela aliancaidiomas.espanhol_a2: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `espanhol_a2` DISABLE KEYS */;
-INSERT INTO `espanhol_a2` (`b_level`, `codigo_aluno`, `semestre`, `unidade123`, `unidade456`, `unidade78910`, `proyectolectura`, `mediafinal`) VALUES
-	('a2-e', 1012250, '01/2016', 'teste 32', '0', '0', '0', '0');
 /*!40000 ALTER TABLE `espanhol_a2` ENABLE KEYS */;
 
 
@@ -200,9 +315,6 @@ CREATE TABLE IF NOT EXISTS `espanhol_b1` (
 
 -- Copiando dados para a tabela aliancaidiomas.espanhol_b1: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `espanhol_b1` DISABLE KEYS */;
-INSERT INTO `espanhol_b1` (`b_level`, `codigo_aluno`, `semestre`, `unidade123`, `unidade456`, `unidade789`, `unidade101112`, `proyectolectura`, `mediafinal`) VALUES
-	('b1-e', 1122334, '01/2016', '56', '87', '45', '0', '0', '0'),
-	('b1-e', 1012250, '01/2016', '100', '45', '0', '0', '0', '0');
 /*!40000 ALTER TABLE `espanhol_b1` ENABLE KEYS */;
 
 
@@ -221,8 +333,6 @@ CREATE TABLE IF NOT EXISTS `espanhol_b2` (
 
 -- Copiando dados para a tabela aliancaidiomas.espanhol_b2: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `espanhol_b2` DISABLE KEYS */;
-INSERT INTO `espanhol_b2` (`b_level`, `codigo_aluno`, `semestre`, `unidade12345`, `unidade678910`, `proyectolectura`, `mediafinal`) VALUES
-	('b2-e', 1012260, '02/2016', '83', '12', '0', '0');
 /*!40000 ALTER TABLE `espanhol_b2` ENABLE KEYS */;
 
 
@@ -272,14 +382,24 @@ CREATE TABLE IF NOT EXISTS `grupo` (
   CONSTRAINT `idioma_grupo` FOREIGN KEY (`idioma`) REFERENCES `idiomas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Copiando dados para a tabela aliancaidiomas.grupo: ~5 rows (aproximadamente)
+-- Copiando dados para a tabela aliancaidiomas.grupo: ~13 rows (aproximadamente)
 /*!40000 ALTER TABLE `grupo` DISABLE KEYS */;
 INSERT INTO `grupo` (`cod_grupo`, `idioma`, `level_grupo`, `codigo_professor`) VALUES
 	(511, 1, 'a2-e', 2),
 	(1109, 2, 'b1-e', 1),
 	(1122, 1, 'ingles', 1),
 	(1234, 4, 'alemao', 4),
-	(2830, 1, 'b2-e', 1);
+	(2830, 1, 'b2-e', 1),
+	(5091, 2, 'a2-e', 13),
+	(5176, 4, 'a1-e', 14),
+	(5283, 4, 'b1-e', 15),
+	(5303, 2, 'b1-e', 13),
+	(5309, 2, 'b1-e', 9),
+	(5384, 2, 'a1-e', 13),
+	(5385, 2, 'a1-e', 13),
+	(5386, 2, 'a1-e', 13),
+	(5490, 4, 'a1-e', 14),
+	(5501, 3, 'a1-e', 6);
 /*!40000 ALTER TABLE `grupo` ENABLE KEYS */;
 
 
@@ -325,8 +445,6 @@ CREATE TABLE IF NOT EXISTS `ingles` (
 
 -- Copiando dados para a tabela aliancaidiomas.ingles: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `ingles` DISABLE KEYS */;
-INSERT INTO `ingles` (`b_level`, `codigo_aluno`, `semestre`, `quiz_1`, `test_1`, `participacao_1`, `media_1`, `quiz_2`, `test_2`, `oral_test`, `mocks`, `reading`, `participacao_2`, `multroom`, `media_2`, `media_final`) VALUES
-	('ingles', 1012250, '01/2016', '10', '10', '10', '10', '10', '22', '10', '66', '10', '22', '78', '66', 'teste 32');
 /*!40000 ALTER TABLE `ingles` ENABLE KEYS */;
 
 
@@ -340,7 +458,7 @@ CREATE TABLE IF NOT EXISTS `mural` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela aliancaidiomas.mural: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela aliancaidiomas.mural: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `mural` DISABLE KEYS */;
 INSERT INTO `mural` (`id`, `title`, `summary`, `content`, `date`) VALUES
 	(1, 'TOEFL - Test of English as a Foreign Language', 'O Centro Linguistico de Franca prepara os candidatos para exame de TOEFL.', 'INGLÊS TOEFL – (Test of English as a Foreign Language) Ou Teste de Inglês como uma Língua Estrangeira é um exame que tem o objetivo de avaliar o potencial individual de falar e entender o inglês em nível acadêmico. O Centro Linguístico de Franca prepara os candidatos para exame de TOEFL. É requerido para a maior parte dos estudantes estrangeiros que tentam ingressar em uma universidade de um país em que inglesa é a primeira língua. Além disso, instituições com agências governamentais, empresas e programas de estudo podem exigir o teste. A nota no TOEFL é válida por apenas dois anos - após esse prazo, ela é eliminada do banco de dados. O TOEFL é uma marca registrada da Educational Testing Service (Serviço de Testes Educacionais; ETS). O primeiro teste foi realizado em 1964 e, desde então, aproximadamente mais 20 milhões de estudantes já o fizeram. Mais de 2.400 faculdades e universidades nos Estados Unidos e no Canadá exigem o TOEFL como requisito de admissão em seus cursos. Órgãos governamentais e programas de bolsa de estudos também o utilizam para avaliar a proficiência em inglês. O TOEFL pode ser complementado pelo TWE (Test of Written English – Teste de Inglês Escrito) TSE (Test of Spoken English – Teste de Inglês Oral).', '2016-01-20'),
@@ -379,36 +497,25 @@ CREATE TABLE IF NOT EXISTS `professor` (
   KEY `idiomas` (`idioma`),
   KEY `access` (`nivel`),
   CONSTRAINT `idiomas` FOREIGN KEY (`idioma`) REFERENCES `idiomas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Copiando dados para a tabela aliancaidiomas.professor: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela aliancaidiomas.professor: ~11 rows (aproximadamente)
 /*!40000 ALTER TABLE `professor` DISABLE KEYS */;
 INSERT INTO `professor` (`nome_prof`, `sobrenome_prof`, `telefone_prof`, `email_prof`, `idioma`, `usuario_prof`, `senha_prof`, `nivel`, `id`) VALUES
-	('Fabiana', 'Fernandes', '(16) 3701 0550', 'teste@teste.com.br', 1, 'fabiana', '456', 2, 1),
-	('Leticia', 'Fernandes', '(16) 3721 0550', '', 2, 'leticia', '789', 2, 2),
-	('Ana', 'Juia Martins', '16 - 3701 0550', '', 4, 'anajuia', '123456', 2, 4);
+	('Lucia Cristina ', 'P Gatti', '', '', 1, 'Lucia', '1011309', 2, 5),
+	('Valeria ', 'de Souza Cintra', '', '', 1, 'Valeria C', '1011971', 2, 6),
+	('Adriana', 'Gosuen', '', '', 1, 'Adriana', '1012128', 2, 7),
+	('Giovanni', 'F. Molina Aguierre', '', '', 2, 'Giovanni', '1011904', 2, 9),
+	('Maria Carolina', 'Avila Andrade', '', '', 1, 'Maria Carolina', '1012080', 2, 10),
+	('Daniel ', 'Felix peÃ±a anez', '', '', 2, 'Daniel', '1028', 2, 11),
+	('Evaldo', 'E. da Silva', '', '', 3, 'Evaldo', '1033', 2, 12),
+	('Estela ', 'Maris Almeida', '', '', 2, 'Estela', '1072', 2, 13),
+	('Frederico ', 'Theotonio', '', '', 1, 'Frederico', '1011198', 2, 14),
+	('Getulio ', 'Alves de A Neto', '', '', 4, 'Getulio', '1011598', 2, 15),
+	('Leonardo ', 'MendonÃ§a Figeueiredo', '', '', 3, 'Leonardo', '14101', 2, 16),
+	('Mariana ', 'Nicolau', '', '', 1, 'Mariana', '1098', 2, 17),
+	('Vinicius', 'Santos Teixeira', '', '', 4, 'Vinicius', '1011920', 2, 18);
 /*!40000 ALTER TABLE `professor` ENABLE KEYS */;
-
-
--- Copiando estrutura para tabela aliancaidiomas.recado_grupo
-CREATE TABLE IF NOT EXISTS `recado_grupo` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cod_grupo` int(11) NOT NULL DEFAULT '0',
-  `titulo_recado` varchar(50) NOT NULL,
-  `conteudo_recado` varchar(200) NOT NULL,
-  `data_recado` date NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `grupo` (`cod_grupo`),
-  CONSTRAINT `grupo` FOREIGN KEY (`cod_grupo`) REFERENCES `grupo` (`cod_grupo`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-
--- Copiando dados para a tabela aliancaidiomas.recado_grupo: ~0 rows (aproximadamente)
-/*!40000 ALTER TABLE `recado_grupo` DISABLE KEYS */;
-INSERT INTO `recado_grupo` (`id`, `cod_grupo`, `titulo_recado`, `conteudo_recado`, `data_recado`) VALUES
-	(4, 511, 'test', 'tes25', '2016-04-24'),
-	(5, 511, 't2', 't55', '2016-04-24'),
-	(7, 1234, 'This is a test for Deutsch', 'This is a test for this group', '2016-04-24');
-/*!40000 ALTER TABLE `recado_grupo` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

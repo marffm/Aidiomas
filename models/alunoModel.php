@@ -388,4 +388,18 @@ class alunoModel extends Model {
             echo 'Error: ' . $ex->getMessage();
         }
     }
+    
+    function getRecados($id) {
+        try {
+            $conn = $this->db->connectionDB();
+            $stmt = $conn->prepare("SELECT recado_grupo.*, aluno_grupo.codigo_aluno FROM recado_grupo INNER JOIN aluno_grupo ON (recado_grupo.cod_grupo=aluno_grupo.cod_grupo) WHERE aluno_grupo.codigo_aluno=" . $id);
+            $stmt->execute();
+            $recadosGrupo = $stmt->fetchall(PDO::FETCH_ASSOC);
+            $conn = null;
+            return $recadosGrupo;
+            
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
+        }
+    }
 }
