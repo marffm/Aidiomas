@@ -800,76 +800,76 @@
                                     <input type="hidden" name="codigo_aluno" id="codigo_aluno" value="<?php echo $aluno['codigo'] ?>" />
                                     <input type="hidden" name="b_level" id="b_level" value="frances" />
                                     <span><strong>Élève</strong></span>
-                                    <input type="text" name="eleve" id="eleve" placeholder="" class="form-control" />
+                                    <input type="text" name="eleve" id="eleve" value="<?php echo $boletins['eleve'] ?>" class="form-control" />
                                     <br/>
                                     <span><strong>Méthode</strong></span>
-                                    <input type="text" name="methode" id="methode" placeholder="Methode" class="form-control" />
+                                    <input type="text" name="methode" id="methode" value="<?php echo $boletins['methode'] ?>" class="form-control" />
                                     <br/>
                                     <span><strong>Niveau</strong></span>
-                                    <input type="text" name="niveau" id="niveau" placeholder="Niveau" class="form-control" />
+                                    <input type="text" name="niveau" id="niveau" value="<?php echo $boletins['niveau'] ?>" class="form-control" />
                                     <br/>
                                     <span><strong>Moyenne</strong></span>
-                                    <input type="text" name="moyenne" id="moyenne" placeholder="Moyenne" class="form-control" />
+                                    <input type="text" name="moyenne" id="moyenne" value="<?php echo $boletins['moyenne'] ?>" class="form-control" />
                                     <br/>
                                     <span><strong>Contenus Travaillés - Unité 1</strong></span>
-                                    <input type="text" name="travailles-unite1" id="travailles-unite1" placeholder="Unité 1" class="form-control" />
+                                    <input type="text" name="travailles-unite1" id="travailles-unite1" value="<?php echo $boletins['travailles_unite1'] ?>" class="form-control" />
                                     <br/>
                                     <span><strong>Contenus Travaillés - Unité 2</strong></span>
-                                    <input type="text" name="travailles-unite2" id="travailles-unite2" placeholder="Unité 2" class="form-control" />
+                                    <input type="text" name="travailles-unite2" id="travailles-unite2" value="<?php echo $boletins['travailles_unite2'] ?>" class="form-control" />
                                     <br/>
                                     <span><strong>Contenus Travaillés - Unité 3</strong></span>
-                                    <input type="text" name="travailles-unite3" id="travailles-unite3" placeholder="Unité 3" class="form-control" />
+                                    <input type="text" name="travailles-unite3" id="travailles-unite3" value="<?php echo $boletins['travailles_unite3'] ?>" class="form-control" />
                                     <br/>
                                     <span><strong>Contenus Travaillés - Unité 4</strong></span>
-                                    <input type="text" name="travailles-unite4" id="travailles-unite4" placeholder="Unité 4" class="form-control" />
+                                    <input type="text" name="travailles-unite4" id="travailles-unite4" value="<?php echo $boletins['travailles_unite4'] ?>" class="form-control" />
                                     <br/>
                                     <span><strong>Devoirs - Unité 1</strong></span>
-                                    <input type="text" name="devoirs-unite1" id="devoir-unite1" placeholder="Unité 1" class="form-control" />
+                                    <input type="text" name="devoirs-unite1" id="devoir-unite1" value="<?php echo $boletins['devoirs_unite1'] ?>" class="form-control" />
                                     <br/>
                                     <span><strong>Devoirs - Unité 2</strong></span>
-                                    <input type="text" name="devoirs-unite2" id="devoirs-unite2" placeholder="Unité 2" class="form-control" />
+                                    <input type="text" name="devoirs-unite2" id="devoirs-unite2" value="<?php echo $boletins['devoirs_unite2'] ?>" class="form-control" />
                                     <br/>
                                     <span><strong>Devoirs - Unité 3</strong></span>
-                                    <input type="text" name="devoirs-unite3" id="devoirs-unite3" placeholder="Unité 3" class="form-control" />
+                                    <input type="text" name="devoirs-unite3" id="devoirs-unite3" value="<?php echo $boletins['devoirs_unite3'] ?>" class="form-control" />
                                     <br/>
                                     <span><strong>Devoirs - Unité 4</strong></span>
-                                    <input type="text" name="devoirs-unite4" id="devoirs-unite4" placeholder="Unité 4" class="form-control" />
+                                    <input type="text" name="devoirs-unite4" id="devoirs-unite4" value="<?php echo $boletins['devoirs_unite4'] ?>" class="form-control" />
                                     <br/>
                                     <br/>
                                     <h4>Évaluations 1er bimestre</h4>
                                     <br/>
                                     <span><strong>Participation</strong></span>
-                                    <input type="text" name="participation" id="participation" placeholder="Participation" class="form-control" />
+                                    <input type="text" name="participation" id="participation" value="<?php echo $boletins['participation'] ?>" class="form-control" />
                                     <br/>
                                     <span><strong>Devoirs</strong></span>
-                                    <input type="text" name="davoirs-1" id="davoirs-1" placeholder="Devoirs" class="form-control" />
+                                    <input type="text" name="davoirs-1" id="davoirs-1" value="<?php echo $boletins['davoirs_1'] ?>" class="form-control" />
                                     <br/>
                                     <span><strong>Performance en classe</strong></span>
-                                    <input type="text" name="performance" id="performance" placeholder="Performance en Classe" class="form-control" />
+                                    <input type="text" name="performance" id="performance" value="<?php echo $boletins['performance'] ?>" class="form-control" />
                                     <br/>
                                     <span><strong>Test écrit</strong></span>
-                                    <input type="text" name="test-ecrit-1" id="test-ecrit-1" placeholder="Test écrit" class="form-control" />
+                                    <input type="text" name="test-ecrit-1" id="test-ecrit-1" value="<?php echo $boletins['test_ecrit1'] ?>" class="form-control" />
                                     <br/>
                                     <span><strong>Total</strong></span>
-                                    <input type="text" name="total-1" id="total-1" placeholder="Total 1er Bimestre" class="form-control" />
+                                    <input type="text" name="total-1" id="total-1" value="<?php echo $boletins['total_1'] ?>" class="form-control" />
                                     <br/>
                                     <br/>
                                     <h4>Évaluations 2e bimestre</h4>
                                     <br/>
                                     <span><strong>Lecture</strong></span>
-                                    <input type="text" name="lecture" id="lecture" placeholder="Lecture" class="form-control" />
+                                    <input type="text" name="lecture" id="lecture" value="<?php echo $boletins['lecture'] ?>" class="form-control" />
                                     <br/>
                                     <span><strong>Devoirs</strong></span>
-                                    <input type="text" name="devoirs-2" id="devoirs-2" placeholder="Devoirs" class="form-control" />
+                                    <input type="text" name="devoirs-2" id="devoirs-2" value="<?php echo $boletins['devoirs_2'] ?>" class="form-control" />
                                     <br/>
                                     <span><strong>Test oral</strong></span>
-                                    <input type="text" name="test-oral" id="test-oral" placeholder="Test Oral" class="form-control" />
+                                    <input type="text" name="test-oral" id="test-oral" value="<?php echo $boletins['test_oral'] ?>" class="form-control" />
                                     <br/>
                                     <span><strong>Test écrit</strong></span>
-                                    <input type="text" name="test-ecrit-2" id="test-ecrit-2" placeholder="Test écrit" class="form-control" />
+                                    <input type="text" name="test-ecrit-2" id="test-ecrit-2" value="<?php echo $boletins['test_ecrit2'] ?>" class="form-control" />
                                     <br/>
                                     <span><strong>Total</strong></span>
-                                    <input type="text" name="total-2" id="total-2" placeholder="Total" class="form-control" />
+                                    <input type="text" name="total-2" id="total-2" value="<?php echo $boletins['total_2'] ?>" class="form-control" />
                                     
                                     <div id="button-inserirAluno">
                                         <button type="submit" class="btn btn-info">Inserir Boletim</button>
@@ -878,16 +878,11 @@
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
-
-                </div>
-            </div>
-                    <?php } ?>
+                    <?php } ?> <!-- END IF FRANCES -->
 
                     <?php } ?> <!-- END FOREACH BOLETINS -->
                     <?php } ?> <!-- END FOREACH DATA ALUNO BOLETIN -->
                 </div>
-
             </div>
 
             <?php } ?> <!-- END OF BOLETINS -->
