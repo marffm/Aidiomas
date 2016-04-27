@@ -166,7 +166,32 @@ class alunoModel extends Model {
                         $stmt->execute();
                         break;
                     case "frances":
-                        $stmt = $conn->prepare("INSERT INTO frances (b_level, codigo_aluno, semestre)");
+                        $stmt = $conn->prepare("INSERT INTO frances (b_level, codigo_aluno, eleve, methode, niveau, moyenne, travailles_unite1, travailles_unite2, travailles_unite3, travailles_unite4, devoirs_unite1, devoirs_unite2, devoirs_unite3, devoirs_unite4, participation, davoirs_1, performance, test_ecrit1, total_1, lecture, devoirs_2, test_oral, test_ecrit2, total_2) VALUES (:b_level, :codigo_aluno, :eleve, :methode, :niveau, :moyenne, :travailles_unite1, :travailles_unite2, :travailles_unite3, :travailles_unite4, :devoirs_unite1, :devoirs_unite2, :devoirs_unite3, :devoirs_unite4, :participation, :davoirs_1, :performance, :test_ecrit1, :total_1, :lecture, :devoirs_2, :test_oral, :test_ecrit2, :total_2)");
+                        $stmt->bindValue(':b_level', 'frances', PDO::PARAM_STR);
+                        $stmt->bindValue(':codigo_aluno', $_POST['codigo_aluno'], PDO::PARAM_INT);
+                        $stmt->bindValue(':eleve', $_POST['eleve'], PDO::PARAM_STR);
+                        $stmt->bindValue(':methode', $_POST['methode'], PDO::PARAM_STR);
+                        $stmt->bindValue(':niveau', $_POST['niveau'], PDO::PARAM_STR);
+                        $stmt->bindValue(':moyenne', $_POST['moyenne'], PDO::PARAM_STR);
+                        $stmt->bindValue(':travailles_unite1', $_POST['travailles-unite1'], PDO::PARAM_STR);
+                        $stmt->bindValue(':travailles_unite2', $_POST['travailles-unite2'], PDO::PARAM_STR);
+                        $stmt->bindValue(':travailles_unite3', $_POST['travailles-unite3'], PDO::PARAM_STR);
+                        $stmt->bindValue(':travailles_unite4', $_POST['travailles-unite4'], PDO::PARAM_STR);
+                        $stmt->bindValue(':devoirs_unite1', $_POST['devoirs-unite1'], PDO::PARAM_STR);
+                        $stmt->bindValue(':devoirs_unite2', $_POST['devoirs-unite2'], PDO::PARAM_STR);
+                        $stmt->bindValue(':devoirs_unite3', $_POST['devoirs-unite3'], PDO::PARAM_STR);
+                        $stmt->bindValue(':devoirs_unite4', $_POST['devoirs-unite4'], PDO::PARAM_STR);
+                        $stmt->bindValue(':participation', $_POST['participation'], PDO::PARAM_STR);
+                        $stmt->bindValue(':davoirs_1', $_POST['devoirs-1'], PDO::PARAM_STR);
+                        $stmt->bindValue(':performance', $_POST['performance'], PDO::PARAM_STR);
+                        $stmt->bindValue(':test_ecrit1', $_POST['test-ecrit-1'], PDO::PARAM_STR);
+                        $stmt->bindValue(':total_1', $_POST['total-1'], PDO::PARAM_STR);
+                        $stmt->bindValue(':lecture', $_POST['lecture'], PDO::PARAM_STR);
+                        $stmt->bindValue(':devoirs_2', $_POST['devoirs-2'], PDO::PARAM_STR);
+                        $stmt->bindValue(':test_oral', $_POST['test-oral'], PDO::PARAM_STR);
+                        $stmt->bindValue(':test_ecrit2', $_POST['test-ecrit-2'], PDO::PARAM_STR);
+                        $stmt->bindValue(':total_2', $_POST['total-2'], PDO::PARAM_STR);
+                        $stmt->execute();
                         break;
                 }
 
@@ -320,7 +345,32 @@ class alunoModel extends Model {
                     $stmt->execute();
                     break;
                 case "frances":
-                    
+                    $stmt = $conn->prepare("UPDATE frances SET b_level=:b_level, codigo_aluno=:codigo_aluno, eleve=:eleve, methode=:methode, niveau=:niveau, moyenne=:moyenne, travailles_unite1=:travailles_unite1, travailles_unite2=:travailles_unite2, travailles_unite3=:travailles_unite3, travailles_unite4=:travailles_unite4, devoirs_unite1=:devoirs_unite1, devoirs_unite2=:devoirs_unite2, devoirs_unite3=:devoirs_unite3, devoirs_unite4=:devoirs_unite4, participation=:participation, davoirs_1=:davoirs_1, performance=:performance, test_ecrit1=:test_ecrit1, total_1=:total_1, lecture=:lecture, devoirs_2=:devoirs_2, test_oral=:test_oral, test_ecrit2=:test_ecrit2, total_2=:total_2 WHERE codigo_aluno=:codigo_aluno AND b_level=:b_level");
+                    $stmt->bindValue(':b_level', 'frances', PDO::PARAM_STR);
+                        $stmt->bindValue(':codigo_aluno', $_POST['codigo_aluno'], PDO::PARAM_INT);
+                        $stmt->bindValue(':eleve', $_POST['eleve'], PDO::PARAM_STR);
+                        $stmt->bindValue(':methode', $_POST['methode'], PDO::PARAM_STR);
+                        $stmt->bindValue(':niveau', $_POST['niveau'], PDO::PARAM_STR);
+                        $stmt->bindValue(':moyenne', $_POST['moyenne'], PDO::PARAM_STR);
+                        $stmt->bindValue(':travailles_unite1', $_POST['travailles-unite1'], PDO::PARAM_STR);
+                        $stmt->bindValue(':travailles_unite2', $_POST['travailles-unite2'], PDO::PARAM_STR);
+                        $stmt->bindValue(':travailles_unite3', $_POST['travailles-unite3'], PDO::PARAM_STR);
+                        $stmt->bindValue(':travailles_unite4', $_POST['travailles-unite4'], PDO::PARAM_STR);
+                        $stmt->bindValue(':devoirs_unite1', $_POST['devoirs-unite1'], PDO::PARAM_STR);
+                        $stmt->bindValue(':devoirs_unite2', $_POST['devoirs-unite2'], PDO::PARAM_STR);
+                        $stmt->bindValue(':devoirs_unite3', $_POST['devoirs-unite3'], PDO::PARAM_STR);
+                        $stmt->bindValue(':devoirs_unite4', $_POST['devoirs-unite4'], PDO::PARAM_STR);
+                        $stmt->bindValue(':participation', $_POST['participation'], PDO::PARAM_STR);
+                        $stmt->bindValue(':davoirs_1', $_POST['devoirs-1'], PDO::PARAM_STR);
+                        $stmt->bindValue(':performance', $_POST['performance'], PDO::PARAM_STR);
+                        $stmt->bindValue(':test_ecrit1', $_POST['test-ecrit-1'], PDO::PARAM_STR);
+                        $stmt->bindValue(':total_1', $_POST['total-1'], PDO::PARAM_STR);
+                        $stmt->bindValue(':lecture', $_POST['lecture'], PDO::PARAM_STR);
+                        $stmt->bindValue(':devoirs_2', $_POST['devoirs-2'], PDO::PARAM_STR);
+                        $stmt->bindValue(':test_oral', $_POST['test-oral'], PDO::PARAM_STR);
+                        $stmt->bindValue(':test_ecrit2', $_POST['test-ecrit-2'], PDO::PARAM_STR);
+                        $stmt->bindValue(':total_2', $_POST['total-2'], PDO::PARAM_STR);
+                        $stmt->execute();
                     break;
             }
 

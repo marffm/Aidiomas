@@ -459,7 +459,7 @@
                                     <input type="text" name="devoirs-unite4" id="devoirs-unite4" placeholder="Unité 4" class="form-control" />
                                     <br/>
                                     <br/>
-                                    <h4>Évaluations 1er bimestre</h4>
+                                    <h4>Évaluations 1<sup>er</sup> bimestre</h4>
                                     <br/>
                                     <span><strong>Participation</strong></span>
                                     <input type="text" name="participation" id="participation" placeholder="Participation" class="form-control" />
@@ -477,7 +477,7 @@
                                     <input type="text" name="total-1" id="total-1" placeholder="Total 1er Bimestre" class="form-control" />
                                     <br/>
                                     <br/>
-                                    <h4>Évaluations 2e bimestre</h4>
+                                    <h4>Évaluations 2<sup>e</sup> bimestre</h4>
                                     <br/>
                                     <span><strong>Lecture</strong></span>
                                     <input type="text" name="lecture" id="lecture" placeholder="Lecture" class="form-control" />
@@ -836,7 +836,7 @@
                                     <input type="text" name="devoirs-unite4" id="devoirs-unite4" value="<?php echo $boletins['devoirs_unite4'] ?>" class="form-control" />
                                     <br/>
                                     <br/>
-                                    <h4>Évaluations 1er bimestre</h4>
+                                    <h4>Évaluations 1<sup>er</sup> bimestre</h4>
                                     <br/>
                                     <span><strong>Participation</strong></span>
                                     <input type="text" name="participation" id="participation" value="<?php echo $boletins['participation'] ?>" class="form-control" />
@@ -854,7 +854,7 @@
                                     <input type="text" name="total-1" id="total-1" value="<?php echo $boletins['total_1'] ?>" class="form-control" />
                                     <br/>
                                     <br/>
-                                    <h4>Évaluations 2e bimestre</h4>
+                                    <h4>Évaluations 2<sup>e</sup> bimestre</h4>
                                     <br/>
                                     <span><strong>Lecture</strong></span>
                                     <input type="text" name="lecture" id="lecture" value="<?php echo $boletins['lecture'] ?>" class="form-control" />
@@ -872,7 +872,8 @@
                                     <input type="text" name="total-2" id="total-2" value="<?php echo $boletins['total_2'] ?>" class="form-control" />
                                     
                                     <div id="button-inserirAluno">
-                                        <button type="submit" class="btn btn-info">Inserir Boletim</button>
+                                        <button type="submit" class="btn btn-info">Atualizar Boletim</button>
+                                        <a href="<?php echo PATH_URL ?>aluno/deleteBoletim/<?php echo $boletins['codigo_aluno'] ?>_frances" class=" btn btn-danger">Deletar</a>
                                     </div>
                                 </form>
                             </div>
