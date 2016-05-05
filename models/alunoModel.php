@@ -182,7 +182,7 @@ class alunoModel extends Model {
                         $stmt->bindValue(':devoirs_unite3', $_POST['devoirs-unite3'], PDO::PARAM_STR);
                         $stmt->bindValue(':devoirs_unite4', $_POST['devoirs-unite4'], PDO::PARAM_STR);
                         $stmt->bindValue(':participation', $_POST['participation'], PDO::PARAM_STR);
-                        $stmt->bindValue(':davoirs_1', $_POST['devoirs-1'], PDO::PARAM_STR);
+                        $stmt->bindValue(':davoirs_1', $_POST['davoirs-1'], PDO::PARAM_STR);
                         $stmt->bindValue(':performance', $_POST['performance'], PDO::PARAM_STR);
                         $stmt->bindValue(':test_ecrit1', $_POST['test-ecrit-1'], PDO::PARAM_STR);
                         $stmt->bindValue(':total_1', $_POST['total-1'], PDO::PARAM_STR);
@@ -361,7 +361,7 @@ class alunoModel extends Model {
                         $stmt->bindValue(':devoirs_unite3', $_POST['devoirs-unite3'], PDO::PARAM_STR);
                         $stmt->bindValue(':devoirs_unite4', $_POST['devoirs-unite4'], PDO::PARAM_STR);
                         $stmt->bindValue(':participation', $_POST['participation'], PDO::PARAM_STR);
-                        $stmt->bindValue(':davoirs_1', $_POST['devoirs-1'], PDO::PARAM_STR);
+                        $stmt->bindValue(':davoirs_1', $_POST['davoirs-1'], PDO::PARAM_STR);
                         $stmt->bindValue(':performance', $_POST['performance'], PDO::PARAM_STR);
                         $stmt->bindValue(':test_ecrit1', $_POST['test-ecrit-1'], PDO::PARAM_STR);
                         $stmt->bindValue(':total_1', $_POST['total-1'], PDO::PARAM_STR);

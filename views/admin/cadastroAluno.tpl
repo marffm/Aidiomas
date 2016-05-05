@@ -25,7 +25,7 @@
                 </div>
                 
                 <div class="panel-body">
-                    <form action="<?php echo PATH_URL ?>cadastroAluno/checkAluno" method="POST">
+                    <form action="cadastroAluno/checkAluno" method="POST">
                         <input type="hidden" name="nivel" id="nivel" value=3 />
                         
                         <div class="row">

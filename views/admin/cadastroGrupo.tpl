@@ -77,7 +77,7 @@
 
                                 <div class="panel-body">
                                     <span>Idioma: <strong><?php echo utf8_encode($grupos['nome_idioma']) ?></strong></span>
-                                    <form action="<?php echo  PATH_URL ?>cadastroGrupo/updateGrupo" method="POST">
+                                    <form action="cadastroGrupo/updateGrupo" method="POST">
                                         <input type="hidden" name="cod_grupo" id="cod_grupo" value="<?php echo $grupos['cod_grupo'] ?>" />
                                         <input type="hidden" name="idioma" id="idioma" value="<?php echo $grupos['idioma'] ?>" />
                                         <input type="hidden" name="codigo_professor" id="codigo_professor" value="<?php echo $grupos['codigo_professor'] ?>" />
@@ -143,7 +143,7 @@
                                     <div class="row">
                                         <div class="col-sm-2 col-sm-offset-9">
                                             <br/>
-                                            <a href="cadastroGrupo/deleteGrupo/<?php echo $grupos['cod_grupo'] ?>" class="btn btn-danger">Deletar Grupo</a>
+                                            <a href=cadastroGrupo/deleteGrupo/<?php echo $grupos['cod_grupo'] ?>" class="btn btn-danger">Deletar Grupo</a>
                                         </div>
                                     </div>
 

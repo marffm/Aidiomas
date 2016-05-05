@@ -205,8 +205,109 @@
                                 </tr>
                             </table> 
 
+                            <?php } else if ($boletins['b_level'] == $alunogrupo['level_grupo'] and $boletins['b_level'] == 'frances') { ?>
+                            <div class="text">
+                                <p>Código Aluno: <strong><?php echo $alunogrupo['codigo_aluno'] ?></strong></p>                                
+                                <p>Professor: <strong><?php echo $alunogrupo['nome_prof'] ?></strong></p>
+                                <p>Nivel: <strong><?php echo $alunogrupo['level_grupo'] ?></strong></p>
+                                
+                                <table class="table table-hover table-bordered" style=" width: 100%">
+                                    <tr>
+                                        <th style="width: 60%;">Élève</th>
+                                        <th>Méthode</th>
+                                        <th>Niveau</th>
+                                        <th>Moyenne</th>
+                                    </tr>
+                                    <tr>
+                                        <td><?php echo $boletins['eleve'] ?></td>
+                                        <td><?php echo $boletins['methode'] ?></td>
+                                        <td><?php echo $boletins['niveau'] ?></td>
+                                        <td><?php echo $boletins['moyenne'] ?></td>
+                                    </tr>
+                                </table>
+                                
+                                <table class="table table-hover table-bordered" style=" width: 100%">
+                                    <tr>
+                                        <th colspan="4" style=" text-align: center;">Contenus Travaillés</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Unité</th>
+                                        <th>Unité</th>
+                                        <th>Unité</th>
+                                        <th>Unité</th>
+                                    </tr>
+                                    <tr>
+                                        <td><?php echo $boletins['travailles_unite1'] ?></td>
+                                        <td><?php echo $boletins['travailles_unite2'] ?></td>
+                                        <td><?php echo $boletins['travailles_unite3'] ?></td>
+                                        <td><?php echo $boletins['travailles_unite4'] ?></td>
+                                    </tr>
+                                </table>
+                                
+                                <table class="table table-hover table-bordered" style=" width: 100%">
+                                    <tr>
+                                        <th colspan="4" style=" text-align: center;">Devoirs</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Unité</th>
+                                        <th>Unité</th>
+                                        <th>Unité</th>
+                                        <th>Unité</th>
+                                    </tr>
+                                    <tr>
+                                        <td><?php echo $boletins['devoirs_unite1'] ?></td>
+                                        <td><?php echo $boletins['devoirs_unite2'] ?></td>
+                                        <td><?php echo $boletins['devoirs_unite3'] ?></td>
+                                        <td><?php echo $boletins['devoirs_unite4'] ?></td>
+                                    </tr>
+                                </table>
+                                
+                                <table class="table table-hover table-bordered" style=" width: 100%">
+                                    <tr>
+                                        <th colspan="5" style=" text-align: center;">Évaluations 1<sup>er</sup> bimestre</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Participation</th>
+                                        <th>Devoirs</th>
+                                        <th>Performance en classe</th>
+                                        <th>Test écrit</th>
+                                        <th>Total</th>
+                                    </tr>
+                                    <tr>
+                                        <td><?php echo $boletins['participation'] ?></td>
+                                        <td><?php echo $boletins['davoirs_1'] ?></td>
+                                        <td><?php echo $boletins['performance'] ?></td>
+                                        <td><?php echo $boletins['test_ecrit1'] ?></td>
+                                        <td><?php echo $boletins['total_1'] ?></td>
+                                    </tr>
+                                    
+                                </table>
+                                
+                                <table class="table table-hover table-bordered" style=" width: 100%">
+                                    <tr>
+                                        <th colspan="5" style=" text-align: center;">Évaluations 2<sup>e</sup> bimestre</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Lecture</th>
+                                        <th>Devoirs</th>
+                                        <th>Test oral</th>
+                                        <th>Test écrit</th>
+                                        <th>Total</th>
+                                    </tr>
+                                    <tr>
+                                        <td><?php echo $boletins['lecture'] ?></td>
+                                        <td><?php echo $boletins['devoirs_2'] ?></td>
+                                        <td><?php echo $boletins['test_oral'] ?></td>
+                                        <td><?php echo $boletins['test_ecrit2'] ?></td>
+                                        <td><?php echo $boletins['total_2'] ?></td>
+                                    </tr>
+                                    
+                                </table>
+                                
+                            </div>
                             <?php }?>
-
+                            
+                            
                             <?php }?>
                             <?php }?>
 

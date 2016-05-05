@@ -3,7 +3,6 @@
 class cadastroGrupo extends Controller {
 
     function index() {
-
         $data = array();
         $data['username'] = $_SESSION['username'];
         $data['usercategory'] = $_SESSION['usercategory'];
